@@ -20,10 +20,12 @@ public class Cotxe implements Serializable {
         this.any = any;
     }
     
-    
+    // toString per a mostrar les dades de cada cotxe
     public String toString() {
         return "Cotxe{" + "marca=" + marca + ", matricula=" + matricula + ", model=" + model + ", any=" + any + '}';
     }
+
+
     // getters i setters
     public String getMarca() {
         return marca;

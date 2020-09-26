@@ -13,12 +13,15 @@ import java.util.Scanner;
 
 public class Exercici2 {
     
+    //Funcio per a recuperar el cotxes anteriorment guardats
     public static ArrayList<Cotxe> recoveryCars() throws FileNotFoundException, IOException, ClassNotFoundException {
-    	//
+    	// Declarem el garatge
         ArrayList<Cotxe> garage = new ArrayList<>();
+
         //Declaració del fitxer
         File fitxer = new File("src/m6/UF1PersistènciaEnFitxers/Exercici2/cotxes.txt");
         
+        // Si l'arxiu existeix es comença a llegir les dades
         if (fitxer.exists()) {
 		
 	        //Crea el flux d'entrada
@@ -36,7 +39,9 @@ public class Exercici2 {
 	
 	            }
 	        } catch (EOFException eo) {}
-	        dataInCotxes.close();//Tanca el stream d'entrada
+
+            //Tanca el stream d'entrada
+	        dataInCotxes.close();
         }
         return garage;
     }
@@ -49,7 +54,7 @@ public class Exercici2 {
         //Connectar el flux de bytes al flux de dades
         ObjectOutputStream dataOutCotxe = new ObjectOutputStream(fileout);
 
-        // Guardem l'objecte
+        // Guardem els objectes
         for (int i = 0; i < garage.size(); i++) {
 			
         	dataOutCotxe.writeObject(garage.get(i));
@@ -72,9 +77,11 @@ public class Exercici2 {
         int any;
         
         ArrayList<Cotxe> garage = new ArrayList<Cotxe>();
-                
+
+        // Cridem la funcio de recuperar els cotxes per a tindre el cotxes en memoria
         garage = recoveryCars();
         
+        // Bucle principal del menu
         while(opcio != 0){
             System.out.println("Que vols fer? \n"
                     + "1. Crear un cotxe \n"
@@ -85,6 +92,7 @@ public class Exercici2 {
             opcio = teclado.nextInt();
             teclado.nextLine();
         
+            // Creacio de un cotxe
             if (opcio == 1) {
                 System.out.println("Quina marca es?");
                 marca = teclado.nextLine();
@@ -104,6 +112,7 @@ public class Exercici2 {
                 garage.add(car);
 
             }else if(opcio == 2){
+                // Si vol buscar un cotxe demanem el camp de busqueda
                 System.out.println("Opcio per la que vols buscar\n"
                         + "1. per marca,\n" 
                         + "2. per model,\n"
@@ -113,7 +122,7 @@ public class Exercici2 {
                 
                 opcioBusqueda = teclado.nextInt();
                 teclado.nextLine();
-                
+                // Segons el camp de busqueda treiem totes les caracteristiques de tots el cotxes que tenim al garatge
                 if (opcioBusqueda == 1) {
                     System.out.println("Que marca busques?");
                     marca = teclado.nextLine();
@@ -156,6 +165,7 @@ public class Exercici2 {
 
         }
 
+        // Guardem tots els cotxes abans de tancar el programa
             saveCar(garage);
             
     }
