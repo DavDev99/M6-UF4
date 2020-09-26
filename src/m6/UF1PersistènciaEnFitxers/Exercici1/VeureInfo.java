@@ -13,6 +13,11 @@ public class VeureInfo {
     	if (path.exists()) {
     		
     		if (path.isFile()) {
+    			
+    			if (path.isHidden()) {
+					System.out.println("ES UN FITXER OCULT");
+				}
+    			
     			 System.out.println("INFORMACIÓ SOBRE EL FITXER");
 
     				 System.out.println("Nom del fitxer : "+path.getName());
@@ -25,13 +30,16 @@ public class VeureInfo {
     				 System.out.println("Es un fitxer   : "+path.isFile());
 
 			} else if(path.isDirectory()) {
-	            System.out.println("Fitxers al directori actual: ");	
+	            System.out.println("Fitxers al directori: ");	
 	            
 	            // Usem el metpde list per a guardar els noms dels arxius a un array
 	            String[] arxius = path.list();
 	            
 	            // Treiem per pantalla els noms dels arxius
 	            for (int i = 0; i<arxius.length; i++){
+	    			if (arxius[i].substring(0,1).equals(".")) {
+						System.out.println("ES UN FITXER OCULT");
+					}
 	                    System.out.println(arxius[i]);
 	            }
 			}
