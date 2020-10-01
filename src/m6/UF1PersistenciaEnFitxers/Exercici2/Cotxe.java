@@ -1,5 +1,5 @@
 
-package m6.UF1PersistènciaEnFitxers.Exercici2;
+package m6.UF1PersistenciaEnFitxers.Exercici2;
 import java.io.Serializable;
 
 public class Cotxe implements Serializable {
