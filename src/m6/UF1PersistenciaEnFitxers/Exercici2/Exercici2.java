@@ -19,7 +19,7 @@ public class Exercici2 {
         ArrayList<Cotxe> garage = new ArrayList<>();
 
         //Declaració del fitxer
-        File fitxer = new File("src/m6/UF1PersistènciaEnFitxers/Exercici2/cotxes.txt");
+        File fitxer = new File("src/m6/UF1PersistenciaEnFitxers/Exercici2/cotxes.txt");
         
         // Si l'arxiu existeix es comença a llegir les dades
         if (fitxer.exists()) {
@@ -48,7 +48,7 @@ public class Exercici2 {
     
     public static void saveCar(ArrayList<Cotxe> garage) throws FileNotFoundException, IOException{
         //Declaració del fitxer
-        File fitxer = new File("src/m6/UF1PersistènciaEnFitxers/Exercici2/cotxes.txt");
+        File fitxer = new File("src/m6/UF1PersistenciaEnFitxers/Exercici2/cotxes.txt");
         //Crea el flux de sortida
         FileOutputStream fileout = new FileOutputStream(fitxer, true);
         //Connectar el flux de bytes al flux de dades

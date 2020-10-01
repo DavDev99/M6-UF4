@@ -5,12 +5,13 @@
  */
 package m6.UF1PersistenciaEnFitxers.Exercici3;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Exercici3 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
         Scanner teclado = new Scanner(System.in);
         int opcio = -1;
         int opcioBusqueda = 0;
@@ -18,9 +19,12 @@ public class Exercici3 {
         String cognom;
         String segonCognom;
         int any;
-        
+        ArrayList<Persona> fitxes = new ArrayList<>();
         
         // Bucle principal del menu
+        
+        fitxes = Persona.llegirFitxes();
+        
         while(opcio != 0){
             System.out.println("Que vols fer? \n"
                     + "1. Crear una fitxa \n"
@@ -48,14 +52,14 @@ public class Exercici3 {
                 
                 Persona persona = new Persona(nom, cognom, segonCognom, any);
 
-                garage.add(car);
+                fitxes.add(persona);
 
             }else if(opcio == 2){
                 // Si vol buscar un cotxe demanem el camp de busqueda
                 System.out.println("Opcio per la que vols buscar\n"
-                        + "1. per marca,\n" 
-                        + "2. per model,\n"
-                        + "3. per matricula,\n"
+                        + "1. per nom,\n" 
+                        + "2. per cognom,\n"
+                        + "3. per segonCognom,\n"
                         + "4. per any,"
                 );
                 
@@ -63,30 +67,30 @@ public class Exercici3 {
                 teclado.nextLine();
                 // Segons el camp de busqueda treiem totes les caracteristiques de tots el cotxes que tenim al garatge
                 if (opcioBusqueda == 1) {
-                    System.out.println("Que marca busques?");
-                    marca = teclado.nextLine();
+                    System.out.println("Quin nom busques?");
+                    nom = teclado.nextLine();
                     
-                    for (int i = 0; i < garage.size(); i++) {
-                        if (garage.get(i).getMarca().equals(marca)) {
-                            System.out.println(garage.get(i).toString());
+                    for (int i = 0; i < fitxes.size(); i++) {
+                        if (fitxes.get(i).getNom().equals(nom)) {
+                            System.out.println(fitxes.get(i).toString());
                         }
                     }
                 } else if (opcioBusqueda == 2) {
-                    System.out.println("Que model busques?");
-                    model = teclado.nextLine();
+                    System.out.println("Que cognom busques?");
+                    cognom = teclado.nextLine();
 
-                    for (int i = 0; i < garage.size(); i++) {
-                        if (garage.get(i).getModel().equals(model)) {
-                            System.out.println(garage.get(i).toString());
+                    for (int i = 0; i < fitxes.size(); i++) {
+                        if (fitxes.get(i).getCognom().equals(cognom)) {
+                            System.out.println(fitxes.get(i).toString());
                         }
                     }
                 } else if (opcioBusqueda == 3) {
-                    System.out.println("Que matricula busques?");
-                    matricula = teclado.nextLine();
+                    System.out.println("Que segon cognom busques?");
+                    segonCognom = teclado.nextLine();
 
-                    for (int i = 0; i < garage.size(); i++) {
-                        if (garage.get(i).getMatricula().equals(matricula)) {
-                            System.out.println(garage.get(i).toString());
+                    for (int i = 0; i < fitxes.size(); i++) {
+                        if (fitxes.get(i).getSegonCognom().equals(segonCognom)) {
+                            System.out.println(fitxes.get(i).toString());
 
                         }
                     }
@@ -94,17 +98,15 @@ public class Exercici3 {
                     System.out.println("Que any busques?");
                     any = teclado.nextInt();
                     teclado.nextLine();
-                    for (int i = 0; i < garage.size(); i++) {
-                        if (garage.get(i).getAny() == any) {
-                            System.out.println(garage.get(i).toString());
+                    for (int i = 0; i < fitxes.size(); i++) {
+                        if (fitxes.get(i).getAnyNaixement()== any) {
+                            System.out.println(fitxes.get(i).toString());
                         }
                     }
                 }
             }
 
         }
-
-
-	}
+    }
 
 }
