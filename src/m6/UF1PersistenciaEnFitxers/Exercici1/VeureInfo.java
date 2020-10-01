@@ -1,4 +1,4 @@
-package m6.UF1PersistènciaEnFitxers.Exercici1;
+package m6.UF1PersistenciaEnFitxers.Exercici1;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.Date;
