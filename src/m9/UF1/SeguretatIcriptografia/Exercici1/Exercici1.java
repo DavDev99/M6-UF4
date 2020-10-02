@@ -13,35 +13,34 @@ import java.util.Scanner;
  */
 public class Exercici1 {
         public static void main(String[] args) {
-            String abecedari[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "v" , "w", "x", "y", "z", " "};
-            String abecedariEncriptat[] = new String[abecedari.length];
-            
             Scanner teclado = new Scanner(System.in);
             
             int code = 0;
             String frase;
-            String fraseEncriptada[];
+            String abecedari = "abcdefghijklmnopqrstuvwxyz";
             
             System.out.println("Introdueix el numero de desplaçaments:");
-            
             code = teclado.nextInt();
             teclado.nextLine();
             
-            System.out.println("Introdueix el numero de desplaçaments:");
-            
+            System.out.println("Introdueix la frase a encripta:");
             frase = teclado.nextLine();
-            fraseEncriptada = frase.split("");
             
-            for (int i = 0; i < abecedari.length; i++) {
-                if (i + code ) {
-                    
+            String cifrat = "";
+            // Segons el numero de lletres que tingui la frase a encriptar
+            for (int i = 0; i < frase.length(); i++) {
+                // Si la posicio de la lletra que estem encriptan exixsteix al abecedari la encriptem si no posem la que llegim
+                int posicio = abecedari.indexOf(frase.charAt(i));
+                if (posicio >= 0) {
+                    // Conseguim la posicio de la lletra encriptada pasant el numero de vegades que saltem al abecedari, 
+                    // i per a les lletres del final com la z agafem el residu de la divisio entre la lletra encriptada i la llargaria del abecedari
+                    cifrat += abecedari.charAt((posicio + code) % abecedari.length());
+                } else {
+                    cifrat += frase.charAt(i);
                 }
-                abecedariEncriptat[i] = abecedari[i + code];
             }
             
-            for (int i = 0; i < fraseEncriptada.length; i++) {
-                fraseEncriptada[i] = 
-            }
+            System.out.println(cifrat);
             
         }
 }
