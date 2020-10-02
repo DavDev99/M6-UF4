@@ -11,36 +11,37 @@ import java.util.Scanner;
  *
  * @author Alumne
  */
-public class Exercici1 {
+public class Exercici1_2 {
         public static void main(String[] args) {
             Scanner teclado = new Scanner(System.in);
             
             int code = 0;
             String frase;
             String abecedari = "abcdefghijklmnopqrstuvwxyz";
+            final int numeroDeLletres = abecedari.length();
             
             System.out.println("Introdueix el numero de desplaçaments:");
             code = teclado.nextInt();
             teclado.nextLine();
             
-            System.out.println("Introdueix la frase a encripta:");
+            System.out.println("Introdueix la frase a desencriptar:");
             frase = teclado.nextLine();
             
-            String cifrat = "";
-            // Segons el numero de lletres que tingui la frase a encriptar
+            String descifrat = "";
+            // Segons el numero de lletres que tingui la frase a desencriptar
             for (int i = 0; i < frase.length(); i++) {
-                // Si la lletra que estem encriptan exixsteix al abecedari la encriptem si no posem la que llegim
+                // Si la lletra que estem desencriptan exixsteix al abecedari la desencriptem si no, posem la mateixa que ja llegit
                 int posicio = abecedari.indexOf(frase.charAt(i));
                 if (posicio >= 0) {
-                    // Conseguim la posicio de la lletra encriptada pasant el numero de vegades que saltem al abecedari, 
-                    // i per a les lletres del final com la z agafem el residu de la divisio entre la lletra encriptada i la llargaria del abecedari
-                    cifrat += abecedari.charAt((posicio + code) % abecedari.length());
+                    // Conseguim la posicio de la lletra desencriptada pasant el numero de vegades que saltem al abecedari i restant este numero, 
+                    // i per a les lletres del principi com la a user el valor absolut de la resta
+                    descifrat += (abecedari.charAt(Math.abs((posicio - code + numeroDeLletres) % numeroDeLletres)));
                 } else {
-                    cifrat += frase.charAt(i);
+                    descifrat += frase.charAt(i);
                 }
             }
             
-            System.out.println(cifrat);
+            System.out.println(descifrat);
             
         }
 }
