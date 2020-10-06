@@ -24,7 +24,7 @@ public class Exercici3 {
         // Bucle principal del menu
         
         fitxes = Persona.llegirFitxes();
-        
+                                System.out.println(fitxes);
         while(opcio != 0){
             System.out.println("Que vols fer? \n"
                     + "1. Crear una fitxa \n"
@@ -53,9 +53,9 @@ public class Exercici3 {
                 Persona persona = new Persona(nom, cognom, segonCognom, any);
 
                 fitxes.add(persona);
-
+                Persona.guardarFitxa(persona);
             }else if(opcio == 2){
-                // Si vol buscar un cotxe demanem el camp de busqueda
+                // Si vol buscar una fitxa demanem el camp de busqueda
                 System.out.println("Opcio per la que vols buscar\n"
                         + "1. per nom,\n" 
                         + "2. per cognom,\n"
@@ -65,13 +65,13 @@ public class Exercici3 {
                 
                 opcioBusqueda = teclado.nextInt();
                 teclado.nextLine();
-                // Segons el camp de busqueda treiem totes les caracteristiques de tots el cotxes que tenim al garatge
+                // Segons el camp de busqueda treiem totes les caracteristiques de totes les fitxes que tenim
                 if (opcioBusqueda == 1) {
                     System.out.println("Quin nom busques?");
                     nom = teclado.nextLine();
                     
                     for (int i = 0; i < fitxes.size(); i++) {
-                        if (fitxes.get(i).getNom().equals(nom)) {
+                        if (fitxes.get(i).getNom().trim().equals(nom)) {
                             System.out.println(fitxes.get(i).toString());
                         }
                     }
@@ -80,7 +80,7 @@ public class Exercici3 {
                     cognom = teclado.nextLine();
 
                     for (int i = 0; i < fitxes.size(); i++) {
-                        if (fitxes.get(i).getCognom().equals(cognom)) {
+                        if (fitxes.get(i).getCognom().trim().equals(cognom)) {
                             System.out.println(fitxes.get(i).toString());
                         }
                     }
@@ -89,7 +89,7 @@ public class Exercici3 {
                     segonCognom = teclado.nextLine();
 
                     for (int i = 0; i < fitxes.size(); i++) {
-                        if (fitxes.get(i).getSegonCognom().equals(segonCognom)) {
+                        if (fitxes.get(i).getSegonCognom().trim().equals(segonCognom)) {
                             System.out.println(fitxes.get(i).toString());
 
                         }
@@ -105,8 +105,8 @@ public class Exercici3 {
                     }
                 }
             }
-
         }
+
     }
 
 }

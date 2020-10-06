@@ -61,7 +61,7 @@ public class Persona {
 		this.anyNaixement = anyNaixement;
 	}
 	
-	public void guardarFitxa(Persona persona) throws FileNotFoundException, IOException {
+	public static void guardarFitxa(Persona persona) throws FileNotFoundException, IOException {
 		File fitxer = new File("src/m6/UF1PersistenciaEnFitxers/Exercici3/fitxes.txt");
 		//Crea un flux (stream) d'arxiu d'accés aleatori per llegir
 		RandomAccessFile aleatoriFile = new RandomAccessFile(fitxer, "rw");
@@ -69,26 +69,26 @@ public class Persona {
 		//Construeix un buffer (memòria intermèdia) de strings
 		StringBuffer buffer = null;
 			
-			//25 caràcters a 2bytes/caràcter 50 bytes
-			buffer = new StringBuffer (persona.getNom());
-			buffer.setLength(25);
-			aleatoriFile.writeChars(buffer.toString());
-                        
-                        
-                        //25 caràcters a 2bytes/caràcter 50 bytes
-			buffer = new StringBuffer (persona.getCognom());
-			buffer.setLength(25);
-			aleatoriFile.writeChars(buffer.toString());
-                        
-                        //25 caràcters a 2bytes/caràcter 50 bytes
-			buffer = new StringBuffer (persona.getSegonCognom());
-			buffer.setLength(25);
-			aleatoriFile.writeChars(buffer.toString());
-			
-			//1 enter ocupa 4 bytes
-			aleatoriFile.writeInt(persona.getAnyNaixement());
-			
-			//Total 79 bytes
+                //25 caràcters a 2bytes/caràcter 50 bytes
+                buffer = new StringBuffer (persona.getNom());
+                buffer.setLength(25);
+                aleatoriFile.writeChars(buffer.toString());
+
+
+                //25 caràcters a 2bytes/caràcter 50 bytes
+                buffer = new StringBuffer (persona.getCognom());
+                buffer.setLength(25);
+                aleatoriFile.writeChars(buffer.toString());
+
+                //25 caràcters a 2bytes/caràcter 50 bytes
+                buffer = new StringBuffer (persona.getSegonCognom());
+                buffer.setLength(25);
+                aleatoriFile.writeChars(buffer.toString());
+
+                //1 enter ocupa 4 bytes
+                aleatoriFile.writeInt(persona.getAnyNaixement());
+
+                //Total 154 bytes
 
 		aleatoriFile.close();
 	}
@@ -96,12 +96,14 @@ public class Persona {
         public static ArrayList<Persona> llegirFitxes() throws FileNotFoundException, IOException{
             ArrayList<Persona> fitxes = new ArrayList<>();
             File fitxer = new File("src/m6/UF1PersistenciaEnFitxers/Exercici3/fitxes.txt");
-            
-                if(fitxer.exists()){
+                
+                if (!fitxer.exists()){
+                    fitxer.createNewFile();
+                }
                     
 		//Crea un flux (stream) d'arxiu d'accés aleatori només lectura
 		RandomAccessFile aleatoriFile = new RandomAccessFile(fitxer, "r");
-		
+
 		//Apuntador s'inicialitza apuntant a l'inici del fitxer
 		int apuntador = 0;
                 char aux;
@@ -110,7 +112,8 @@ public class Persona {
                 char[] segonCognomPersona = new char[25];		
                 int anyNaixementPersona = 0;
 		//Recorrer el fitxer llibres
-		for (;;) {
+                
+		while (aleatoriFile.getFilePointer()!= aleatoriFile.length()) {
 			aleatoriFile.seek(apuntador);//Apuntar a l'inici de cada llibre al fitxer
 
 			//Llegeix nom
@@ -119,7 +122,7 @@ public class Persona {
 				nomPersona[i] = aux;
 			}
 			String nom = new String(nomPersona);
-                        
+
                         
 			//Llegeix cognom
 			for(int i = 0; i < cognomPersona.length; i++) {
@@ -146,12 +149,13 @@ public class Persona {
                         
                         fitxes.add(fitxa);
                         //S'ha de posicionar l'apuntador a la seguent fitxa
-			apuntador += 79;
+
+			apuntador += 154;
 			//Si coincideix on s'està apuntat amb el final del fitxer, sortim
-			if(aleatoriFile.getFilePointer()==aleatoriFile.length()) break;
+			//if(aleatoriFile.getFilePointer()==aleatoriFile.length()) break;
 		}
 		aleatoriFile.close();//Tancar el fitxer
-            }
+            
 
                 return fitxes;
         }
