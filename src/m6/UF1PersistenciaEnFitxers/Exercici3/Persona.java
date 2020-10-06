@@ -65,8 +65,11 @@ public class Persona {
 		File fitxer = new File("src/m6/UF1PersistenciaEnFitxers/Exercici3/fitxes.txt");
 		//Crea un flux (stream) d'arxiu d'accés aleatori per llegir
 		RandomAccessFile aleatoriFile = new RandomAccessFile(fitxer, "rw");
-
-		//Construeix un buffer (memòria intermèdia) de strings
+                
+                // Guardem al final de tot la nova fitxa
+                aleatoriFile.seek(aleatoriFile.length());
+		
+                //Construeix un buffer (memòria intermèdia) de strings
 		StringBuffer buffer = null;
 			
                 //25 caràcters a 2bytes/caràcter 50 bytes
@@ -140,10 +143,7 @@ public class Persona {
                         
 			//Llegeix any
 			anyNaixementPersona = aleatoriFile.readInt();
-                        
-			//Sortida de les dades de cada llibre
-			//System.out.println("ID: "+id+"\nTítol: "+titols+"\nISBN: "+isbn+"\nAutor: "+autors+"\nEditrorial: 							"+editorials+"\nPreu: "+preu+"€\n\n");
-                        
+
                         //Creem objecte i guardem a la fitxa
                         Persona fitxa = new Persona(nom, cognom, segonCognom, anyNaixementPersona);
                         
@@ -151,8 +151,6 @@ public class Persona {
                         //S'ha de posicionar l'apuntador a la seguent fitxa
 
 			apuntador += 154;
-			//Si coincideix on s'està apuntat amb el final del fitxer, sortim
-			//if(aleatoriFile.getFilePointer()==aleatoriFile.length()) break;
 		}
 		aleatoriFile.close();//Tancar el fitxer
             

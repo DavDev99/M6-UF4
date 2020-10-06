@@ -24,7 +24,7 @@ public class Exercici3 {
         // Bucle principal del menu
         
         fitxes = Persona.llegirFitxes();
-                                System.out.println(fitxes);
+
         while(opcio != 0){
             System.out.println("Que vols fer? \n"
                     + "1. Crear una fitxa \n"
