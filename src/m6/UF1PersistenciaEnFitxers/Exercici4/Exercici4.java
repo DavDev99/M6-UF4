@@ -24,7 +24,7 @@ public class Exercici4 {
         
         System.out.println("Node name: " + node.getNodeName());
         
-        System.out.println("Node Value: " + node.getNodeValue());
+        System.out.println("Node Value: " + node.getTextContent());
 
         
         if (node.hasAttributes()) {
