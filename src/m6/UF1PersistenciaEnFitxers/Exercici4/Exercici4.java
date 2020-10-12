@@ -56,7 +56,7 @@ public class Exercici4 {
             DocumentBuilder builder = factory.newDocumentBuilder();
  
             // Obtengo el documento, a partir del XML
-            Document documento = builder.parse(new File("pelis.xml"));
+            Document documento = builder.parse(new File("src/m6/UF1PersistenciaEnFitxers/Exercici4/comunitatsCatalanes.xml"));
  
             Element nodeArrel = documento.getDocumentElement();
 
