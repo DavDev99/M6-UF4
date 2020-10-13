@@ -11,6 +11,7 @@ import java.util.Scanner;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -50,10 +51,6 @@ public class Exercici5_1   {
         return false;
     }
     
-    public static void crearNode(Node nodeArrel, Scanner teclado){
-        nodeArrel.appendChild(nodeArrel);
-    }
-    
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
  
             // Creo una instancia de DocumentBuilderFactory
@@ -83,7 +80,57 @@ public class Exercici5_1   {
             teclado.nextLine();
         
             if (opcio == 1) {
-                crearNode(nodeArrel.getFirstChild(), teclado);
+                
+                // Nou element
+                Element elemento = documento.createElement("row");
+                nodeArrel.getFirstChild().appendChild(elemento);
+                
+                // Li donem valor als attributs
+                Attr attrId = documento.createAttribute("_id");
+                System.out.println("Introdueix el atribut id");
+                attrId.setValue(teclado.nextLine());
+                elemento.setAttributeNode(attrId);
+                
+                Attr attrUuid = documento.createAttribute("_uuid");
+                System.out.println("Introdueix el atribut uuid");
+                attrUuid.setValue(teclado.nextLine());
+                elemento.setAttributeNode(attrUuid);
+                
+                Attr attrPosition = documento.createAttribute("_position");
+                System.out.println("Introdueix el atribut position");
+                attrPosition.setValue(teclado.nextLine());
+                elemento.setAttributeNode(attrPosition);
+                
+                Attr attrAddress = documento.createAttribute("_address");
+                System.out.println("Introdueix el atribut address");
+                attrAddress.setValue(teclado.nextLine());
+                elemento.setAttributeNode(attrAddress);
+                
+                // Li donem valor als nodes 
+                
+                Element numRegistre = documento.createElement("num_registre");
+                System.out.println("Introdueix el valor de num_registres");
+                numRegistre.setTextContent(teclado.nextLine());
+                elemento.appendChild(numRegistre);
+                
+                Element codiPais = documento.createElement("codi_pa_s");
+                System.out.println("Introdueix el valor de codi_pa_s");
+                codiPais.setTextContent(teclado.nextLine());
+                elemento.appendChild(codiPais);
+                
+                Element pais = documento.createElement("pa_s");
+                System.out.println("Introdueix el valor de pa_s");
+                pais.setTextContent(teclado.nextLine());
+                elemento.appendChild(pais);
+                
+                Element rea = documento.createElement("rea");
+                System.out.println("Introdueix el valor de rea");
+                rea.setTextContent(teclado.nextLine());
+                elemento.appendChild(rea);
+                
+                
+                
+ 
             }else if(opcio == 2){
                 
             }
