@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package m6.UF1PersistenciaEnFitxers.Exercici4;
+package m6.UF1PersistenciaEnFitxers.Exercici5;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,7 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
  
-public class Exercici4 {
+public class Exercici5_1   {
  
     public static boolean nousElements(Element node){
         
@@ -48,6 +49,11 @@ public class Exercici4 {
         
         return false;
     }
+    
+    public static void crearNode(Node nodeArrel, Scanner teclado){
+        nodeArrel.appendChild(nodeArrel);
+    }
+    
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException {
  
             // Creo una instancia de DocumentBuilderFactory
@@ -58,9 +64,30 @@ public class Exercici4 {
             // Obtengo el documento, a partir del XML
             Document documento = builder.parse(new File("src/m6/UF1PersistenciaEnFitxers/Exercici4/comunitatsCatalanes.xml"));
  
+            int opcio = -1;
+            Scanner teclado = new Scanner(System.in);
             Element nodeArrel = documento.getDocumentElement();
 
-            nousElements(nodeArrel);
+            //nousElements(nodeArrel);
+            
+            
+            while(opcio != 0){
+            System.out.println("Que vols fer? \n"
+                    + "1. Crear un node \n"
+                    + "2. Buscar un node \n"
+                    + "3. Eliminar un node \n"
+                    + "0. sortir \n"
+                    + "");
+        
+            opcio = teclado.nextInt();
+            teclado.nextLine();
+        
+            if (opcio == 1) {
+                crearNode(nodeArrel.getFirstChild(), teclado);
+            }else if(opcio == 2){
+                
+            }
+        }
     }
  
 }
