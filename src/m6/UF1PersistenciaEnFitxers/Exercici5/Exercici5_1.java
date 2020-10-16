@@ -38,7 +38,7 @@ public class Exercici5_1 {
         Attr attrId = documento.createAttribute("_id");
         System.out.println("Introdueix el atribut id");
         attrId.setValue(teclado.nextLine());
-        elemento.setAttribute("_id","fede");
+        elemento.setAttribute("_id", "fede");
         //elemento.setIdAttribute("_id", true);
 
         Attr attrUuid = documento.createAttribute("_uuid");
@@ -99,7 +99,7 @@ public class Exercici5_1 {
 
     }
 
-    private static void eliminarElement(Document documento, Scanner teclado) {
+    private static void eliminarElement(Document documento, Scanner teclado, Element nodeArrel) {
         // Demanem la id
         System.out.println("Introdueix que el ID del node que vols modificar: ");
         String id = teclado.nextLine();
@@ -107,16 +107,10 @@ public class Exercici5_1 {
         // Busquem per la id
         Element elemento = documento.getElementById(id);
 
-        if (elemento.hasChildNodes()) {
-            NodeList childs = elemento.getChildNodes();
-            for (int i = 0; i < childs.getLength(); i++) {
+        nodeArrel.removeChild(elemento);
 
-                elemento.removeChild(childs.item(i));
-
-            }
-        }
     }
-        //elemento.removeChild(elemento);
+        //
 
     // Metode per a indexar les id del arxiu xml
     private static void indexarId(Element nodeArrel) {
@@ -167,6 +161,20 @@ public class Exercici5_1 {
         Element nodeArrel = documento.getDocumentElement();
 
         indexarId(nodeArrel);
+        
+        // Reasignem el nodeArrel al real que realment conte els nodes que volem modificar
+        
+        if (nodeArrel.hasChildNodes()) {
+            NodeList fills = nodeArrel.getChildNodes();
+            for (int i = 0; i < fills.getLength(); i++) {
+                Node nodo = fills.item(i);
+
+                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+                    nodeArrel = (Element) nodo;
+                    i += fills.getLength();
+                }
+            }
+        }
 
         while (opcio != 0) {
             System.out.println("Que vols fer? \n"
@@ -179,25 +187,15 @@ public class Exercici5_1 {
             teclado.nextLine();
 
             if (opcio == 1) {
-                if (nodeArrel.hasChildNodes()) {
-                    NodeList fills = nodeArrel.getChildNodes();
-                    for (int i = 0; i < fills.getLength(); i++) {
-                        Node nodo = fills.item(i);
 
-                        if (nodo.getNodeType() == Node.ELEMENT_NODE) {
-
-                            crearElement(documento, teclado, (Element) nodo);
-                            i += fills.getLength();
-                        }
-                    }
-                }
+                crearElement(documento, teclado, nodeArrel);
 
             } else if (opcio == 2) {
 
                 modificarElement(documento, teclado);
             } else if (opcio == 3) {
 
-                eliminarElement(documento, teclado);
+                eliminarElement(documento, teclado, nodeArrel);
             }
         }
 
@@ -205,6 +203,7 @@ public class Exercici5_1 {
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(documento);
         StreamResult result = new StreamResult(new File("src/m6/UF1PersistenciaEnFitxers/Exercici5/comunitatsCatalanes.xml"));
+
         transformer.transform(source, result);
     }
 
