@@ -38,8 +38,8 @@ public class Exercici5_1 {
         Attr attrId = documento.createAttribute("_id");
         System.out.println("Introdueix el atribut id");
         attrId.setValue(teclado.nextLine());
-        elemento.setAttributeNode(attrId);
-        elemento.setIdAttribute("_id", true);
+        elemento.setAttribute("_id","fede");
+        //elemento.setIdAttribute("_id", true);
 
         Attr attrUuid = documento.createAttribute("_uuid");
         System.out.println("Introdueix el atribut uuid");
@@ -107,11 +107,18 @@ public class Exercici5_1 {
         // Busquem per la id
         Element elemento = documento.getElementById(id);
 
-        //elemento.removeChild(elemento);
+        if (elemento.hasChildNodes()) {
+            NodeList childs = elemento.getChildNodes();
+            for (int i = 0; i < childs.getLength(); i++) {
+
+                elemento.removeChild(childs.item(i));
+
+            }
+        }
     }
-    
+        //elemento.removeChild(elemento);
+
     // Metode per a indexar les id del arxiu xml
-   
     private static void indexarId(Element nodeArrel) {
         NodeList childrens = nodeArrel.getChildNodes();
 
@@ -123,15 +130,15 @@ public class Exercici5_1 {
 
                 for (int x = 0; x < child.getLength(); x++) {
 
-                    if (child.item(i).getNodeName().equals("row") && child.item(i).hasAttributes()) {
+                    if (child.item(x).getNodeName().equals("row") && child.item(x).hasAttributes()) {
 
-                        NamedNodeMap atributs = child.item(i).getAttributes();
+                        NamedNodeMap atributs = child.item(x).getAttributes();
 
                         for (int j = 0; j < atributs.getLength(); j++) {
 
                             if (atributs.item(j).getNodeName().equals("_id")) {
 
-                                ((Element) child.item(i)).setIdAttribute("_id", true);
+                                ((Element) child.item(x)).setIdAttribute("_id", true);
 
                             }
 
@@ -166,8 +173,7 @@ public class Exercici5_1 {
                     + "1. Crear un node \n"
                     + "2. Modificar un node \n"
                     + "3. Eliminar un node \n"
-                    + "0. sortir \n"
-                    + "");
+                    + "0. sortir \n");
 
             opcio = teclado.nextInt();
             teclado.nextLine();
