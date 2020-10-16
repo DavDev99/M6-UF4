@@ -17,6 +17,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import static m6.UF1PersistenciaEnFitxers.Exercici4.Exercici4.nousElements;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,36 +28,10 @@ import org.xml.sax.SAXException;
 
 public class Exercici5_1 {
 
-    public static boolean nousElements(Element node) {
-
-        System.out.println("Node name: " + node.getNodeName());
-
-        System.out.println("Node Value: " + node.getTextContent());
-
-        if (node.hasAttributes()) {
-            NamedNodeMap attributes = node.getAttributes();
-            for (int i = 0; i < attributes.getLength(); i++) {
-                System.out.println("-- Attribute: " + attributes.item(i).getNodeName() + ", with value: " + attributes.item(i).getTextContent());
-            }
-        }
-        if (node.hasChildNodes()) {
-            NodeList fills = node.getChildNodes();
-            for (int i = 0; i < fills.getLength(); i++) {
-                Node nodo = fills.item(i);
-
-                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
-
-                    nousElements((Element) nodo);
-                }
-            }
-        }
-
-        return false;
-    }
-
     public static void crearElement(Document documento, Scanner teclado, Element nodeArrel) {
         // Nou element
         Element elemento = documento.createElement("row");
+        
         nodeArrel.appendChild(elemento);
 
         // Li donem valor als attributs
@@ -113,7 +88,8 @@ public class Exercici5_1 {
         String attr = teclado.nextLine();
         
         Attr newAttr = documento.createAttribute(attr);
-        System.out.println("Introdueix el atribut address");
+        
+        System.out.println("Introdueix el valor del atribut");
         newAttr.setValue(teclado.nextLine());
         elemento.setAttributeNode(newAttr);
         
@@ -124,24 +100,29 @@ public class Exercici5_1 {
     }
 
     private static void indexarId(Element nodeArrel) {
-        NodeList child = nodeArrel.getChildNodes();
+        NodeList childrens = nodeArrel.getChildNodes();
 
-        for (int i = 0; i < child.getLength(); i++) {
+        for (int i = 0; i < childrens.getLength(); i++) {
+            if (childrens.item(i).hasChildNodes()) {
+                NodeList child = childrens.item(i).getChildNodes();
+                for (int x = 0; x < child.getLength(); x++) {
+                if (child.item(i).getNodeName().equals("row") && child.item(i).hasAttributes()) {
 
-            if (child.item(i).getNodeName().equals("row") && child.item(i).hasAttributes()) {
+                    NamedNodeMap atributs = child.item(i).getAttributes();
 
-                NamedNodeMap atributs = child.item(i).getAttributes();
+                    for (int j = 0; j < atributs.getLength(); j++) {
 
-                for (int j = 0; j < atributs.getLength(); j++) {
+                        if (atributs.item(j).getNodeName().equals("_id")) {
 
-                    if (atributs.item(j).getNodeName().equals("_id")) {
+                            //String numId = atributs.item(j).getNodeValue();
 
-                        //String numId = atributs.item(j).getNodeValue();
+                            ((Element) child.item(i)).setIdAttribute("_id", true);
 
-                        ((Element) child.item(i)).setIdAttribute("_id", true);
+                        }
 
                     }
 
+                }                
                 }
 
             }
@@ -177,8 +158,22 @@ public class Exercici5_1 {
             teclado.nextLine();
 
             if (opcio == 1) {
-                crearElement(documento, teclado, (Element) nodeArrel.getFirstChild());
+                if (nodeArrel.hasChildNodes()) {
+                    NodeList fills = nodeArrel.getChildNodes();
+                    for (int i = 0; i < fills.getLength(); i++) {
+                        Node nodo = fills.item(i);
+
+                        if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+
+                            crearElement(documento, teclado, (Element)nodo);
+                            i += fills.getLength();
+                        }
+                    }        
+                }
+
+            
             } else if (opcio == 2) {
+
                 
                 modificarElement(documento, teclado);
             }else if (opcio == 3) {

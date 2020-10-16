@@ -1,6 +1,6 @@
-<response>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><response>
     <row>
-        <row _id="row-rgm7-289a~7xeq" _uuid="00000000-0000-0000-7BD5-CC413C3B7E93" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rgm7-289a~7xeq">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rgm7-289a~7xeq" _id="row-rgm7-289a~7xeq" _position="0" _uuid="00000000-0000-0000-7BD5-CC413C3B7E93" hola="hola">
             <num_registre>105</num_registre>
             <codi_pa_s>CHN</codi_pa_s>
             <pa_s>Xina</pa_s>
@@ -41,7 +41,7 @@
             <solicitud_altres_nova_emigraci>0</solicitud_altres_nova_emigraci>
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
         </row>
-        <row _id="row-78fu_p9sr_v99j" _uuid="00000000-0000-0000-31E6-0D865D726223" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-78fu_p9sr_v99j">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-78fu_p9sr_v99j" _id="row-78fu_p9sr_v99j" _position="0" _uuid="00000000-0000-0000-31E6-0D865D726223">
             <num_registre>129</num_registre>
             <codi_pa_s>POL</codi_pa_s>
             <pa_s>Polònia</pa_s>
@@ -86,7 +86,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (21.0122287 52.2296756)</geocoded_column>
         </row>
-        <row _id="row-gaea~yr9r_etgd" _uuid="00000000-0000-0000-ECF3-5715C6E6C4B4" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-gaea~yr9r_etgd">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-gaea~yr9r_etgd" _id="row-gaea~yr9r_etgd" _position="0" _uuid="00000000-0000-0000-ECF3-5715C6E6C4B4">
             <num_registre>42</num_registre>
             <codi_pa_s>USA</codi_pa_s>
             <pa_s>Estats Units d'Amèrica</pa_s>
@@ -130,7 +130,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-82.3940104 34.85261760000001)</geocoded_column>
         </row>
-        <row _id="row-27xa~dug2_uzag" _uuid="00000000-0000-0000-41B3-DA451634CA71" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-27xa~dug2_uzag">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-27xa~dug2_uzag" _id="row-27xa~dug2_uzag" _position="0" _uuid="00000000-0000-0000-41B3-DA451634CA71">
             <num_registre>33</num_registre>
             <codi_pa_s>CHE</codi_pa_s>
             <pa_s>Suïssa</pa_s>
@@ -176,7 +176,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (6.6322734 46.5196535)</geocoded_column>
         </row>
-        <row _id="row-eaxq-ng3h_m6n2" _uuid="00000000-0000-0000-2ED2-DDAB8D3FBDA1" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-eaxq-ng3h_m6n2">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-eaxq-ng3h_m6n2" _id="row-eaxq-ng3h_m6n2" _position="0" _uuid="00000000-0000-0000-2ED2-DDAB8D3FBDA1">
             <num_registre>128</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -221,7 +221,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-1.553621 47.218371)</geocoded_column>
         </row>
-        <row _id="row-t8sm.xxnh.8gtu" _uuid="00000000-0000-0000-2C48-9F47DC7B37B4" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-t8sm.xxnh.8gtu">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-t8sm.xxnh.8gtu" _id="row-t8sm.xxnh.8gtu" _position="0" _uuid="00000000-0000-0000-2C48-9F47DC7B37B4">
             <num_registre>118</num_registre>
             <codi_pa_s>VEN</codi_pa_s>
             <pa_s>Veneçuela</pa_s>
@@ -267,7 +267,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-62.6496813 8.3663119)</geocoded_column>
         </row>
-        <row _id="row-wynw.7rc5~iiep" _uuid="00000000-0000-0000-94FD-608DD623433A" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-wynw.7rc5~iiep">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-wynw.7rc5~iiep" _id="row-wynw.7rc5~iiep" _position="0" _uuid="00000000-0000-0000-94FD-608DD623433A">
             <num_registre>108</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -313,7 +313,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-60.697294 -31.6106578)</geocoded_column>
         </row>
-        <row _id="row-45yg_v49u_k3va" _uuid="00000000-0000-0000-BB15-5D41D2BE8D19" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-45yg_v49u_k3va">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-45yg_v49u_k3va" _id="row-45yg_v49u_k3va" _position="0" _uuid="00000000-0000-0000-BB15-5D41D2BE8D19">
             <num_registre>67</num_registre>
             <codi_pa_s>AND</codi_pa_s>
             <pa_s>Andorra</pa_s>
@@ -358,7 +358,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (1.5218355000000001 42.50631740000001)</geocoded_column>
         </row>
-        <row _id="row-fv3k-3id5.687c" _uuid="00000000-0000-0000-0028-83307FAE4E28" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-fv3k-3id5.687c">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-fv3k-3id5.687c" _id="row-fv3k-3id5.687c" _position="0" _uuid="00000000-0000-0000-0028-83307FAE4E28">
             <num_registre>5</num_registre>
             <codi_pa_s>MEX</codi_pa_s>
             <pa_s>Mèxic</pa_s>
@@ -404,7 +404,7 @@
             <atorgat_altres_nova_emigraci>980</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-99.133208 19.4326077)</geocoded_column>
         </row>
-        <row _id="row-yie3_m2k4-vfwp" _uuid="00000000-0000-0000-B3C2-964B83DE212C" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yie3_m2k4-vfwp">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yie3_m2k4-vfwp" _id="row-yie3_m2k4-vfwp" _position="0" _uuid="00000000-0000-0000-B3C2-964B83DE212C">
             <num_registre>53</num_registre>
             <codi_pa_s>MEX</codi_pa_s>
             <pa_s>Mèxic</pa_s>
@@ -450,7 +450,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-99.133208 19.4326077)</geocoded_column>
         </row>
-        <row _id="row-5jcy_czuk_c6jt" _uuid="00000000-0000-0000-2038-85C7DB826174" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-5jcy_czuk_c6jt">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-5jcy_czuk_c6jt" _id="row-5jcy_czuk_c6jt" _position="0" _uuid="00000000-0000-0000-2038-85C7DB826174">
             <num_registre>22</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -495,7 +495,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (2.6501603 39.5696005)</geocoded_column>
         </row>
-        <row _id="row-4ffv-j6mj.23mi" _uuid="00000000-0000-0000-D4C4-FA66A9AD6D21" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-4ffv-j6mj.23mi">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-4ffv-j6mj.23mi" _id="row-4ffv-j6mj.23mi" _position="0" _uuid="00000000-0000-0000-D4C4-FA66A9AD6D21">
             <num_registre>43</num_registre>
             <codi_pa_s>SWE</codi_pa_s>
             <pa_s>Suècia</pa_s>
@@ -540,7 +540,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (18.0124231 59.36419680000001)</geocoded_column>
         </row>
-        <row _id="row-3m9c_hgbb~vfgv" _uuid="00000000-0000-0000-8003-32FBFF849CD1" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-3m9c_hgbb~vfgv">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-3m9c_hgbb~vfgv" _id="row-3m9c_hgbb~vfgv" _position="0" _uuid="00000000-0000-0000-8003-32FBFF849CD1">
             <num_registre>77</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -586,7 +586,7 @@
             <atorgat_altres_nova_emigraci>1200</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (2.1734035 41.3850639)</geocoded_column>
         </row>
-        <row _id="row-2t64_s9xw~qaz4" _uuid="00000000-0000-0000-10B3-8A037BFC167E" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-2t64_s9xw~qaz4">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-2t64_s9xw~qaz4" _id="row-2t64_s9xw~qaz4" _position="0" _uuid="00000000-0000-0000-10B3-8A037BFC167E">
             <num_registre>76</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -632,7 +632,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-62.2663478 -38.7183177)</geocoded_column>
         </row>
-        <row _id="row-98g6_jyxa-wsyt" _uuid="00000000-0000-0000-5A6B-70F623700FCC" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-98g6_jyxa-wsyt">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-98g6_jyxa-wsyt" _id="row-98g6_jyxa-wsyt" _position="0" _uuid="00000000-0000-0000-5A6B-70F623700FCC">
             <num_registre>26</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -678,7 +678,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-58.3815591 -34.6036844)</geocoded_column>
         </row>
-        <row _id="row-4syz.vm68~rgjs" _uuid="00000000-0000-0000-10E6-C7DDB196D3C5" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-4syz.vm68~rgjs">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-4syz.vm68~rgjs" _id="row-4syz.vm68~rgjs" _position="0" _uuid="00000000-0000-0000-10E6-C7DDB196D3C5">
             <num_registre>63</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -724,7 +724,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-61.9690161 -33.7455566)</geocoded_column>
         </row>
-        <row _id="row-54qu_pxyi-32wz" _uuid="00000000-0000-0000-E019-9285AEA3D8F3" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-54qu_pxyi-32wz">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-54qu_pxyi-32wz" _id="row-54qu_pxyi-32wz" _position="0" _uuid="00000000-0000-0000-E019-9285AEA3D8F3">
             <num_registre>85</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -768,7 +768,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (10.1227651 54.3232927)</geocoded_column>
         </row>
-        <row _id="row-cart.v7i3.5meg" _uuid="00000000-0000-0000-825E-762170D88ADD" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-cart.v7i3.5meg">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-cart.v7i3.5meg" _id="row-cart.v7i3.5meg" _position="0" _uuid="00000000-0000-0000-825E-762170D88ADD">
             <num_registre>46</num_registre>
             <codi_pa_s>CRI</codi_pa_s>
             <pa_s>Costa Rica</pa_s>
@@ -814,7 +814,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-84.0907246 9.9280694)</geocoded_column>
         </row>
-        <row _id="row-974g-7muh.nacb" _uuid="00000000-0000-0000-ECCD-9519905DA2DB" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-974g-7muh.nacb">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-974g-7muh.nacb" _id="row-974g-7muh.nacb" _position="0" _uuid="00000000-0000-0000-ECCD-9519905DA2DB">
             <num_registre>6</num_registre>
             <codi_pa_s>CHL</codi_pa_s>
             <pa_s>Xile</pa_s>
@@ -860,7 +860,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-70.6692655 -33.4488897)</geocoded_column>
         </row>
-        <row _id="row-ezaz.aey8.2jqc" _uuid="00000000-0000-0000-8725-D98ED032EBF4" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-ezaz.aey8.2jqc">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-ezaz.aey8.2jqc" _id="row-ezaz.aey8.2jqc" _position="0" _uuid="00000000-0000-0000-8725-D98ED032EBF4">
             <num_registre>90</num_registre>
             <codi_pa_s>BRA</codi_pa_s>
             <pa_s>Brasil</pa_s>
@@ -906,7 +906,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-46.6333094 -23.5505199)</geocoded_column>
         </row>
-        <row _id="row-c8ur~qnfu-zr3b" _uuid="00000000-0000-0000-F73C-686F6A443F0E" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-c8ur~qnfu-zr3b">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-c8ur~qnfu-zr3b" _id="row-c8ur~qnfu-zr3b" _position="0" _uuid="00000000-0000-0000-F73C-686F6A443F0E">
             <num_registre>18</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -952,7 +952,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (2.475907 48.851542)</geocoded_column>
         </row>
-        <row _id="row-pyzk~ii32_i7ua" _uuid="00000000-0000-0000-5766-0D25E9B88D39" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-pyzk~ii32_i7ua">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-pyzk~ii32_i7ua" _id="row-pyzk~ii32_i7ua" _position="0" _uuid="00000000-0000-0000-5766-0D25E9B88D39">
             <num_registre>112</num_registre>
             <codi_pa_s>BRA</codi_pa_s>
             <pa_s>Brasil</pa_s>
@@ -998,7 +998,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-46.6333094 -23.5505199)</geocoded_column>
         </row>
-        <row _id="row-uxq4.tgq9.2v9w" _uuid="00000000-0000-0000-268D-3DC0EAA3A8DF" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-uxq4.tgq9.2v9w">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-uxq4.tgq9.2v9w" _id="row-uxq4.tgq9.2v9w" _position="0" _uuid="00000000-0000-0000-268D-3DC0EAA3A8DF">
             <num_registre>104</num_registre>
             <codi_pa_s>VEN</codi_pa_s>
             <pa_s>Veneçuela</pa_s>
@@ -1044,7 +1044,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-66.90360630000002 10.4805937)</geocoded_column>
         </row>
-        <row _id="row-vnfu-r669.3u97" _uuid="00000000-0000-0000-F45F-EEDF77C2BA0F" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-vnfu-r669.3u97">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-vnfu-r669.3u97" _id="row-vnfu-r669.3u97" _position="0" _uuid="00000000-0000-0000-F45F-EEDF77C2BA0F">
             <num_registre>30</num_registre>
             <codi_pa_s>CHE</codi_pa_s>
             <pa_s>Suïssa</pa_s>
@@ -1089,7 +1089,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (8.541694 47.3768866)</geocoded_column>
         </row>
-        <row _id="row-7e3v_jrb6_rc45" _uuid="00000000-0000-0000-B0BB-6C2593E23253" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-7e3v_jrb6_rc45">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-7e3v_jrb6_rc45" _id="row-7e3v_jrb6_rc45" _position="0" _uuid="00000000-0000-0000-B0BB-6C2593E23253">
             <num_registre>1</num_registre>
             <codi_pa_s>CUB</codi_pa_s>
             <pa_s>Cuba</pa_s>
@@ -1106,7 +1106,7 @@
             <tel_fon>5378679920</tel_fon>
             <geocoded_column>POINT (0 0)</geocoded_column>
         </row>
-        <row _id="row-9ncj.6fbq~43tm" _uuid="00000000-0000-0000-A1F7-D28C63BE606C" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-9ncj.6fbq~43tm">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-9ncj.6fbq~43tm" _id="row-9ncj.6fbq~43tm" _position="0" _uuid="00000000-0000-0000-A1F7-D28C63BE606C">
             <num_registre>41</num_registre>
             <codi_pa_s>CAN</codi_pa_s>
             <pa_s>Canadà</pa_s>
@@ -1152,7 +1152,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-79.3831843 43.653226)</geocoded_column>
         </row>
-        <row _id="row-vy27-tvbg.s73h" _uuid="00000000-0000-0000-1E93-CC59500C717F" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-vy27-tvbg.s73h">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-vy27-tvbg.s73h" _id="row-vy27-tvbg.s73h" _position="0" _uuid="00000000-0000-0000-1E93-CC59500C717F">
             <num_registre>54</num_registre>
             <codi_pa_s>LUX</codi_pa_s>
             <pa_s>Luxemburg</pa_s>
@@ -1198,7 +1198,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (6.1319346 49.61162100000001)</geocoded_column>
         </row>
-        <row _id="row-j5kg~9i7s-by99" _uuid="00000000-0000-0000-B707-0D33D411FF32" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-j5kg~9i7s-by99">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-j5kg~9i7s-by99" _id="row-j5kg~9i7s-by99" _position="0" _uuid="00000000-0000-0000-B707-0D33D411FF32">
             <num_registre>28</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -1244,7 +1244,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-0.8890853 41.6488226)</geocoded_column>
         </row>
-        <row _id="row-z9t8~rj7v_xabm" _uuid="00000000-0000-0000-33E1-A53D3C0C8CFB" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-z9t8~rj7v_xabm">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-z9t8~rj7v_xabm" _id="row-z9t8~rj7v_xabm" _position="0" _uuid="00000000-0000-0000-33E1-A53D3C0C8CFB">
             <num_registre>74</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -1290,7 +1290,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-60.511547099999994 -31.741319700000002)</geocoded_column>
         </row>
-        <row _id="row-n2wf.zpsm~nnp6" _uuid="00000000-0000-0000-2002-082EA9D1229A" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-n2wf.zpsm~nnp6">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-n2wf.zpsm~nnp6" _id="row-n2wf.zpsm~nnp6" _position="0" _uuid="00000000-0000-0000-2002-082EA9D1229A">
             <num_registre>91</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -1335,7 +1335,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-60.57459990000001 -33.8912831)</geocoded_column>
         </row>
-        <row _id="row-bi9m.mn38_ykua" _uuid="00000000-0000-0000-A97F-CF20A9D10509" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-bi9m.mn38_ykua">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-bi9m.mn38_ykua" _id="row-bi9m.mn38_ykua" _position="0" _uuid="00000000-0000-0000-A97F-CF20A9D10509">
             <num_registre>55</num_registre>
             <codi_pa_s>AUS</codi_pa_s>
             <pa_s>Austràlia</pa_s>
@@ -1380,7 +1380,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (145.015 -37.916)</geocoded_column>
         </row>
-        <row _id="row-cnqr~gcbc-peqv" _uuid="00000000-0000-0000-6BEF-F59A28690D63" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-cnqr~gcbc-peqv">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-cnqr~gcbc-peqv" _id="row-cnqr~gcbc-peqv" _position="0" _uuid="00000000-0000-0000-6BEF-F59A28690D63">
             <num_registre>83</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -1425,7 +1425,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (6.9602786 50.937531)</geocoded_column>
         </row>
-        <row _id="row-dv7y~awyj.ksww" _uuid="00000000-0000-0000-1AC1-A817AC618B0E" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-dv7y~awyj.ksww">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-dv7y~awyj.ksww" _id="row-dv7y~awyj.ksww" _position="0" _uuid="00000000-0000-0000-1AC1-A817AC618B0E">
             <num_registre>125</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -1471,7 +1471,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-68.3390622 -34.6128922)</geocoded_column>
         </row>
-        <row _id="row-f9x2.k27b~pjg3" _uuid="00000000-0000-0000-25E6-8593B28E7CF0" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-f9x2.k27b~pjg3">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-f9x2.k27b~pjg3" _id="row-f9x2.k27b~pjg3" _position="0" _uuid="00000000-0000-0000-25E6-8593B28E7CF0">
             <num_registre>139</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -1516,7 +1516,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (13.404954 52.5200066)</geocoded_column>
         </row>
-        <row _id="row-e5b6_mvec.2t39" _uuid="00000000-0000-0000-41C8-0D8A6CD946BC" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-e5b6_mvec.2t39">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-e5b6_mvec.2t39" _id="row-e5b6_mvec.2t39" _position="0" _uuid="00000000-0000-0000-41C8-0D8A6CD946BC">
             <num_registre>48</num_registre>
             <codi_pa_s>ECU</codi_pa_s>
             <pa_s>Equador</pa_s>
@@ -1562,7 +1562,7 @@
             <atorgat_altres_nova_emigraci>1000</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-79.9223592 -2.1709979)</geocoded_column>
         </row>
-        <row _id="row-bmqs~6axh.fdkw" _uuid="00000000-0000-0000-2404-B92B3008F1D6" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-bmqs~6axh.fdkw">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-bmqs~6axh.fdkw" _id="row-bmqs~6axh.fdkw" _position="0" _uuid="00000000-0000-0000-2404-B92B3008F1D6">
             <num_registre>47</num_registre>
             <codi_pa_s>USA</codi_pa_s>
             <pa_s>Estats Units d'Amèrica</pa_s>
@@ -1607,7 +1607,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-118.4164652 33.9191799)</geocoded_column>
         </row>
-        <row _id="row-w4v6.vsbp.fssx" _uuid="00000000-0000-0000-3EB0-DA017F30D3A4" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-w4v6.vsbp.fssx">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-w4v6.vsbp.fssx" _id="row-w4v6.vsbp.fssx" _position="0" _uuid="00000000-0000-0000-3EB0-DA017F30D3A4">
             <num_registre>137</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -1652,7 +1652,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (9.1829321 48.7758459)</geocoded_column>
         </row>
-        <row _id="row-ep9g-37jd_gzai" _uuid="00000000-0000-0000-50A2-B3568321C631" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-ep9g-37jd_gzai">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-ep9g-37jd_gzai" _id="row-ep9g-37jd_gzai" _position="0" _uuid="00000000-0000-0000-50A2-B3568321C631">
             <num_registre>87</num_registre>
             <codi_pa_s>JPN</codi_pa_s>
             <pa_s>Japó</pa_s>
@@ -1698,7 +1698,7 @@
             <atorgat_altres_nova_emigraci>300</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (135.5022535 34.6937249)</geocoded_column>
         </row>
-        <row _id="row-y5vz_gnn8-f368" _uuid="00000000-0000-0000-5508-302702E5362B" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-y5vz_gnn8-f368">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-y5vz_gnn8-f368" _id="row-y5vz_gnn8-f368" _position="0" _uuid="00000000-0000-0000-5508-302702E5362B">
             <num_registre>120</num_registre>
             <codi_pa_s>ISL</codi_pa_s>
             <pa_s>Islàndia</pa_s>
@@ -1743,7 +1743,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-21.9426354 64.146582)</geocoded_column>
         </row>
-        <row _id="row-rdqt.x5zb-zg4i" _uuid="00000000-0000-0000-89C5-CB2935A45113" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rdqt.x5zb-zg4i">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rdqt.x5zb-zg4i" _id="row-rdqt.x5zb-zg4i" _position="0" _uuid="00000000-0000-0000-89C5-CB2935A45113">
             <num_registre>68</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -1789,7 +1789,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (2.819669 42.703601)</geocoded_column>
         </row>
-        <row _id="row-ajpr.egn6.5hvj" _uuid="00000000-0000-0000-F71D-991A2E3EF6FB" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-ajpr.egn6.5hvj">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-ajpr.egn6.5hvj" _id="row-ajpr.egn6.5hvj" _position="0" _uuid="00000000-0000-0000-F71D-991A2E3EF6FB">
             <num_registre>64</num_registre>
             <codi_pa_s>AUS</codi_pa_s>
             <pa_s>Austràlia</pa_s>
@@ -1834,7 +1834,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (151.1573 -33.8847)</geocoded_column>
         </row>
-        <row _id="row-qehj.m3s2_mn7f" _uuid="00000000-0000-0000-EFF3-9DC2A1C084EB" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-qehj.m3s2_mn7f">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-qehj.m3s2_mn7f" _id="row-qehj.m3s2_mn7f" _position="0" _uuid="00000000-0000-0000-EFF3-9DC2A1C084EB">
             <num_registre>109</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -1880,7 +1880,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-1.9812313 43.318334)</geocoded_column>
         </row>
-        <row _id="row-maf6~ve9n-bjfz" _uuid="00000000-0000-0000-F628-DF5DF5CEE915" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-maf6~ve9n-bjfz">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-maf6~ve9n-bjfz" _id="row-maf6~ve9n-bjfz" _position="0" _uuid="00000000-0000-0000-F628-DF5DF5CEE915">
             <num_registre>34</num_registre>
             <codi_pa_s>CHE</codi_pa_s>
             <pa_s>Suïssa</pa_s>
@@ -1925,7 +1925,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (7.627249900000001 47.5516505)</geocoded_column>
         </row>
-        <row _id="row-hb58_n9t6~jg8x" _uuid="00000000-0000-0000-6FE9-7A3EABE422C7" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-hb58_n9t6~jg8x">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-hb58_n9t6~jg8x" _id="row-hb58_n9t6~jg8x" _position="0" _uuid="00000000-0000-0000-6FE9-7A3EABE422C7">
             <num_registre>142</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -1970,7 +1970,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (3.003078 43.184277)</geocoded_column>
         </row>
-        <row _id="row-xy9k_7fc7~twrc" _uuid="00000000-0000-0000-CA23-858C98284B7B" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-xy9k_7fc7~twrc">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-xy9k_7fc7~twrc" _id="row-xy9k_7fc7~twrc" _position="0" _uuid="00000000-0000-0000-CA23-858C98284B7B">
             <num_registre>8</num_registre>
             <codi_pa_s>PRY</codi_pa_s>
             <pa_s>Paraguai</pa_s>
@@ -2016,7 +2016,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-57.575926 -25.2637399)</geocoded_column>
         </row>
-        <row _id="row-xqxu~ei6c-mmsc" _uuid="00000000-0000-0000-CFE7-1BDF99EB7F59" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-xqxu~ei6c-mmsc">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-xqxu~ei6c-mmsc" _id="row-xqxu~ei6c-mmsc" _position="0" _uuid="00000000-0000-0000-CFE7-1BDF99EB7F59">
             <num_registre>45</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -2062,7 +2062,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (2.8948332 42.6886591)</geocoded_column>
         </row>
-        <row _id="row-6ntk-vjjp.vw48" _uuid="00000000-0000-0000-DB22-CDE734CDF2CA" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-6ntk-vjjp.vw48">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-6ntk-vjjp.vw48" _id="row-6ntk-vjjp.vw48" _position="0" _uuid="00000000-0000-0000-DB22-CDE734CDF2CA">
             <num_registre>12</num_registre>
             <codi_pa_s>URY</codi_pa_s>
             <pa_s>Uruguai</pa_s>
@@ -2108,7 +2108,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-56.1645314 -34.9011127)</geocoded_column>
         </row>
-        <row _id="row-sh3y_tu57.unc2" _uuid="00000000-0000-0000-3E7D-1693A02520E2" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-sh3y_tu57.unc2">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-sh3y_tu57.unc2" _id="row-sh3y_tu57.unc2" _position="0" _uuid="00000000-0000-0000-3E7D-1693A02520E2">
             <num_registre>4</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -2154,7 +2154,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-60.65053880000001 -32.9442426)</geocoded_column>
         </row>
-        <row _id="row-nt94_j6sx_uixt" _uuid="00000000-0000-0000-5D5B-E5314C019622" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-nt94_j6sx_uixt">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-nt94_j6sx_uixt" _id="row-nt94_j6sx_uixt" _position="0" _uuid="00000000-0000-0000-5D5B-E5314C019622">
             <num_registre>132</num_registre>
             <codi_pa_s>IRL</codi_pa_s>
             <pa_s>Irlanda</pa_s>
@@ -2199,7 +2199,7 @@
             <atorgat_altres_nova_emigraci>150</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-6.2603097 53.3498053)</geocoded_column>
         </row>
-        <row _id="row-78hs~mkfx.ehrt" _uuid="00000000-0000-0000-6E16-CECD03748FD3" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-78hs~mkfx.ehrt">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-78hs~mkfx.ehrt" _id="row-78hs~mkfx.ehrt" _position="0" _uuid="00000000-0000-0000-6E16-CECD03748FD3">
             <num_registre>51</num_registre>
             <codi_pa_s>AUS</codi_pa_s>
             <pa_s>Austràlia</pa_s>
@@ -2245,7 +2245,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (144.9630576 -37.8136276)</geocoded_column>
         </row>
-        <row _id="row-mb3d~n4i9-re8n" _uuid="00000000-0000-0000-CFC6-90ACCD89D4FE" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-mb3d~n4i9-re8n">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-mb3d~n4i9-re8n" _id="row-mb3d~n4i9-re8n" _position="0" _uuid="00000000-0000-0000-CFC6-90ACCD89D4FE">
             <num_registre>78</num_registre>
             <codi_pa_s>CAN</codi_pa_s>
             <pa_s>Canadà</pa_s>
@@ -2290,7 +2290,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-123.1207375 49.2827291)</geocoded_column>
         </row>
-        <row _id="row-f9qy.rd7z_mws7" _uuid="00000000-0000-0000-FD7D-A0A9665992DF" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-f9qy.rd7z_mws7">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-f9qy.rd7z_mws7" _id="row-f9qy.rd7z_mws7" _position="0" _uuid="00000000-0000-0000-FD7D-A0A9665992DF">
             <num_registre>17</num_registre>
             <codi_pa_s>VEN</codi_pa_s>
             <pa_s>Veneçuela</pa_s>
@@ -2336,7 +2336,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-66.90360630000002 10.4805937)</geocoded_column>
         </row>
-        <row _id="row-rphn_ytxf.dmf2" _uuid="00000000-0000-0000-A689-856C8003EB64" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rphn_ytxf.dmf2">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rphn_ytxf.dmf2" _id="row-rphn_ytxf.dmf2" _position="0" _uuid="00000000-0000-0000-A689-856C8003EB64">
             <num_registre>21</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -2382,7 +2382,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-64.1887761 -31.4200833)</geocoded_column>
         </row>
-        <row _id="row-yzea_kw2y~y5uf" _uuid="00000000-0000-0000-0369-8B3F5F5BAE83" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yzea_kw2y~y5uf">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yzea_kw2y~y5uf" _id="row-yzea_kw2y~y5uf" _position="0" _uuid="00000000-0000-0000-0369-8B3F5F5BAE83">
             <num_registre>3</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -2428,7 +2428,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-58.3815591 -34.6036844)</geocoded_column>
         </row>
-        <row _id="row-whfn_a2ut.8gih" _uuid="00000000-0000-0000-FE46-48E7D199C76F" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-whfn_a2ut.8gih">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-whfn_a2ut.8gih" _id="row-whfn_a2ut.8gih" _position="0" _uuid="00000000-0000-0000-FE46-48E7D199C76F">
             <num_registre>72</num_registre>
             <codi_pa_s>MEX</codi_pa_s>
             <pa_s>Mèxic</pa_s>
@@ -2473,7 +2473,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-100.3898881 20.5887932)</geocoded_column>
         </row>
-        <row _id="row-j97t_wqwm.28pg" _uuid="00000000-0000-0000-004F-DE32BBF2CDC2" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-j97t_wqwm.28pg">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-j97t_wqwm.28pg" _id="row-j97t_wqwm.28pg" _position="0" _uuid="00000000-0000-0000-004F-DE32BBF2CDC2">
             <num_registre>39</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -2519,7 +2519,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-2.6817918000000005 42.8591656)</geocoded_column>
         </row>
-        <row _id="row-hqgf_k3pd.is4m" _uuid="00000000-0000-0000-3A89-DB1261A3F82D" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-hqgf_k3pd.is4m">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-hqgf_k3pd.is4m" _id="row-hqgf_k3pd.is4m" _position="0" _uuid="00000000-0000-0000-3A89-DB1261A3F82D">
             <num_registre>134</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -2564,7 +2564,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-65.2175903 -26.8082848)</geocoded_column>
         </row>
-        <row _id="row-y7fn.ie6x_7ik4" _uuid="00000000-0000-0000-C6E9-DE65959CB82A" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-y7fn.ie6x_7ik4">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-y7fn.ie6x_7ik4" _id="row-y7fn.ie6x_7ik4" _position="0" _uuid="00000000-0000-0000-C6E9-DE65959CB82A">
             <num_registre>94</num_registre>
             <codi_pa_s>USA</codi_pa_s>
             <pa_s>Estats Units d'Amèrica</pa_s>
@@ -2608,7 +2608,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-122.27111370000002 37.8043637)</geocoded_column>
         </row>
-        <row _id="row-jazz.dznk.p2ex" _uuid="00000000-0000-0000-721E-BA2DF75169B0" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-jazz.dznk.p2ex">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-jazz.dznk.p2ex" _id="row-jazz.dznk.p2ex" _position="0" _uuid="00000000-0000-0000-721E-BA2DF75169B0">
             <num_registre>73</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -2653,7 +2653,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (5.724524 45.188529)</geocoded_column>
         </row>
-        <row _id="row-qgeh.c6ij.kgsc" _uuid="00000000-0000-0000-5DA7-747BBEFE4750" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-qgeh.c6ij.kgsc">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-qgeh.c6ij.kgsc" _id="row-qgeh.c6ij.kgsc" _position="0" _uuid="00000000-0000-0000-5DA7-747BBEFE4750">
             <num_registre>140</num_registre>
             <codi_pa_s>CHN</codi_pa_s>
             <pa_s>Xina</pa_s>
@@ -2698,7 +2698,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (121.47370210000001 31.230390400000005)</geocoded_column>
         </row>
-        <row _id="row-u2ky.5mn8_2xir" _uuid="00000000-0000-0000-A7FE-9D002A3D4066" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-u2ky.5mn8_2xir">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-u2ky.5mn8_2xir" _id="row-u2ky.5mn8_2xir" _position="0" _uuid="00000000-0000-0000-A7FE-9D002A3D4066">
             <num_registre>60</num_registre>
             <codi_pa_s>USA</codi_pa_s>
             <pa_s>Estats Units d'Amèrica</pa_s>
@@ -2744,7 +2744,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-73.7220756 40.7934344)</geocoded_column>
         </row>
-        <row _id="row-zxkp_97pi_3bss" _uuid="00000000-0000-0000-012F-4171258B4FE4" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-zxkp_97pi_3bss">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-zxkp_97pi_3bss" _id="row-zxkp_97pi_3bss" _position="0" _uuid="00000000-0000-0000-012F-4171258B4FE4">
             <num_registre>124</num_registre>
             <codi_pa_s>ECU</codi_pa_s>
             <pa_s>Equador</pa_s>
@@ -2790,7 +2790,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-79.0058965 -2.9001285)</geocoded_column>
         </row>
-        <row _id="row-if3t_gy34.t4d7" _uuid="00000000-0000-0000-E2C1-A3371DE04656" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-if3t_gy34.t4d7">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-if3t_gy34.t4d7" _id="row-if3t_gy34.t4d7" _position="0" _uuid="00000000-0000-0000-E2C1-A3371DE04656">
             <num_registre>136</num_registre>
             <codi_pa_s>CZE</codi_pa_s>
             <pa_s>República Txeca</pa_s>
@@ -2835,7 +2835,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (14.437800500000002 50.0755381)</geocoded_column>
         </row>
-        <row _id="row-3pmb~xcg5_993s" _uuid="00000000-0000-0000-C795-D3C4428CD757" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-3pmb~xcg5_993s">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-3pmb~xcg5_993s" _id="row-3pmb~xcg5_993s" _position="0" _uuid="00000000-0000-0000-C795-D3C4428CD757">
             <num_registre>62</num_registre>
             <codi_pa_s>BRA</codi_pa_s>
             <pa_s>Brasil</pa_s>
@@ -2881,7 +2881,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-46.6333094 -23.5505199)</geocoded_column>
         </row>
-        <row _id="row-iv5m~qwhj~2haa" _uuid="00000000-0000-0000-5B9F-EB986371C480" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-iv5m~qwhj~2haa">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-iv5m~qwhj~2haa" _id="row-iv5m~qwhj~2haa" _position="0" _uuid="00000000-0000-0000-5B9F-EB986371C480">
             <num_registre>79</num_registre>
             <codi_pa_s>MEX</codi_pa_s>
             <pa_s>Mèxic</pa_s>
@@ -2927,7 +2927,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-89.5925857 20.967370200000005)</geocoded_column>
         </row>
-        <row _id="row-fht5_r6zt.bpay" _uuid="00000000-0000-0000-4915-8B1CD455A1CE" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-fht5_r6zt.bpay">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-fht5_r6zt.bpay" _id="row-fht5_r6zt.bpay" _position="0" _uuid="00000000-0000-0000-4915-8B1CD455A1CE">
             <num_registre>102</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -2973,7 +2973,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-5.9844589 37.3890924)</geocoded_column>
         </row>
-        <row _id="row-vwk4~ux3n-u6fm" _uuid="00000000-0000-0000-312D-64C024054075" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-vwk4~ux3n-u6fm">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-vwk4~ux3n-u6fm" _id="row-vwk4~ux3n-u6fm" _position="0" _uuid="00000000-0000-0000-312D-64C024054075">
             <num_registre>86</num_registre>
             <codi_pa_s>CAN</codi_pa_s>
             <pa_s>Canadà</pa_s>
@@ -3018,7 +3018,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-73.567256 45.5016889)</geocoded_column>
         </row>
-        <row _id="row-tq2e-wx4y_qahy" _uuid="00000000-0000-0000-EC92-E3BE1F68FCBA" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-tq2e-wx4y_qahy">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-tq2e-wx4y_qahy" _id="row-tq2e-wx4y_qahy" _position="0" _uuid="00000000-0000-0000-EC92-E3BE1F68FCBA">
             <num_registre>44</num_registre>
             <codi_pa_s>USA</codi_pa_s>
             <pa_s>Estats Units d'Amèrica</pa_s>
@@ -3062,7 +3062,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-95.4171601 30.0799405)</geocoded_column>
         </row>
-        <row _id="row-98de_bunh_imdh" _uuid="00000000-0000-0000-03A5-C0BCFBFC69BD" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-98de_bunh_imdh">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-98de_bunh_imdh" _id="row-98de_bunh_imdh" _position="0" _uuid="00000000-0000-0000-03A5-C0BCFBFC69BD">
             <num_registre>10</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -3108,7 +3108,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (5.36978 43.296482)</geocoded_column>
         </row>
-        <row _id="row-yki4~887a-i6fa" _uuid="00000000-0000-0000-726D-84709C94416A" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yki4~887a-i6fa">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yki4~887a-i6fa" _id="row-yki4~887a-i6fa" _position="0" _uuid="00000000-0000-0000-726D-84709C94416A">
             <num_registre>141</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -3153,7 +3153,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-2.9349852 43.2630126)</geocoded_column>
         </row>
-        <row _id="row-xyde~82mp_j7t8" _uuid="00000000-0000-0000-E2F5-C7B3861F23DA" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-xyde~82mp_j7t8">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-xyde~82mp_j7t8" _id="row-xyde~82mp_j7t8" _position="0" _uuid="00000000-0000-0000-E2F5-C7B3861F23DA">
             <num_registre>58</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -3199,7 +3199,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-57.54261060000001 -38.0054771)</geocoded_column>
         </row>
-        <row _id="row-a8x2-a7fe~qhzw" _uuid="00000000-0000-0000-C28B-4747E2898BF0" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-a8x2-a7fe~qhzw">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-a8x2-a7fe~qhzw" _id="row-a8x2-a7fe~qhzw" _position="0" _uuid="00000000-0000-0000-C28B-4747E2898BF0">
             <num_registre>117</num_registre>
             <codi_pa_s>GBR</codi_pa_s>
             <pa_s>Regne Unit de Gran Bretanya i Irlanda</pa_s>
@@ -3244,7 +3244,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-0.1277583 51.5073509)</geocoded_column>
         </row>
-        <row _id="row-yz7z.x7r3-my7b" _uuid="00000000-0000-0000-B79A-6533C909FE54" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yz7z.x7r3-my7b">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yz7z.x7r3-my7b" _id="row-yz7z.x7r3-my7b" _position="0" _uuid="00000000-0000-0000-B79A-6533C909FE54">
             <num_registre>127</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -3290,7 +3290,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (0.308179 44.391183000000005)</geocoded_column>
         </row>
-        <row _id="row-4jhf-6cpg-5yaz" _uuid="00000000-0000-0000-5EC9-7BC5A88A6D7A" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-4jhf-6cpg-5yaz">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-4jhf-6cpg-5yaz" _id="row-4jhf-6cpg-5yaz" _position="0" _uuid="00000000-0000-0000-5EC9-7BC5A88A6D7A">
             <num_registre>107</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -3335,7 +3335,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (13.404954 52.5200066)</geocoded_column>
         </row>
-        <row _id="row-rudw_ehd8.cwgy" _uuid="00000000-0000-0000-0169-6699A33C05AC" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rudw_ehd8.cwgy">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-rudw_ehd8.cwgy" _id="row-rudw_ehd8.cwgy" _position="0" _uuid="00000000-0000-0000-0169-6699A33C05AC">
             <num_registre>31</num_registre>
             <codi_pa_s>CHE</codi_pa_s>
             <pa_s>Suïssa</pa_s>
@@ -3380,7 +3380,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (6.6322734 46.5196535)</geocoded_column>
         </row>
-        <row _id="row-jn72~kbe5_egnu" _uuid="00000000-0000-0000-905E-A1778A096557" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-jn72~kbe5_egnu">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-jn72~kbe5_egnu" _id="row-jn72~kbe5_egnu" _position="0" _uuid="00000000-0000-0000-905E-A1778A096557">
             <num_registre>16</num_registre>
             <codi_pa_s>COL</codi_pa_s>
             <pa_s>Colòmbia</pa_s>
@@ -3424,7 +3424,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-75.5812119 6.244203)</geocoded_column>
         </row>
-        <row _id="row-kbnc_gygp_wisr" _uuid="00000000-0000-0000-91EF-62DC8B3A7894" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-kbnc_gygp_wisr">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-kbnc_gygp_wisr" _id="row-kbnc_gygp_wisr" _position="0" _uuid="00000000-0000-0000-91EF-62DC8B3A7894">
             <num_registre>123</num_registre>
             <codi_pa_s>AUT</codi_pa_s>
             <pa_s>Àustria</pa_s>
@@ -3469,7 +3469,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (13.05501 47.80949)</geocoded_column>
         </row>
-        <row _id="row-kzw5.d6wz.2ttj" _uuid="00000000-0000-0000-30C6-D626254ADF23" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-kzw5.d6wz.2ttj">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-kzw5.d6wz.2ttj" _id="row-kzw5.d6wz.2ttj" _position="0" _uuid="00000000-0000-0000-30C6-D626254ADF23">
             <num_registre>23</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -3515,7 +3515,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-3.7037902 40.4167754)</geocoded_column>
         </row>
-        <row _id="row-24jq_74fh~e7bh" _uuid="00000000-0000-0000-F82B-550F19CD6498" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-24jq_74fh~e7bh">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-24jq_74fh~e7bh" _id="row-24jq_74fh~e7bh" _position="0" _uuid="00000000-0000-0000-F82B-550F19CD6498">
             <num_registre>119</num_registre>
             <codi_pa_s>ESP</codi_pa_s>
             <pa_s>Espanya</pa_s>
@@ -3561,7 +3561,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-16.7338211 28.1220604)</geocoded_column>
         </row>
-        <row _id="row-zmkd_wk4r_hhrv" _uuid="00000000-0000-0000-5ED3-6830866C854A" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-zmkd_wk4r_hhrv">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-zmkd_wk4r_hhrv" _id="row-zmkd_wk4r_hhrv" _position="0" _uuid="00000000-0000-0000-5ED3-6830866C854A">
             <num_registre>138</num_registre>
             <codi_pa_s>DOM</codi_pa_s>
             <pa_s>República Dominicana</pa_s>
@@ -3606,7 +3606,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-69.9312117 18.4860575)</geocoded_column>
         </row>
-        <row _id="row-wnmx_me4n_hnad" _uuid="00000000-0000-0000-2533-AABEA5A74B9C" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-wnmx_me4n_hnad">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-wnmx_me4n_hnad" _id="row-wnmx_me4n_hnad" _position="0" _uuid="00000000-0000-0000-2533-AABEA5A74B9C">
             <num_registre>135</num_registre>
             <codi_pa_s>USA</codi_pa_s>
             <pa_s>Estats Units d'Amèrica</pa_s>
@@ -3651,7 +3651,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-70.6672621 41.9584457)</geocoded_column>
         </row>
-        <row _id="row-mpgt~suyw.6p43" _uuid="00000000-0000-0000-E71A-E17332FD3CFF" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-mpgt~suyw.6p43">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-mpgt~suyw.6p43" _id="row-mpgt~suyw.6p43" _position="0" _uuid="00000000-0000-0000-E71A-E17332FD3CFF">
             <num_registre>15</num_registre>
             <codi_pa_s>COL</codi_pa_s>
             <pa_s>Colòmbia</pa_s>
@@ -3696,7 +3696,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-74.072092 4.7109886)</geocoded_column>
         </row>
-        <row _id="row-3878~cpk3_jrgg" _uuid="00000000-0000-0000-1EB8-EE6D452A7907" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-3878~cpk3_jrgg">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-3878~cpk3_jrgg" _id="row-3878~cpk3_jrgg" _position="0" _uuid="00000000-0000-0000-1EB8-EE6D452A7907">
             <num_registre>2</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -3742,7 +3742,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-58.3815591 -34.6036844)</geocoded_column>
         </row>
-        <row _id="row-v8d9~s2s3~u626" _uuid="00000000-0000-0000-CA44-32184BA25BC8" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-v8d9~s2s3~u626">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-v8d9~s2s3~u626" _id="row-v8d9~s2s3~u626" _position="0" _uuid="00000000-0000-0000-CA44-32184BA25BC8">
             <num_registre>19</num_registre>
             <codi_pa_s>FRA</codi_pa_s>
             <pa_s>França</pa_s>
@@ -3788,7 +3788,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (1.444209 43.604652)</geocoded_column>
         </row>
-        <row _id="row-sbqr_3bsp_ps8d" _uuid="00000000-0000-0000-8602-34736AC15CF8" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-sbqr_3bsp_ps8d">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-sbqr_3bsp_ps8d" _id="row-sbqr_3bsp_ps8d" _position="0" _uuid="00000000-0000-0000-8602-34736AC15CF8">
             <num_registre>130</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -3833,7 +3833,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (11.5819805 48.1351253)</geocoded_column>
         </row>
-        <row _id="row-z5b6_hmkf-n3p9" _uuid="00000000-0000-0000-1048-190C553DED38" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-z5b6_hmkf-n3p9">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-z5b6_hmkf-n3p9" _id="row-z5b6_hmkf-n3p9" _position="0" _uuid="00000000-0000-0000-1048-190C553DED38">
             <num_registre>52</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -3878,7 +3878,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (7.0115552 51.4556432)</geocoded_column>
         </row>
-        <row _id="row-6d7w-yen6~qj2y" _uuid="00000000-0000-0000-50F6-888D96C504E7" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-6d7w-yen6~qj2y">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-6d7w-yen6~qj2y" _id="row-6d7w-yen6~qj2y" _position="0" _uuid="00000000-0000-0000-50F6-888D96C504E7">
             <num_registre>133</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -3922,7 +3922,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (8.5770309 50.2025478)</geocoded_column>
         </row>
-        <row _id="row-hetw~rbs4_v6an" _uuid="00000000-0000-0000-5FD1-2488D9A04569" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-hetw~rbs4_v6an">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-hetw~rbs4_v6an" _id="row-hetw~rbs4_v6an" _position="0" _uuid="00000000-0000-0000-5FD1-2488D9A04569">
             <num_registre>88</num_registre>
             <codi_pa_s>GBR</codi_pa_s>
             <pa_s>Regne Unit</pa_s>
@@ -3967,7 +3967,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-3.188267 55.953252)</geocoded_column>
         </row>
-        <row _id="row-pget-xz4z.uxjg" _uuid="00000000-0000-0000-4BF7-47F3E14562B7" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-pget-xz4z.uxjg">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-pget-xz4z.uxjg" _id="row-pget-xz4z.uxjg" _position="0" _uuid="00000000-0000-0000-4BF7-47F3E14562B7">
             <num_registre>65</num_registre>
             <codi_pa_s>ECU</codi_pa_s>
             <pa_s>Equador</pa_s>
@@ -4013,7 +4013,7 @@
             <atorgat_altres_nova_emigraci>1100</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-78.4678382 -0.1806532)</geocoded_column>
         </row>
-        <row _id="row-qddq.zqfi-hphg" _uuid="00000000-0000-0000-792B-88472ECF5631" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-qddq.zqfi-hphg">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-qddq.zqfi-hphg" _id="row-qddq.zqfi-hphg" _position="0" _uuid="00000000-0000-0000-792B-88472ECF5631">
             <num_registre>7</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -4059,7 +4059,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-68.8458386 -32.8894587)</geocoded_column>
         </row>
-        <row _id="row-t52w~rcah.yhvu" _uuid="00000000-0000-0000-1F68-D32F594857D3" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-t52w~rcah.yhvu">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-t52w~rcah.yhvu" _id="row-t52w~rcah.yhvu" _position="0" _uuid="00000000-0000-0000-1F68-D32F594857D3">
             <num_registre>114</num_registre>
             <codi_pa_s>USA</codi_pa_s>
             <pa_s>Estats Units d'Amèrica</pa_s>
@@ -4104,7 +4104,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-74.0059728 40.7127753)</geocoded_column>
         </row>
-        <row _id="row-przc.gmpq_gugi" _uuid="00000000-0000-0000-87ED-A197306FF182" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-przc.gmpq_gugi">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-przc.gmpq_gugi" _id="row-przc.gmpq_gugi" _position="0" _uuid="00000000-0000-0000-87ED-A197306FF182">
             <num_registre>27</num_registre>
             <codi_pa_s>ITA</codi_pa_s>
             <pa_s>Itàlia</pa_s>
@@ -4149,7 +4149,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (12.4963655 41.9027835)</geocoded_column>
         </row>
-        <row _id="row-r8sm-cvyr.tphq" _uuid="00000000-0000-0000-DE1A-2D285A5543BC" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-r8sm-cvyr.tphq">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-r8sm-cvyr.tphq" _id="row-r8sm-cvyr.tphq" _position="0" _uuid="00000000-0000-0000-DE1A-2D285A5543BC">
             <num_registre>103</num_registre>
             <codi_pa_s>AUT</codi_pa_s>
             <pa_s>Àustria</pa_s>
@@ -4195,7 +4195,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (16.3738189 48.2081743)</geocoded_column>
         </row>
-        <row _id="row-czeh~8fy9~7z9n" _uuid="00000000-0000-0000-7A14-5EF33B29052C" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-czeh~8fy9~7z9n">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-czeh~8fy9~7z9n" _id="row-czeh~8fy9~7z9n" _position="0" _uuid="00000000-0000-0000-7A14-5EF33B29052C">
             <num_registre>131</num_registre>
             <codi_pa_s>ITA</codi_pa_s>
             <pa_s>Itàlia</pa_s>
@@ -4240,7 +4240,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (12.3155151 45.4408474)</geocoded_column>
         </row>
-        <row _id="row-wghs.b9d9.tbf6" _uuid="00000000-0000-0000-533F-C249C78B5038" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-wghs.b9d9.tbf6">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-wghs.b9d9.tbf6" _id="row-wghs.b9d9.tbf6" _position="0" _uuid="00000000-0000-0000-533F-C249C78B5038">
             <num_registre>71</num_registre>
             <codi_pa_s>DNK</codi_pa_s>
             <pa_s>Dinamarca</pa_s>
@@ -4284,7 +4284,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (12.5683372 55.67609680000001)</geocoded_column>
         </row>
-        <row _id="row-yt5k_459p-4md4" _uuid="00000000-0000-0000-8AC4-7AB1E2DF3509" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yt5k_459p-4md4">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-yt5k_459p-4md4" _id="row-yt5k_459p-4md4" _position="0" _uuid="00000000-0000-0000-8AC4-7AB1E2DF3509">
             <num_registre>70</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -4330,7 +4330,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-57.953565700000006 -34.9204948)</geocoded_column>
         </row>
-        <row _id="row-nztq~4gt8.rpnf" _uuid="00000000-0000-0000-ADF4-FCA70E64C215" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-nztq~4gt8.rpnf">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-nztq~4gt8.rpnf" _id="row-nztq~4gt8.rpnf" _position="0" _uuid="00000000-0000-0000-ADF4-FCA70E64C215">
             <num_registre>126</num_registre>
             <codi_pa_s>CHN</codi_pa_s>
             <pa_s>Xina</pa_s>
@@ -4374,7 +4374,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (116.40739630000002 39.90419990000001)</geocoded_column>
         </row>
-        <row _id="row-it3q_2tgd~3wi5" _uuid="00000000-0000-0000-A4DF-B249D10A3516" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-it3q_2tgd~3wi5">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-it3q_2tgd~3wi5" _id="row-it3q_2tgd~3wi5" _position="0" _uuid="00000000-0000-0000-A4DF-B249D10A3516">
             <num_registre>121</num_registre>
             <codi_pa_s>ARG</codi_pa_s>
             <pa_s>Argentina</pa_s>
@@ -4420,7 +4420,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (-59.7936926 -34.1711872)</geocoded_column>
         </row>
-        <row _id="row-bn2g.irdw.e9v5" _uuid="00000000-0000-0000-546B-F94B8CE035EC" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-bn2g.irdw.e9v5">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-bn2g.irdw.e9v5" _id="row-bn2g.irdw.e9v5" _position="0" _uuid="00000000-0000-0000-546B-F94B8CE035EC">
             <num_registre>13</num_registre>
             <codi_pa_s>BEL</codi_pa_s>
             <pa_s>Bèlgica</pa_s>
@@ -4465,7 +4465,7 @@
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (4.3517103 50.8503396)</geocoded_column>
         </row>
-        <row _id="row-zd3m~rfv5_jgdg" _uuid="00000000-0000-0000-5BBA-76379B3E6F73" _position="0" _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-zd3m~rfv5_jgdg">
+        <row _address="https://analisi.transparenciacatalunya.cat/resource/_7hg8-z7q2/row-zd3m~rfv5_jgdg" _id="row-zd3m~rfv5_jgdg" _position="0" _uuid="00000000-0000-0000-5BBA-76379B3E6F73">
             <num_registre>115</num_registre>
             <codi_pa_s>DEU</codi_pa_s>
             <pa_s>Alemanya</pa_s>
@@ -4509,6 +4509,18 @@
             <solicitud_altres_nova_emigraci>0</solicitud_altres_nova_emigraci>
             <atorgat_altres_nova_emigraci>0</atorgat_altres_nova_emigraci>
             <geocoded_column>POINT (9.9936819 53.5510846)</geocoded_column>
+        </row>
+        <row _address="asd" _id="_id" _position="asd" _uuid="asda">
+            <num_registre>das</num_registre>
+            <codi_pa_s>das</codi_pa_s>
+            <pa_s>da</pa_s>
+            <rea>sad</rea>
+        </row>
+        <row _address="asd" _id="si" _position="fds" _uuid="asd" asd="asd">
+            <num_registre>gds</num_registre>
+            <codi_pa_s>asd</codi_pa_s>
+            <pa_s>ds</pa_s>
+            <rea>d</rea>
         </row>
     </row>
 </response>
