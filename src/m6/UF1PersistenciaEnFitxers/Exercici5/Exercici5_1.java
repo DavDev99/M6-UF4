@@ -31,7 +31,7 @@ public class Exercici5_1 {
     public static void crearElement(Document documento, Scanner teclado, Element nodeArrel) {
         // Nou element
         Element elemento = documento.createElement("row");
-        
+
         nodeArrel.appendChild(elemento);
 
         // Li donem valor als attributs
@@ -56,7 +56,7 @@ public class Exercici5_1 {
         attrAddress.setValue(teclado.nextLine());
         elemento.setAttributeNode(attrAddress);
 
-                // Li donem valor als nodes 
+        // Li donem valor als nodes 
         Element numRegistre = documento.createElement("num_registre");
         System.out.println("Introdueix el valor de num_registres");
         numRegistre.setTextContent(teclado.nextLine());
@@ -79,50 +79,65 @@ public class Exercici5_1 {
     }
 
     private static void modificarElement(Document documento, Scanner teclado) {
+        // Demanem la id
         System.out.println("Introdueix que el ID del node que vols modificar: ");
         String id = teclado.nextLine();
-        
+
+        // Busquem per la id
         Element elemento = documento.getElementById(id);
-        
+
+        // Elegim el atribut o posem un de nou
         System.out.println("Introdueix el nom del atribut que vols modificar o crear: ");
         String attr = teclado.nextLine();
-        
+
+        // Dades del atribut i asignarlo
         Attr newAttr = documento.createAttribute(attr);
-        
+
         System.out.println("Introdueix el valor del atribut");
         newAttr.setValue(teclado.nextLine());
         elemento.setAttributeNode(newAttr);
-        
+
+    }
+
+    private static void eliminarElement(Document documento, Scanner teclado) {
+        // Demanem la id
+        System.out.println("Introdueix que el ID del node que vols modificar: ");
+        String id = teclado.nextLine();
+
+        // Busquem per la id
+        Element elemento = documento.getElementById(id);
+
+        //elemento.removeChild(elemento);
     }
     
-    private static void eliminarElement(Document documento, Scanner teclado) {
-
-    }
-
+    // Metode per a indexar les id del arxiu xml
+   
     private static void indexarId(Element nodeArrel) {
         NodeList childrens = nodeArrel.getChildNodes();
 
         for (int i = 0; i < childrens.getLength(); i++) {
+
             if (childrens.item(i).hasChildNodes()) {
+
                 NodeList child = childrens.item(i).getChildNodes();
+
                 for (int x = 0; x < child.getLength(); x++) {
-                if (child.item(i).getNodeName().equals("row") && child.item(i).hasAttributes()) {
 
-                    NamedNodeMap atributs = child.item(i).getAttributes();
+                    if (child.item(i).getNodeName().equals("row") && child.item(i).hasAttributes()) {
 
-                    for (int j = 0; j < atributs.getLength(); j++) {
+                        NamedNodeMap atributs = child.item(i).getAttributes();
 
-                        if (atributs.item(j).getNodeName().equals("_id")) {
+                        for (int j = 0; j < atributs.getLength(); j++) {
 
-                            //String numId = atributs.item(j).getNodeValue();
+                            if (atributs.item(j).getNodeName().equals("_id")) {
 
-                            ((Element) child.item(i)).setIdAttribute("_id", true);
+                                ((Element) child.item(i)).setIdAttribute("_id", true);
+
+                            }
 
                         }
 
                     }
-
-                }                
                 }
 
             }
@@ -165,19 +180,17 @@ public class Exercici5_1 {
 
                         if (nodo.getNodeType() == Node.ELEMENT_NODE) {
 
-                            crearElement(documento, teclado, (Element)nodo);
+                            crearElement(documento, teclado, (Element) nodo);
                             i += fills.getLength();
                         }
-                    }        
+                    }
                 }
 
-            
             } else if (opcio == 2) {
 
-                
                 modificarElement(documento, teclado);
-            }else if (opcio == 3) {
-                
+            } else if (opcio == 3) {
+
                 eliminarElement(documento, teclado);
             }
         }
@@ -188,7 +201,5 @@ public class Exercici5_1 {
         StreamResult result = new StreamResult(new File("src/m6/UF1PersistenciaEnFitxers/Exercici5/comunitatsCatalanes.xml"));
         transformer.transform(source, result);
     }
-
-
 
 }

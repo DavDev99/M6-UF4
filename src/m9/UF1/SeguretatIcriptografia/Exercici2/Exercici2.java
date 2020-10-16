@@ -13,56 +13,82 @@ import javax.crypto.SecretKey;
  *
  * @author Alumne
  */
-
-
 public class Exercici2 {
-    public static SecretKey keygenKeyGeneration (int keySize) {
-        SecretKey sKey = null ;
-        if ((keySize == 128) || (keySize == 192) || (keySize == 256)) { 
+
+    public static SecretKey keygenKeyGeneration(int keySize) {
+        SecretKey sKey = null;
+        if ((keySize == 128) || (keySize == 192) || (keySize == 256)) {
             try {
-                KeyGenerator kgen =  KeyGenerator.getInstance("AES"); 
+                KeyGenerator kgen = KeyGenerator.getInstance("AES");
                 kgen.init(keySize);
                 sKey = kgen.generateKey();
-            }catch (NoSuchAlgorithmException ex) {
-                System.err.println ("Generador no disponible.");
+            } catch (NoSuchAlgorithmException ex) {
+                System.err.println("Generador no disponible.");
             }
         }
         return sKey;
     }
-    
+
+    public static SecretKey keygenKeyGenerationDes(int keySize) {
+        SecretKey sKey = null;
+        if ((keySize == 56) || (keySize == 192) || (keySize == 256)) {
+            try {
+                KeyGenerator kgen = KeyGenerator.getInstance("DES");
+                kgen.init(keySize);
+                sKey = kgen.generateKey();
+            } catch (NoSuchAlgorithmException ex) {
+                System.err.println("Generador no disponible.");
+            }
+        }
+        return sKey;
+    }
+
+    public static SecretKey keygenKeyGenerationDESede(int keySize) {
+        SecretKey sKey = null;
+        if ((keySize == 112) || (keySize == 168)) {
+            try {
+                KeyGenerator kgen = KeyGenerator.getInstance("DESede");
+                kgen.init(keySize);
+                sKey = kgen.generateKey();
+            } catch (NoSuchAlgorithmException ex) {
+                System.err.println("Generador no disponible.");
+            }
+        }
+        return sKey;
+    }
+
     public static void main(String[] args) {
-        
+
         //Generem clau
-        SecretKey key1 = keygenKeyGeneration(128);
-        
+        SecretKey key1 = keygenKeyGenerationDESede(112);
+
         //Agafem els bytes
         byte[] keyBytes = key1.getEncoded();
         System.out.println("Els bytes generats son:");
-        
+
         for (int i = 0; i < keyBytes.length; i++) {
             // Pasem els bytes a un string
             String aux = Integer.toBinaryString(keyBytes[i] & 0xFF).replace(' ', '0');
-            
+
             // Posem 0 si no arriba a 8
-            if(aux.length() < 8){
-                
+            if (aux.length() < 8) {
+
                 String faltenCeros = "";
-                
-                for (int j = 0; j + (aux.length()) <8; j++) {
+
+                for (int j = 0; j + (aux.length()) < 8; j++) {
                     faltenCeros = "0" + faltenCeros;
                 }
-                
+
                 aux = faltenCeros + aux;
             }
-            
+
             // Pasem de binari a decimal
             int aux2 = Integer.parseInt(aux, 2);
-             
+
             // Mostrem el nombre
             System.out.println(aux + " - " + aux2);
-           
+
         }
 
     }
 }
-
