@@ -25,7 +25,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class Exercici5_1 {
+/**
+ *
+ * @author PC-Casa
+ */
+public class Exercici5_2 {
+    
 
     public static void crearElement(Document documento, Scanner teclado, Element nodeArrel) {
         // Nou element
@@ -152,7 +157,7 @@ public class Exercici5_1 {
         DocumentBuilder builder = factory.newDocumentBuilder();
 
         // Obtengo el documento, a partir del XML
-        Document documento = builder.parse(new File("src/m6/UF1PersistenciaEnFitxers/Exercici5/comunitatsCatalanes.xml"));
+        Document documento = builder.parse(new File("src/m6/UF1PersistenciaEnFitxers/Exercici5/pelis.xml"));
 
         int opcio = -1;
         Scanner teclado = new Scanner(System.in);
@@ -160,20 +165,6 @@ public class Exercici5_1 {
 
         indexarId(nodeArrel);
         
-        // Reasignem el nodeArrel al real que realment conte els nodes que volem modificar
-        
-        if (nodeArrel.hasChildNodes()) {
-            NodeList fills = nodeArrel.getChildNodes();
-            for (int i = 0; i < fills.getLength(); i++) {
-                Node nodo = fills.item(i);
-
-                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
-                    nodeArrel = (Element) nodo;
-                    i += fills.getLength();
-                }
-            }
-        }
-
         while (opcio != 0) {
             System.out.println("Que vols fer? \n"
                     + "1. Crear un node \n"
@@ -199,7 +190,7 @@ public class Exercici5_1 {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(documento);
-        StreamResult result = new StreamResult(new File("src/m6/UF1PersistenciaEnFitxers/Exercici5/comunitatsCatalanes.xml"));
+        StreamResult result = new StreamResult(new File("src/m6/UF1PersistenciaEnFitxers/Exercici5/pelis.xml"));
 
         transformer.transform(source, result);
     }
