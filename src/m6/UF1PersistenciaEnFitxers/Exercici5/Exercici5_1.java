@@ -37,8 +37,8 @@ public class Exercici5_1 {
         Attr attrId = documento.createAttribute("_id");
         System.out.println("Introdueix el atribut id");
         attrId.setValue(teclado.nextLine());
-        elemento.setAttribute("_id", "fede");
-        //elemento.setIdAttribute("_id", true);
+        elemento.setAttributeNode(attrId);
+        elemento.setIdAttribute("_id", true);
 
         Attr attrUuid = documento.createAttribute("_uuid");
         System.out.println("Introdueix el atribut uuid");
