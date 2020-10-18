@@ -30,56 +30,33 @@ import org.xml.sax.SAXException;
  * @author PC-Casa
  */
 public class Exercici5_2 {
-    
 
     public static void crearElement(Document documento, Scanner teclado, Element nodeArrel) {
         // Nou element
-        Element elemento = documento.createElement("row");
+        Element elemento = documento.createElement("FILM");
 
         nodeArrel.appendChild(elemento);
 
-        // Li donem valor als attributs
-        Attr attrId = documento.createAttribute("_id");
-        System.out.println("Introdueix el atribut id");
-        attrId.setValue(teclado.nextLine());
-        elemento.setAttribute("_id", "fede");
-        //elemento.setIdAttribute("_id", true);
-
-        Attr attrUuid = documento.createAttribute("_uuid");
-        System.out.println("Introdueix el atribut uuid");
-        attrUuid.setValue(teclado.nextLine());
-        elemento.setAttributeNode(attrUuid);
-
-        Attr attrPosition = documento.createAttribute("_position");
-        System.out.println("Introdueix el atribut position");
-        attrPosition.setValue(teclado.nextLine());
-        elemento.setAttributeNode(attrPosition);
-
-        Attr attrAddress = documento.createAttribute("_address");
-        System.out.println("Introdueix el atribut address");
-        attrAddress.setValue(teclado.nextLine());
-        elemento.setAttributeNode(attrAddress);
-
         // Li donem valor als nodes 
-        Element numRegistre = documento.createElement("num_registre");
-        System.out.println("Introdueix el valor de num_registres");
-        numRegistre.setTextContent(teclado.nextLine());
-        elemento.appendChild(numRegistre);
+        Element idFilm = documento.createElement("IDFILM");
+        System.out.println("Introdueix el valor de IDFILM");
+        idFilm.setTextContent(teclado.nextLine());
+        elemento.appendChild(idFilm);
 
-        Element codiPais = documento.createElement("codi_pa_s");
-        System.out.println("Introdueix el valor de codi_pa_s");
-        codiPais.setTextContent(teclado.nextLine());
-        elemento.appendChild(codiPais);
+        Element prioritat = documento.createElement("PRIORITAT");
+        System.out.println("Introdueix el valor de PRIORITAT");
+        prioritat.setTextContent(teclado.nextLine());
+        elemento.appendChild(prioritat);
 
-        Element pais = documento.createElement("pa_s");
-        System.out.println("Introdueix el valor de pa_s");
-        pais.setTextContent(teclado.nextLine());
-        elemento.appendChild(pais);
+        Element titol = documento.createElement("TITOL");
+        System.out.println("Introdueix el valor de TITOL");
+        titol.setTextContent(teclado.nextLine());
+        elemento.appendChild(titol);
 
-        Element rea = documento.createElement("rea");
-        System.out.println("Introdueix el valor de rea");
-        rea.setTextContent(teclado.nextLine());
-        elemento.appendChild(rea);
+        Element situacio = documento.createElement("SITUACIO");
+        System.out.println("Introdueix el valor de SITUACIO");
+        situacio.setTextContent(teclado.nextLine());
+        elemento.appendChild(situacio);
     }
 
     private static void modificarElement(Document documento, Scanner teclado) {
@@ -88,7 +65,7 @@ public class Exercici5_2 {
         String id = teclado.nextLine();
 
         // Busquem per la id
-        Element elemento = documento.getElementById(id);
+        Element elemento = buscarId(documento, id);
 
         // Elegim el atribut o posem un de nou
         System.out.println("Introdueix el nom del atribut que vols modificar o crear: ");
@@ -109,44 +86,35 @@ public class Exercici5_2 {
         String id = teclado.nextLine();
 
         // Busquem per la id
-        Element elemento = documento.getElementById(id);
-
+        Element elemento = buscarId(documento, id);
+        
         nodeArrel.removeChild(elemento);
 
     }
 
-    // Metode per a indexar les id del arxiu xml
-    private static void indexarId(Element nodeArrel) {
+    // Metode per a buscar per id
+    private static Element buscarId(Document documento, String id) {
+        Element nodeArrel = documento.getDocumentElement();
         NodeList childrens = nodeArrel.getChildNodes();
-
+        
+        // For de tots els fills de la arrel
         for (int i = 0; i < childrens.getLength(); i++) {
-
-            if (childrens.item(i).hasChildNodes()) {
-
+            
+            // Si el fill es un film i te fills busquem per els fills
+            if (childrens.item(i).hasChildNodes() && childrens.item(i).getNodeName().equals("FILM")) {
                 NodeList child = childrens.item(i).getChildNodes();
-
-                for (int x = 0; x < child.getLength(); x++) {
-
-                    if (child.item(x).getNodeName().equals("row") && child.item(x).hasAttributes()) {
-
-                        NamedNodeMap atributs = child.item(x).getAttributes();
-
-                        for (int j = 0; j < atributs.getLength(); j++) {
-
-                            if (atributs.item(j).getNodeName().equals("_id")) {
-
-                                ((Element) child.item(x)).setIdAttribute("_id", true);
-
-                            }
-
-                        }
-
+                
+                
+                for (int j = 0; j < child.getLength(); j++) {
+                    // Si el fill se diu IDFILM i te el mateix valor que la id es el que busquem
+                    if (child.item(j).getNodeName().equals("IDFILM") && child.item(j).getTextContent().equals(id)) {
+                        return (Element) childrens.item(i);
                     }
                 }
-
             }
-
         }
+        
+        return nodeArrel;
     }
 
     public static void main(String[] args) throws SAXException, IOException, ParserConfigurationException, TransformerConfigurationException, TransformerException {
@@ -163,8 +131,7 @@ public class Exercici5_2 {
         Scanner teclado = new Scanner(System.in);
         Element nodeArrel = documento.getDocumentElement();
 
-        indexarId(nodeArrel);
-        
+        //buscarId(nodeArrel);
         while (opcio != 0) {
             System.out.println("Que vols fer? \n"
                     + "1. Crear un node \n"
@@ -186,7 +153,9 @@ public class Exercici5_2 {
                 eliminarElement(documento, teclado, nodeArrel);
             }
         }
-
+        
+        
+        // Quan tanquem el programa es guarden els canvis
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(documento);

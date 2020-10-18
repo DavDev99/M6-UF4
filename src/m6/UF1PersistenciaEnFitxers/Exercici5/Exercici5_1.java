@@ -195,7 +195,8 @@ public class Exercici5_1 {
                 eliminarElement(documento, teclado, nodeArrel);
             }
         }
-
+        
+        // Quan tanquem el programa es guarden els canvis
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(documento);
