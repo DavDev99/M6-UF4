@@ -14,7 +14,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-
 public class Exercici6 {
 
     private static final String PELIS_XML_FILE = "src/m6/UF1PersistenciaEnFitxers/Exercici6/Pelis.xml";
@@ -24,7 +23,8 @@ public class Exercici6 {
         JAXBContext context = JAXBContext.newInstance(Pelis.class);
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
+        
+        // Cridem a la funcio per omplir XML
         Pelis pelis = omplePelis();
 
         //Mostrem el document XML generat por la sortida estandard
@@ -59,10 +59,11 @@ public class Exercici6 {
             ArrayPelis[i].setIDFILM(idFilms[i]);
             ArrayPelis[i].setPRIORITAT(prioritats[i]);
             ArrayPelis[i].setTITOL(titols[i]);
-            ArrayPelis[i].setSITUACIO(situacions[i]);            
+            ArrayPelis[i].setSITUACIO(situacions[i]);
             ArrayPelis[i].setANY(any[i]);
         }
-
+        
+        // Creem objecte de pelis i li donem els seus fills
         Pelis pelis = new Pelis();
         pelis.setPelis(ArrayPelis);
 
