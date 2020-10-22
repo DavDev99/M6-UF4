@@ -9,10 +9,8 @@ import javax.xml.bind.annotation.XmlElement;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-//@XmlRootElement
-@XmlRootElement(name = "FILM")
-
-//@XmlAccessorType(XmlAccessType.FIELD) // This line was added
+@XmlRootElement(name = "Peli")
+        
 class Peli {
 
     private int IDFILM;
@@ -20,8 +18,19 @@ class Peli {
     private String TITOL;
     private String SITUACIO;
     private String ANY;
+    
+    public Peli(int IDFILM, int PRIORITAT, String TITOL, String SITUACIO, String ANY) {
+        this.IDFILM = IDFILM;
+        this.PRIORITAT = PRIORITAT;
+        this.TITOL = TITOL;
+        this.SITUACIO = SITUACIO;
+        this.ANY = ANY;
+    }
 
-    //@XmlElement(name="IDFILM")        
+    public Peli() {
+    }
+    
+    @XmlElement(name="IDFILM")        
     public int getIDFILM() {
         return IDFILM;
     }
@@ -29,7 +38,8 @@ class Peli {
     public void setIDFILM(int IDFILM) {
         this.IDFILM = IDFILM;
     }
- //@XmlElement(name="PRIORITAT")
+    
+    @XmlElement(name="PRIORITAT")
     public int getPRIORITAT() {
         return PRIORITAT;
     }
@@ -37,7 +47,8 @@ class Peli {
     public void setPRIORITAT(int PRIORITAT) {
         this.PRIORITAT = PRIORITAT;
     }
- //@XmlElement(name="TITOL")
+    
+    @XmlElement(name="TITOL")
     public String getTITOL() {
         return TITOL;
     }
@@ -45,7 +56,8 @@ class Peli {
     public void setTITOL(String TITOL) {
         this.TITOL = TITOL;
     }
- //@XmlElement(name="SITUACIO")
+    
+    @XmlElement(name="SITUACIO")
     public String getSITUACIO() {
         return SITUACIO;
     }
@@ -53,7 +65,8 @@ class Peli {
     public void setSITUACIO(String SITUACIO) {
         this.SITUACIO = SITUACIO;
     }
- //@XmlElement(name="ANY")
+    
+    @XmlElement(name="ANY")
     public String getANY() {
         return ANY;
     }
@@ -61,5 +74,12 @@ class Peli {
     public void setANY(String ANY) {
         this.ANY = ANY;
     }
+
+    @Override
+    public String toString() {
+        return "Peli{" + "IDFILM=" + IDFILM + ", PRIORITAT=" + PRIORITAT + ", TITOL=" + TITOL + ", SITUACIO=" + SITUACIO + ", ANY=" + ANY + '}';
+    }
+    
+    
 
 }

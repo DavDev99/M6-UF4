@@ -13,12 +13,23 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import static jdk.nashorn.internal.runtime.Debug.id;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class Exercici6 {
 
     private static final String PELIS_XML_FILE = "src/m6/UF1PersistenciaEnFitxers/Exercici6/Pelis.xml";
+    
+    Pelis pelis[] = new Pelis[3];
 
-    public static void main(String[] args) throws JAXBException, IOException {
+    public static void main(String[] args) throws JAXBException, IOException, ParserConfigurationException, SAXException {
 
         JAXBContext context = JAXBContext.newInstance(Pelis.class);
         Marshaller marshaller = context.createMarshaller();
@@ -41,7 +52,8 @@ public class Exercici6 {
         System.out.println("********* Pelis carregat desde fitxer XML***************");
         //Mostrem l'objeto Java obtingut
         marshaller.marshal(pelisAux, System.out);
-
+           
+        crearObjectes();
     }
 
     // generem dades de prova
@@ -65,8 +77,87 @@ public class Exercici6 {
         
         // Creem objecte de pelis i li donem els seus fills
         Pelis pelis = new Pelis();
-        pelis.setPelis(ArrayPelis);
+        pelis.setPeli(ArrayPelis);
 
         return pelis;
+    }
+    
+     //Generem objectes java
+    private static void crearObjectes() throws ParserConfigurationException, SAXException, IOException {
+
+        // Creo una instancia de DocumentBuilderFactory
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        // Creo un documentBuilder
+        DocumentBuilder builder = factory.newDocumentBuilder();
+
+        // Obtengo el documento, a partir del XML
+        Document documento = builder.parse(new File("src/m6/UF1PersistenciaEnFitxers/Exercici6/Pelis.xml"));
+
+        Element nodeArrel = documento.getDocumentElement();
+        NodeList childrens = nodeArrel.getChildNodes();
+        
+        String any = "";
+        String situacio = "";
+        String titol = "";
+        int idfilm = 0;
+        int prioritat = 0;
+        Peli[] arrayPelis = new Peli[3];
+        int contador = 0;
+        
+        // For de tots els fills de la arrel
+        for (int i = 0; i < childrens.getLength(); i++) {
+
+            // Si el fill es un film i te fills busquem per els fills
+            if (childrens.item(i).hasChildNodes() && childrens.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                NodeList child = childrens.item(i).getChildNodes();
+                
+                // Recorrem el element peli
+                for (int j = 0; j < child.getLength(); j++) {
+                    
+                    // Si es un node element guardem cada dada a la seva variable
+                    if (child.item(j).getNodeType() == Node.ELEMENT_NODE) {
+                        
+                        if (child.item(j).getNodeName().equals("ANY")) {
+                            
+                            any = child.item(j).getTextContent();
+                            
+                        } else if (child.item(j).getNodeName().equals("IDFILM")) {
+                            
+                            idfilm = Integer.parseInt(child.item(j).getTextContent());
+                            
+                        } else if (child.item(j).getNodeName().equals("PRIORITAT")) {
+                            
+                            prioritat = Integer.parseInt(child.item(j).getTextContent());
+                            
+                        } else if (child.item(j).getNodeName().equals("SITUACIO")) {
+                            
+                            situacio = child.item(j).getTextContent();
+                            
+                        } else if (child.item(j).getNodeName().equals("TITOL")){
+                            
+                            titol = child.item(j).getTextContent();
+                        } 
+                    }
+                    //
+                }
+                Peli peli = new Peli(idfilm, prioritat, titol, situacio, any);
+                arrayPelis[contador] = peli;
+                contador++;
+            }
+        }
+        
+        Pelis pelis = new Pelis();
+        pelis.setPeli(arrayPelis);
+        
+        Peli[] monstarObjectes = pelis.getPeli();
+        
+        System.out.println("*********** OBJECTES JAVA DESDE XML ***********");
+        
+        System.out.println(pelis.toString());
+        
+        for (int i = 0; i < monstarObjectes.length; i++) {
+            System.out.println(monstarObjectes[i].toString());
+        }
+
     }
 }
