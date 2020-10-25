@@ -40,6 +40,11 @@ public class Exercici4 {
         String contrasenyaEncriptada = new String(contrasenyaEncriptadaBytes);
         System.out.println("Contrasenya encriptada:" + contrasenyaEncriptada);
 
+        // Desencriptar ECB
+
+        byte[] contrasenyaDesencriptadaBytes = decryptData(sKey, contrasenyaEncriptadaBytes);
+        String contrasenyaDesencriptada = new String(contrasenyaDesencriptadaBytes);
+        System.out.println("missatge desincriptat:" + contrasenyaDesencriptada);
     }
 
     //ENCRIPTAR
@@ -52,6 +57,20 @@ public class Exercici4 {
             encryptedData = cipher.doFinal(data);
         } catch (Exception ex) {
             System.err.println("Error xifrant les dades: " + ex);
+        }
+        return encryptedData;
+    }
+
+    //DESENCRIPTAR
+    public static byte[] decryptData(SecretKey sKey, byte[] data) {
+        byte[] encryptedData = null;
+
+        try {
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.DECRYPT_MODE, sKey);
+            encryptedData = cipher.doFinal(data);
+        } catch (Exception ex) {
+            System.err.println("Error desxifrant les dades: " + ex);
         }
         return encryptedData;
     }
