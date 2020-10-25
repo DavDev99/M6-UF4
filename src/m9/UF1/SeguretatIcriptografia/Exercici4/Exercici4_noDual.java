@@ -5,6 +5,8 @@
  */
 package m9.UF1.SeguretatIcriptografia.Exercici4;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -18,37 +20,32 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class Exercici4_noDual {
     
-       public static void main(String[] args) {
+       public static void main(String[] args) throws IOException {
 
         Scanner teclado = new Scanner(System.in);
         String clau;
         String contrasenya;
+        String nomFitxer;
 
         
         System.out.println("Clau per a encriptar:");
         clau = teclado.nextLine();
 
-        System.out.println("Texte a encriptar:");
+        System.out.println("Contingut del fitxer:");
         contrasenya = teclado.nextLine();
+        
+        System.out.println("Nom del fitxer:");
+        nomFitxer = teclado.nextLine();
 
+     	// Escriure fitxer sense encriptar
+	FileWriter fichero1 = new FileWriter("src/m9/UF1/SeguretatIcriptografia/Exercici4/" + nomFitxer + "_X.txt");
+	fichero1.write(contrasenya + "\n");
+	fichero1.close();
+        
+        // Generar clau secreta
         SecretKey sKey = passwordKeyGeneration(clau);
 
-     
 
-        //ECB
-        byte[] contrasenyaBytes = contrasenya.getBytes();
-        byte[] contrasenyaEncriptadaBytes = encryptData(sKey, contrasenyaBytes);
-
-        // Mostrar valor
-
-        String contrasenyaEncriptada = new String(contrasenyaEncriptadaBytes);
-        System.out.println("Contrasenya encriptada:" + contrasenyaEncriptada);
-
-        // Desencriptar ECB
-
-        byte[] contrasenyaDesencriptadaBytes = decryptData(sKey, contrasenyaEncriptadaBytes);
-        String contrasenyaDesencriptada = new String(contrasenyaDesencriptadaBytes);
-        System.out.println("missatge desincriptat:" + contrasenyaDesencriptada);
     }
 
     //ENCRIPTAR
