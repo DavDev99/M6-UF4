@@ -62,7 +62,7 @@ public class Exercici4_noDual {
 
         // Escriure valors encriptats
         FileWriter escriureFitxerEncriptat = new FileWriter("src/m9/UF1/SeguretatIcriptografia/Exercici4/" + nomFitxer + "_Y.txt");
-        escriureFitxerEncriptat.write(contingutEncriptat + "\n");
+        escriureFitxerEncriptat.write(contingutEncriptat);
         escriureFitxerEncriptat.close();
 
         // Llegir fitxer encriptat
@@ -81,8 +81,7 @@ public class Exercici4_noDual {
         System.out.println("Fitxer desencriptat:");
 
         while ((cadena = b1.readLine()) != null) {
-
-            // Desencriptar
+            // Desencriptar            
                 String dadesDelArixiuDesencriptat = new String(decryptData(sKey, cadena.getBytes()));
                 System.out.println(dadesDelArixiuDesencriptat);
 

@@ -17,25 +17,25 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 public class Pelis {
 
-    private Peli[] peli;
+    private Peli[] pelis;
 
     public Pelis(Peli[] peli) {
-        this.peli = peli;
+        this.pelis = peli;
     }
 
     public Pelis() {
     }
 
     public void setPeli(Peli[] pelis) {
-        this.peli = pelis;
+        this.pelis = pelis;
     }
     
     public Peli[] getPeli() {
-        return peli;
+        return pelis;
     }
 
     public String toString() {
-        return "Pelis{" + "peli=" + Arrays.toString(peli) + '}';
+        return "Pelis{" + "peli=" + Arrays.toString(pelis) + '}';
     }
     
     
