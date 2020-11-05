@@ -5,14 +5,17 @@
  */
 package m9.UF1.SeguretatIcriptografia.Exercici5;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.math.BigInteger;
 import java.security.InvalidKeyException;
+import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
@@ -22,6 +25,7 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Arrays;
 import java.util.Scanner;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -50,22 +54,28 @@ public class Exercici5 {
         // Recollir dades
         System.out.println("Text a encriptar:");
         textAEncriptar = teclado.next();
-        rutaClauPrivada = "/src/m9/UF1/SeguretatIcriptografia/Exercici5/clauPrivada.txt";
-        rutaClauPublica = "/src/m9/UF1/SeguretatIcriptografia/Exercici5/clauPublica.txt";
+        rutaClauPrivada = "src/m9/UF1/SeguretatIcriptografia/Exercici5/clauPrivada.txt";
+        rutaClauPublica = "src/m9/UF1/SeguretatIcriptografia/Exercici5/clauPublica.txt";
 
         // Crear i guardar claus
-        genKeyPair(512);
+        generarLesClaus(512);
         guardarClauPrivada(rutaClauPrivada);
         guardarClauPublica(rutaClauPublica);
-        
+
         // Encriptar
-        
-        texteEncriptat = Encrypt(textAEncriptar);
-        System.out.println("Text encriptat:" + texteEncriptat );
+        texteEncriptat = encriptar(textAEncriptar);
+        System.out.println("Text encriptat:" + texteEncriptat);
+
+        // Desencriptar
+        recullorFitxerDeLaClauPrivada(rutaClauPrivada);
+        recullorFitxerDeLaClauPublica(rutaClauPublica);
+
+        desxifrat = desencriptar(texteEncriptat);
+        System.out.println("Desxifrat:" + desxifrat);
 
     }
 
-    public static void genKeyPair(int size) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public static void generarLesClaus(int size) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 
         KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
         kpg.initialize(size);
@@ -81,7 +91,7 @@ public class Exercici5 {
     public static void guardarClauPrivada(String path) throws IOException {
         try {
             Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"));
-            out.write(getClauPrivadaString());
+            out.write(clauPrivadaEnString());
             out.close();
         } catch (Exception e) {
 
@@ -91,40 +101,99 @@ public class Exercici5 {
     public static void guardarClauPublica(String path) {
         try {
             Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"));
-            out.write(getClauPublicaString());
+            out.write(clauPublicaEnString());
             out.close();
         } catch (Exception e) {
 
         }
     }
 
-    public static String getClauPrivadaString() {
+    public static String clauPrivadaEnString() {
         PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(clauPrivada.getEncoded());
-        return bytesToString(pkcs8EncodedKeySpec.getEncoded());
+        return deBytesAString(pkcs8EncodedKeySpec.getEncoded());
     }
 
-    public static String getClauPublicaString() {
+    public static String clauPublicaEnString() {
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(clauPublica.getEncoded());
-        return bytesToString(x509EncodedKeySpec.getEncoded());
+        return deBytesAString(x509EncodedKeySpec.getEncoded());
     }
 
-    public static String bytesToString(byte[] b) {
+    public static String deBytesAString(byte[] b) {
         byte[] b2 = new byte[b.length + 1];
         b2[0] = 1;
         System.arraycopy(b, 0, b2, 1, b.length);
         return new BigInteger(b2).toString(36);
     }
-    
-    public static String Encrypt(String plain) throws NoSuchAlgorithmException,NoSuchPaddingException, InvalidKeyException,IllegalBlockSizeException, BadPaddingException, InvalidKeySpecException, UnsupportedEncodingException, NoSuchProviderException {
 
-        byte[] encryptedBytes; 
+    public static String encriptar(String plain) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, InvalidKeySpecException, UnsupportedEncodingException, NoSuchProviderException {
+
+        byte[] encryptedBytes;
 
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.ENCRYPT_MODE, clauPublica);
         encryptedBytes = cipher.doFinal(plain.getBytes());
 
-        return bytesToString(encryptedBytes);
+        return deBytesAString(encryptedBytes);
 
+    }
+    
+    public static String desencriptar(String result) throws NoSuchAlgorithmException,NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+
+        byte[] decryptedBytes;
+
+        Cipher cipher = Cipher.getInstance("RSA");
+        cipher.init(Cipher.DECRYPT_MODE, clauPrivada);
+        decryptedBytes = cipher.doFinal(stringToBytes(result));
+        return new String(decryptedBytes);
+    }
+
+
+    public static void recullorFitxerDeLaClauPublica(String path) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+        String content = readFileAsString(path);
+        setClauPublicaString(content);
+    }
+
+    public static void recullorFitxerDeLaClauPrivada(String path) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+        String content = readFileAsString(path);
+        setClauPrivadaString(content);
+    }
+
+    private static String readFileAsString(String filePath) throws IOException {
+        StringBuffer fileData = new StringBuffer();
+        BufferedReader reader = new BufferedReader(
+                new FileReader(filePath));
+        char[] buf = new char[1024];
+        int numRead = 0;
+        while ((numRead = reader.read(buf)) != -1) {
+            String readData = String.valueOf(buf, 0, numRead);
+            fileData.append(readData);
+        }
+        reader.close();
+        return fileData.toString();
+    }
+
+    public static byte[] stringToBytes(String s) {
+        byte[] b2 = new BigInteger(s, 36).toByteArray();
+        return Arrays.copyOfRange(b2, 1, b2.length);
+    }
+
+    public static void setClauPrivadaString(String key) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] encodedPrivateKey = stringToBytes(key);
+
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(encodedPrivateKey);
+        PrivateKey privateKey = keyFactory.generatePrivate(privateKeySpec);
+        clauPrivada = privateKey;
+    }
+
+    public static void setClauPublicaString(String key) throws NoSuchAlgorithmException, InvalidKeySpecException {
+
+        byte[] encodedPublicKey = stringToBytes(key);
+
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+        X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(encodedPublicKey);
+        PublicKey publicKey = keyFactory.generatePublic(publicKeySpec);
+        clauPublica = publicKey;
     }
 
 }
