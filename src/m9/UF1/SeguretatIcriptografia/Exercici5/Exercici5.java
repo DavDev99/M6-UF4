@@ -5,12 +5,20 @@
  */
 package m9.UF1.SeguretatIcriptografia.Exercici5;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Scanner;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -23,26 +31,28 @@ import javax.crypto.NoSuchPaddingException;
 public class Exercici5 {
 
     // Variables de clase
-
-    static PrivateKey privateKey;
-    static PublicKey publicKey;
+    static PrivateKey clauPrivada;
+    static PublicKey clauPublica;
 
     public static void main(String[] args) throws Exception {
         // Variables
         Scanner teclado = new Scanner(System.in);
         String text;
-
-        String clauPrivada;
-        String clauPublica;
+        String desxifrat;
+        String secure;
+        String rutaClauPrivada;
+        String rutaClauPublica;
 
         // Recollir dades
         System.out.println("TEXT:");
         text = teclado.next();
-        
-        clauPrivada = "clauPrivada.txt";
-        clauPublica = "rclauPublica.txt";
+        rutaClauPrivada = "/src/m9/UF1/SeguretatIcriptografia/Exercici5/clauPrivada.txt";
+        rutaClauPublica = "/src/m9/UF1/SeguretatIcriptografia/Exercici5/clauPublica.txt";
 
         genKeyPair(512);
+
+        guardarClauPrivada(rutaClauPrivada);
+        guardarClauPublica(rutaClauPublica);
 
     }
 
@@ -55,7 +65,45 @@ public class Exercici5 {
         PublicKey publicKey2 = kp.getPublic();
         PrivateKey privateKey2 = kp.getPrivate();
 
-        privateKey = privateKey2;
-        publicKey = publicKey2;
+        clauPrivada = privateKey2;
+        clauPublica = publicKey2;
     }
+
+    public static void guardarClauPrivada(String path) throws IOException {
+        try {
+            Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"));
+            out.write(getClauPrivadaString());
+            out.close();
+        } catch (Exception e) {
+
+        }
+    }
+
+    public static void guardarClauPublica(String path) {
+        try {
+            Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"));
+            out.write(getClauPublicaString());
+            out.close();
+        } catch (Exception e) {
+
+        }
+    }
+
+    public static String getClauPrivadaString() {
+        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(clauPrivada.getEncoded());
+        return bytesToString(pkcs8EncodedKeySpec.getEncoded());
+    }
+
+    public static String getClauPublicaString() {
+        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(clauPublica.getEncoded());
+        return bytesToString(x509EncodedKeySpec.getEncoded());
+    }
+
+    public static String bytesToString(byte[] b) {
+        byte[] b2 = new byte[b.length + 1];
+        b2[0] = 1;
+        System.arraycopy(b, 0, b2, 1, b.length);
+        return new BigInteger(b2).toString(36);
+    }
+
 }
