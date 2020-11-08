@@ -121,17 +121,9 @@ public class Encriptacio {
             dos = new DataOutputStream(new FileOutputStream("src/m9/UF1/SeguretatIcriptografia/Exercici6/" + nomFitxer));
             dos.write(clauEncriptada);
             dos.flush();
+            dos.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            if (dos != null) {
-                try {
-                    dos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
         }
     }
 }
