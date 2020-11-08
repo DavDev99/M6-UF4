@@ -36,7 +36,7 @@ public class Encriptacio {
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
         Scanner teclado = new Scanner(System.in);
-        
+
         // Nom de la clau publica
         System.out.println("Introdueix el nom de la clau publica");
         String nomFitxer = "src/m9/UF1/SeguretatIcriptografia/Exercici6/" + teclado.nextLine();
@@ -46,7 +46,7 @@ public class Encriptacio {
         if (clauPublicaFitxer.exists()) {
             // Llegim els bytes
             byte[] keyBytes = Files.readAllBytes(Paths.get(nomFitxer));
-            
+
             // guardem la clau publica a una variable
             X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
             KeyFactory kf = KeyFactory.getInstance("RSA");
@@ -55,19 +55,16 @@ public class Encriptacio {
             // Encriptem la clau apartir de una contrasenya
             final String secretKey = "increibleContrasenya";
             byte[] clauEncriptada = encriptarClauPublicaAmbContrasenya(clauPublica, secretKey);
-            
+
             // Guardem la clau encriptada
             guardarADocuments("ZZZ_clau_encriptada", clauEncriptada);
-            
+
             // Guardem la frase que volem encriptar
             System.out.println("Introdueix la frase a encriptar");
             String texteAEncriptar = teclado.nextLine();
-       
+
             byte[] texteEncriptat = encrypt(texteAEncriptar, secretKey);
             guardarADocuments("ZZZ_missatge_encriptat", texteEncriptat);
-
-            // Texte encriptat per pantalla
-            System.out.println(new String(texteEncriptat, "UTF8"));
 
         }
 
@@ -82,7 +79,7 @@ public class Encriptacio {
             key = sha.digest(key);
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, "AES");
-            
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
@@ -94,7 +91,7 @@ public class Encriptacio {
         try {
             // Transformem la contrasenya super secreta a una SecretKeySpec
             setKey(contrasenya);
-            
+
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
             return Base64.getEncoder().encode(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
@@ -121,13 +118,20 @@ public class Encriptacio {
     public static void guardarADocuments(String nomFitxer, byte[] clauEncriptada) {
         DataOutputStream dos = null;
         try {
-            System.out.println(new String(clauEncriptada, "UTF8"));
-            dos = new DataOutputStream(new FileOutputStream(nomFitxer));
+            dos = new DataOutputStream(new FileOutputStream("src/m9/UF1/SeguretatIcriptografia/Exercici6/" + nomFitxer));
             dos.write(clauEncriptada);
             dos.flush();
-            dos.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } 
+        } finally {
+            if (dos != null) {
+                try {
+                    dos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 }
