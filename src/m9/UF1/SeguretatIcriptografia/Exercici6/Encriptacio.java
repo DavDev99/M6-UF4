@@ -33,7 +33,6 @@ import java.security.spec.X509EncodedKeySpec;
 public class Encriptacio {
 
     private static SecretKeySpec secretKey;
-    private static byte[] key;
 
     public static void main(String[] args) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
         Scanner teclado = new Scanner(System.in);
@@ -53,11 +52,82 @@ public class Encriptacio {
             KeyFactory kf = KeyFactory.getInstance("RSA");
             PublicKey clauPublica = kf.generatePublic(spec);
 
+            // Encriptem la clau apartir de una contrasenya
+            final String secretKey = "increibleContrasenya";
+            byte[] clauEncriptada = encriptarClauPublicaAmbContrasenya(clauPublica, secretKey);
+            
+            // Guardem la clau encriptada
+            guardarADocuments("ZZZ_clau_encriptada", clauEncriptada);
+            
+            // Guardem la frase que volem encriptar
+            System.out.println("Introdueix la frase a encriptar");
+            String texteAEncriptar = teclado.nextLine();
        
+            byte[] texteEncriptat = encrypt(texteAEncriptar, secretKey);
+            guardarADocuments("ZZZ_missatge_encriptat", texteEncriptat);
+
+            // Texte encriptat per pantalla
+            System.out.println(new String(texteEncriptat, "UTF8"));
 
         }
 
     }
 
-  
+    public static void setKey(String myKey) {
+        MessageDigest sha = null;
+        try {
+            byte[] key;
+            key = myKey.getBytes("UTF-8");
+            sha = MessageDigest.getInstance("SHA-1");
+            key = sha.digest(key);
+            key = Arrays.copyOf(key, 16);
+            secretKey = new SecretKeySpec(key, "AES");
+            
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static byte[] encrypt(String strToEncrypt, String contrasenya) {
+        try {
+            // Transformem la contrasenya super secreta a una SecretKeySpec
+            setKey(contrasenya);
+            
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            return Base64.getEncoder().encode(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
+        } catch (Exception e) {
+            System.out.println("Error while encrypting: " + e.toString());
+        }
+        return null;
+    }
+
+    public static byte[] encriptarClauPublicaAmbContrasenya(PublicKey clauPublica, String contrasenya) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+
+        cipher.init(Cipher.ENCRYPT_MODE, clauPublica);
+
+        // Posem la contrasenya al cipher
+        byte[] input = contrasenya.getBytes();
+        cipher.update(input);
+
+        // Encriptem el text i el retornem
+        byte[] cipherText = cipher.doFinal();
+        return cipherText;
+    }
+
+    public static void guardarADocuments(String nomFitxer, byte[] clauEncriptada) {
+        DataOutputStream dos = null;
+        try {
+            System.out.println(new String(clauEncriptada, "UTF8"));
+            dos = new DataOutputStream(new FileOutputStream(nomFitxer));
+            dos.write(clauEncriptada);
+            dos.flush();
+            dos.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } 
+    }
 }
