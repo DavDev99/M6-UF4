@@ -57,14 +57,14 @@ public class Encriptacio {
             byte[] clauEncriptada = encriptarClauPublicaAmbContrasenya(clauPublica, secretKey);
 
             // Guardem la clau encriptada
-            guardarADocuments("ZZZ_clau_encriptada", clauEncriptada);
+            guardarADocuments("ZZZ_clau_encriptada.txt", clauEncriptada);
 
             // Guardem la frase que volem encriptar
             System.out.println("Introdueix la frase a encriptar");
             String texteAEncriptar = teclado.nextLine();
 
             byte[] texteEncriptat = encrypt(texteAEncriptar, secretKey);
-            guardarADocuments("ZZZ_missatge_encriptat", texteEncriptat);
+            guardarADocuments("ZZZ_missatge_encriptat.txt", texteEncriptat);
 
         }
 
