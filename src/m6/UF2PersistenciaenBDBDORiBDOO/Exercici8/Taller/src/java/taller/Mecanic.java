@@ -26,28 +26,20 @@ public class Mecanic extends Persona implements Serializable{
     Date diaContractat;
     int cotxesArreglats;
 
-    public Mecanic(int cotxesArreglats, Long id, String dni, String nomComplet) {
+    public Mecanic(int cotxesArreglats, String dni, String nomComplet) {
         super(dni, nomComplet);
-        this.id = id;
         this.diaContractat = new Date(System.currentTimeMillis());
         this.cotxesArreglats = cotxesArreglats;
     }
 
-    public Date getDiaContractat() {
-        return diaContractat;
+    public Mecanic() {
     }
 
-    public void setDiaContractat(Date diaContractat) {
-        this.diaContractat = diaContractat;
+    @Override
+    public String toString() {
+        return "Mecanic{" + "id=" + id + ", diaContractat=" + diaContractat + ", cotxesArreglats=" + cotxesArreglats + '}';
     }
 
-    public int getCotxesArreglats() {
-        return cotxesArreglats;
-    }
-
-    public void setCotxesArreglats(int cotxesArreglats) {
-        this.cotxesArreglats = cotxesArreglats;
-    }
     
     
 }

@@ -17,8 +17,7 @@ import javax.servlet.annotation.WebListener;
  * @author PC-Casa
  */
 @WebListener()
-public class VehicleListener implements ServletContextListener {
-
+public class ClientListener implements ServletContextListener {
 
     // Prepare the EntityManagerFactory & Enhance:
     public void contextInitialized(ServletContextEvent e) {

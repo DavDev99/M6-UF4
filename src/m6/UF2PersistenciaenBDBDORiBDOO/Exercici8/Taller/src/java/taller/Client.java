@@ -29,29 +29,20 @@ public class Client extends Persona implements Serializable{
     String matriculaCotxe;
     
 
-    public Client(String matriculaCotxe, Long id, String dni, String nomComplet) {
+    public Client(String matriculaCotxe,String dni, String nomComplet) {
         super(dni, nomComplet);
-        this.id = id;
         this.diaQueDeixaElCotxe = new Date(System.currentTimeMillis());
         this.matriculaCotxe = matriculaCotxe;
     }
 
-    public Date getDiaQueDeixaElCotxe() {
-        return diaQueDeixaElCotxe;
+    public Client() {
     }
 
-    public void setDiaQueDeixaElCotxe(Date diaQueDeixaElCotxe) {
-        this.diaQueDeixaElCotxe = diaQueDeixaElCotxe;
+    @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", diaQueDeixaElCotxe=" + diaQueDeixaElCotxe + ", matriculaCotxe=" + matriculaCotxe + '}';
     }
 
-    public String getMatriculaCotxe() {
-        return matriculaCotxe;
-    }
-
-    public void setMatriculaCotxe(String matriculaCotxe) {
-        this.matriculaCotxe = matriculaCotxe;
-    }
-    
     
     
 }

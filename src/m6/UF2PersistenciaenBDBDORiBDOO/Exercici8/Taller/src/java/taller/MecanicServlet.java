@@ -7,8 +7,8 @@ import javax.servlet.http.*;
 import javax.persistence.*;
 import javax.servlet.annotation.WebServlet;
  
-@WebServlet("/VehicleServlet")
-public class VehicleServlet extends HttpServlet {
+@WebServlet("/TreballadorServlet")
+public class MecanicServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
     @Override
@@ -22,22 +22,20 @@ public class VehicleServlet extends HttpServlet {
         EntityManager em = emf.createEntityManager();
  
         try {
+            
+            String nom = request.getParameter("name");
+            String dni = request.getParameter("dni");
+            String arrelgats = request.getParameter("arreglats");
 
-            String model = request.getParameter("model");
-            String matricula = request.getParameter("matricula");
-            String problema = request.getParameter("problema");
-            boolean estaArreglat = false;
-
-            if (model != null && matricula != null && problema != null) {
+            if (nom != null && dni != null && arrelgats != null) {
                 em.getTransaction().begin();
-                em.persist(new Vehicle(model, matricula, problema, estaArreglat));
+                em.persist(new Mecanic(Integer.parseInt(arrelgats), dni, nom));
                 em.getTransaction().commit();
             }
 
-            List<Vehicle> vehicleList = em.createQuery(
-                "SELECT g FROM Vehicle g", Vehicle.class).getResultList();
-            request.setAttribute("vehicles", vehicleList);
-            request.getRequestDispatcher("/vehicles.jsp")
+            List<Mecanic> clientList = em.createQuery("SELECT g FROM Mecanics g", Mecanic.class).getResultList();
+            request.setAttribute("mecanics", clientList);
+            request.getRequestDispatcher("/mecanics.jsp")
                 .forward(request, response);
  
         } finally {

@@ -22,20 +22,21 @@ public class ClientServlet extends HttpServlet {
         EntityManager em = emf.createEntityManager();
  
         try {
-//            // Handle a new guest (if any):
-//            String name = request.getParameter("name");
-//            if (name != null) {
-//                em.getTransaction().begin();
-//                em.persist(new Guest(name));
-//                em.getTransaction().commit();
-//            }
-// 
-//            // Display the list of guests:
-//            List<Guest> guestList = em.createQuery(
-//                "SELECT g FROM Guest g", Guest.class).getResultList();
-//            request.setAttribute("guests", guestList);
-//            request.getRequestDispatcher("/taller.jsp")
-//                .forward(request, response);
+            
+            String nom = request.getParameter("name");
+            String dni = request.getParameter("dni");
+            String matricula = request.getParameter("matrucula");
+
+            if (nom != null && dni != null && matricula != null) {
+                em.getTransaction().begin();
+                em.persist(new Client(matricula, dni, nom));
+                em.getTransaction().commit();
+            }
+
+            List<Client> clientList = em.createQuery("SELECT g FROM Client g", Client.class).getResultList();
+            request.setAttribute("clients", clientList);
+            request.getRequestDispatcher("/clients.jsp")
+                .forward(request, response);
  
         } finally {
             // Close the database connection:
