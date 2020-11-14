@@ -9,17 +9,24 @@ package taller;
  *
  * @author PC-Casa
  */
+
 import java.io.Serializable;
-import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-public class Persona {
+@Entity
+public class Persona implements Serializable{
     
+    private static final long serialVersionUID = 1L;
+    
+    @Id @GeneratedValue
     Long id;
     String dni;
     String nomComplet;
+
+    public Persona() {
+    }
 
     public Persona(Long id, String dni, String nomComplet) {
         this.id = id;

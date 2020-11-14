@@ -5,19 +5,22 @@
  */
 package taller;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author PC-Casa
  */
 
-import java.io.Serializable;
-import java.sql.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-public class Vehicle {
+@Entity
+public class Vehicle implements Serializable{
     
+    private static final long serialVersionUID = 1L;
+    
+    @Id @GeneratedValue
     Long id;
     String model;
     String matricula;

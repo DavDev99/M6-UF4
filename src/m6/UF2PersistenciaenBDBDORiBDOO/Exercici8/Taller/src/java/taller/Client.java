@@ -5,11 +5,9 @@
  */
 package taller;
 
-import java.io.Serializable;
+
 import java.sql.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
 
 /**
  *
