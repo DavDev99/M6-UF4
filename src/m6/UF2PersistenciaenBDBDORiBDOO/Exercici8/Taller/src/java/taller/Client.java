@@ -6,23 +6,33 @@
 package taller;
 
 
+import java.io.Serializable;
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 
 /**
  *
  * @author PC-Casa
  */
-public class Client extends Persona{
+    @Entity
+public class Client extends Persona implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
+    
+    @Id @GeneratedValue
+    Long id;
     
     Date diaQueDeixaElCotxe;
-    int numeroReparacions;
     String matriculaCotxe;
+    
 
-    public Client(Date diaQueDeixaElCotxe, int numeroReparacions, String matriculaCotxe, Long id, String dni, String nomComplet) {
-        super(id, dni, nomComplet);
-        this.diaQueDeixaElCotxe = diaQueDeixaElCotxe;
-        this.numeroReparacions = numeroReparacions;
+    public Client(String matriculaCotxe, Long id, String dni, String nomComplet) {
+        super(dni, nomComplet);
+        this.id = id;
+        this.diaQueDeixaElCotxe = new Date(System.currentTimeMillis());
         this.matriculaCotxe = matriculaCotxe;
     }
 
@@ -32,14 +42,6 @@ public class Client extends Persona{
 
     public void setDiaQueDeixaElCotxe(Date diaQueDeixaElCotxe) {
         this.diaQueDeixaElCotxe = diaQueDeixaElCotxe;
-    }
-
-    public int getNumeroReparacions() {
-        return numeroReparacions;
-    }
-
-    public void setNumeroReparacions(int numeroReparacions) {
-        this.numeroReparacions = numeroReparacions;
     }
 
     public String getMatriculaCotxe() {

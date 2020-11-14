@@ -10,17 +10,26 @@ package taller;
  * @author PC-Casa
  */
 
+import java.io.Serializable;
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-
-public class Mecanic extends Persona{
+@Entity
+public class Mecanic extends Persona implements Serializable{
     
+    private static final long serialVersionUID = 1L;
+    
+    @Id @GeneratedValue
+    Long id;
     Date diaContractat;
     int cotxesArreglats;
 
-    public Mecanic(Date diaContractat, int cotxesArreglats, Long id, String dni, String nomComplet) {
-        super(id, dni, nomComplet);
-        this.diaContractat = diaContractat;
+    public Mecanic(int cotxesArreglats, Long id, String dni, String nomComplet) {
+        super(dni, nomComplet);
+        this.id = id;
+        this.diaContractat = new Date(System.currentTimeMillis());
         this.cotxesArreglats = cotxesArreglats;
     }
 
