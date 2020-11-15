@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.persistence.*;
 import javax.servlet.annotation.WebServlet;
  
-@WebServlet("/TreballadorServlet")
+@WebServlet("/MecanicServlet")
 public class MecanicServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
@@ -33,7 +33,7 @@ public class MecanicServlet extends HttpServlet {
                 em.getTransaction().commit();
             }
 
-            List<Mecanic> clientList = em.createQuery("SELECT g FROM Mecanics g", Mecanic.class).getResultList();
+            List<Mecanic> clientList = em.createQuery("SELECT g FROM Mecanic g", Mecanic.class).getResultList();
             request.setAttribute("mecanics", clientList);
             request.getRequestDispatcher("/mecanics.jsp")
                 .forward(request, response);

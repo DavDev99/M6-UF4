@@ -18,7 +18,7 @@
         <form method="POST" action="MecanicServlet">
             Nom: <input type="text" name="name" />
             DNI: <input type="text" name="dni" />
-            Cotxes arreglats: <input type="number" name="arreglats" />
+            Cotxes arreglats (sol numeros): <input type="number" name="arreglats" />
             <input type="submit" value="Add" />
         </form>
         <ol> <%
@@ -28,7 +28,8 @@
                 <li> <%= mecanic %> </li> <%
             } %>
         </ol>
-      
+        <hr>
+        <a href="taller.jsp"> Tornar al menu </a>
 
     </body>
 </html>

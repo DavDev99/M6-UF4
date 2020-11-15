@@ -25,7 +25,7 @@ public class ClientServlet extends HttpServlet {
             
             String nom = request.getParameter("name");
             String dni = request.getParameter("dni");
-            String matricula = request.getParameter("matrucula");
+            String matricula = request.getParameter("matricula");
 
             if (nom != null && dni != null && matricula != null) {
                 em.getTransaction().begin();

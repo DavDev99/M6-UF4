@@ -14,39 +14,9 @@
         <title>Taller Control Page</title>
     </head>
     <body>
-        <h1>INCREIBLE PROGRAMA DE GESTIO DE TALLERS SUPER RENTABLE PLS NO ME SUSPENGUIS <3</h1>
-        <h3>Nou Vehicle</h3>
-        <form method="POST" action="VehicleServlet">
-            Model: <input type="text" name="model" />
-            Matricula: <input type="text" name="matricula" />
-            Problema: <input type="text" name="problema" />
-            <input type="submit" value="Add" />
-        </form>
-        <hr>
-        <ol> <%
-            @SuppressWarnings("unchecked") 
-            List<Vehicle> vehicles = (List<Vehicle>)request.getAttribute("vehicles");
-            for (Vehicle vehicle : vehicles) { %>
-                <li> <%= vehicle %> </li> <%
-            } %>
-        </ol>
-        <hr>
-        <h3>Nou Client</h3>
-        <form method="POST" action="ClientServlet">
-            Nom: <input type="text" name="name" />
-            DNI: <input type="text" name="dni" />
-            Matricula del Cotxe: <input type="text" name="matricula" />
-            <input type="submit" value="Add" />
-        </form>
-        
-        <h3>Nou Treballador</h3>
-        <form method="POST" action="TreballadorServlet">
-            Nom: <input type="text" name="name" />
-            DNI: <input type="text" name="dni" />
-            Cotxes arreglats: <input type="number" name="arreglats" />
-            <input type="submit" value="Add" />
-        </form>
-        
 
+        <a href="ClientServlet">Secció clients</a>
+        <a href="MecanicServlet">Secció treballadors</a>
+        <a href="VehicleServlet">Secció vehicles</a>
     </body>
 </html>

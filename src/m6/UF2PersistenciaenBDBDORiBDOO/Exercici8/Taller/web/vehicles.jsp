@@ -29,7 +29,8 @@
                 <li> <%= vehicle %> </li> <%
             } %>
         </ol>
-     
+        <hr>
+        <a href="taller.jsp"> Tornar al menu </a>
 
     </body>
 </html>
