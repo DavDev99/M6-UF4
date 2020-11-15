@@ -22,15 +22,15 @@ public class Notaria {
         System.out.print("Comprovant signatura de l’arxiu missatge...");
         
         // Guardem la clau publica a una variable
-        byte[] keyBytes = Files.readAllBytes(Paths.get("clauPublica"));
+        byte[] keyBytes = Files.readAllBytes(Paths.get("src/m9/UF1/SeguretatIcriptografia/Exercici7/clauPublica.txt"));
         X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
         KeyFactory kf = KeyFactory.getInstance("RSA");
         PublicKey clauPublica = kf.generatePublic(spec);
 
         // Agafem el missatge i la firma i les guardem a una variable
-        byte[] missatge = Files.readAllBytes(Paths.get("missatge"));
+        byte[] missatge = Files.readAllBytes(Paths.get("src/m9/UF1/SeguretatIcriptografia/Exercici7/missatge.txt"));
 
-        byte[] signatura = Files.readAllBytes(Paths.get("firma_missatge"));
+        byte[] signatura = Files.readAllBytes(Paths.get("src/m9/UF1/SeguretatIcriptografia/Exercici7/firma_missatge.txt"));
         
         // Comprobem si el missatge s'ha modificat o no segorns la firma
         boolean validacio = false;
@@ -43,9 +43,9 @@ public class Notaria {
         // Mostrem el resultat
 
         if (validacio) {
-            System.out.print("OK");
+            System.out.println("OK");
         } else {
-            System.out.print("ERROR");
+            System.out.println("ERROR");
         }
 
     }
