@@ -24,6 +24,7 @@ public class Exercici1 {
         int opcio = -1;
         String nom;
         String dni;
+        String dniIdentidicador;
         String dataNaixement;
         String adresaPostal;
         String sexe;
@@ -81,6 +82,32 @@ public class Exercici1 {
 
             } else if (opcio == 2) {
                 // Modificar alumne
+                System.out.println("Introdueix el dni del alumne a modificar");
+                dniIdentidicador = teclado.nextLine();
+                
+                System.out.println("Introdueix un nom");
+                nom = teclado.nextLine();
+
+                System.out.println("Introdueix un DNI");
+                dni = teclado.nextLine();
+
+                System.out.println("Introdueix data de naixement (exemple: 1999-03-22)");
+                dataNaixement = teclado.nextLine();
+
+                System.out.println("Introdueix adreça postal");
+                adresaPostal = teclado.nextLine();
+
+                System.out.println("Introdueix sexe");
+                sexe = teclado.nextLine();
+
+                System.out.println("Introdueix codi postal");
+                codiPostal = teclado.nextInt();
+                teclado.nextLine();
+
+                System.out.println("Introdueix poblacio");
+                poblacio = teclado.nextLine();
+
+                modificarAlumnes(nom, dni, dataNaixement, adresaPostal, sexe, codiPostal, poblacio);
 
             }
         }
@@ -97,7 +124,7 @@ public class Exercici1 {
 
             stmt = connection.createStatement();
             stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ",'" + poblacio + "')");
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -109,6 +136,27 @@ public class Exercici1 {
             }
         }
     }
-    
 
+    private static void modificarAlumnes(int id, String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal, String poblacio) {
+
+        Statement stmt = null;
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
+
+            stmt = connection.createStatement();
+            stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ",'" + poblacio + "')");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
