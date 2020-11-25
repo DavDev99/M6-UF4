@@ -84,7 +84,7 @@ public class Exercici8 {
                 llaveexportar = ks.getKey(aliasClau, arrayContrasenya);
                 X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(llaveexportar.getEncoded());
                 
-                FileOutputStream fos = new FileOutputStream("E:/dam/m09/uf1/act8/" + aliasClau + "_clau.cer");
+                FileOutputStream fos = new FileOutputStream("src/m9/UF1/SeguretatIcriptografia/Exercici8/" + aliasClau + "_clau.cer");
                 System.out.println("Creat");
                 
             }
