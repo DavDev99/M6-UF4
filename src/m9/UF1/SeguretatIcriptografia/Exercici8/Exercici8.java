@@ -53,7 +53,7 @@ public class Exercici8 {
         Enumeration<String> aliasllaves = ks.aliases();
 
         while (aliasllaves.hasMoreElements()) {
-            
+
             // Mostrem les claus
             aliasClau = aliasllaves.nextElement();
             System.out.print("Entry name: " + aliasClau + "\t\t" + "Algorithm: " + ks.getKey(aliasClau, arrayContrasenya).getAlgorithm() + "\t\t");
@@ -74,19 +74,19 @@ public class Exercici8 {
         System.out.println("Quina clau vols exportar?");
         Enumeration<String> aliasllaves2 = ks.aliases();
         clauAExporta = telcado.nextLine();
-        
+
         while (aliasllaves2.hasMoreElements() && llaveALlevarse == 0) {
-            
+
             aliasClau = aliasllaves2.nextElement();
             // Si el nom del alias es igual exportem el certificat
             if (aliasClau.equals(clauAExporta.trim())) {
-                
+
                 llaveexportar = ks.getKey(aliasClau, arrayContrasenya);
                 X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(llaveexportar.getEncoded());
-                
+
                 FileOutputStream fos = new FileOutputStream("src/m9/UF1/SeguretatIcriptografia/Exercici8/" + aliasClau + "_clau.cer");
-                System.out.println("Creat");
-                
+                System.out.println("Certificat exportat");
+
             }
         }
     }
