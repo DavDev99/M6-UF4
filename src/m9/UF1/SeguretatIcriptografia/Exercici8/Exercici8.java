@@ -37,12 +37,14 @@ public class Exercici8 {
 
         // Variables
         KeyStore ks = KeyStore.getInstance("JCEKS");
-        Scanner sc = new Scanner(System.in);
+        Scanner telcado = new Scanner(System.in);
         FileInputStream fis;
         fis = new FileInputStream("src/m9/UF1/SeguretatIcriptografia/Exercici8/clausdavidllop");
-        String contrasenya = "123456", aliasllavevuelta, llaveaexportar;
+        String contrasenya = "ladesiempre", aliasClau, clauAExporta;
         char[] arrayContrasenya = contrasenya.toCharArray();
         byte[] arrayEncoded;
+        int llaveALlevarse = 0;
+        Key llaveexportar;
 
         //Agafem el key store
         ks.load(fis, arrayContrasenya);
@@ -51,25 +53,42 @@ public class Exercici8 {
         Enumeration<String> aliasllaves = ks.aliases();
 
         while (aliasllaves.hasMoreElements()) {
+            
+            // Mostrem les claus
+            aliasClau = aliasllaves.nextElement();
+            System.out.print("Entry name: " + aliasClau + "\t\t" + "Algorithm: " + ks.getKey(aliasClau, arrayContrasenya).getAlgorithm() + "\t\t");
 
-            aliasllavevuelta = aliasllaves.nextElement();
-            System.out.print("Entry name: " + aliasllavevuelta + "\t\t" + "Algorithm: " + ks.getKey(aliasllavevuelta, arrayContrasenya).getAlgorithm() + "\t\t");
-
-            arrayEncoded = ks.getKey(aliasllavevuelta, arrayContrasenya).getEncoded();
+            arrayEncoded = ks.getKey(aliasClau, arrayContrasenya).getEncoded();
             System.out.print("Key Size: " + arrayEncoded.length + " bytes \t\t");
 
-            if (ks.getCertificateChain(aliasllavevuelta) == null) {
+            if (ks.getCertificateChain(aliasClau) == null) {
                 System.out.print("Certificat Expiry: No te certificat");
             } else {
-                System.out.print("Certificat Expiry: " + ((X509Certificate) ks.getCertificate(aliasllavevuelta)).getNotAfter());
+                System.out.print("Certificat Expiry: " + ((X509Certificate) ks.getCertificate(aliasClau)).getNotAfter());
             }
 
-            System.out.print("\t\tLast Modified: "
-                    + ks.getCreationDate(aliasllavevuelta));
+            System.out.println("\t\tLast Modified: " + ks.getCreationDate(aliasClau));
 
-            System.out.println("");
         }
 
+        System.out.println("Quina clau vols exportar?");
+        Enumeration<String> aliasllaves2 = ks.aliases();
+        clauAExporta = telcado.nextLine();
+        
+        while (aliasllaves2.hasMoreElements() && llaveALlevarse == 0) {
+            
+            aliasClau = aliasllaves2.nextElement();
+            // Si el nom del alias es igual exportem el certificat
+            if (aliasClau.equals(clauAExporta.trim())) {
+                
+                llaveexportar = ks.getKey(aliasClau, arrayContrasenya);
+                X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(llaveexportar.getEncoded());
+                
+                FileOutputStream fos = new FileOutputStream("E:/dam/m09/uf1/act8/" + aliasClau + "_clau.cer");
+                System.out.println("Creat");
+                
+            }
+        }
     }
 
 }
