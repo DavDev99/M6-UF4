@@ -85,6 +85,7 @@ public class Exercici1 {
                 // Modificar alumne
                 System.out.println("Introdueix la id del alumne");
                 id = teclado.nextInt();
+                teclado.nextLine();
                 
                 System.out.println("Introdueix un nom");
                 nom = teclado.nextLine();
@@ -109,6 +110,13 @@ public class Exercici1 {
                 poblacio = teclado.nextLine();
 
                 modificarAlumnes(id, nom, dni, dataNaixement, adresaPostal, sexe, codiPostal, poblacio);
+
+            } else if (opcio == 3) {
+                // Modificar alumne
+                System.out.println("Introdueix el id del alumne a eliminar");
+                id = teclado.nextInt();
+                teclado.nextLine();
+                eliminarAlumnes(id);
 
             }
         }
@@ -168,5 +176,26 @@ public class Exercici1 {
         }
     }
     
-    
+    private static void eliminarAlumnes(int id) {
+
+        Statement stmt = null;
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
+
+            stmt = connection.createStatement();
+            stmt.execute("DELETE FROM `alumnes` WHERE id = " + id +"");
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
