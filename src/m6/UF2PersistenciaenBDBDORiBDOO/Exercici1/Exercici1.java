@@ -76,10 +76,7 @@ public class Exercici1 {
                 System.out.println("Introdueix codi postal");
                 codiPostal = teclado.nextInt();
                 teclado.nextLine();
-
-                System.out.println("Introdueix poblacio");
-                poblacio = teclado.nextLine();
-
+                
                 inseriAlumnes(nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
 
             } else if (opcio == 2) {
@@ -106,9 +103,6 @@ public class Exercici1 {
                 System.out.println("Introdueix codi postal");
                 codiPostal = teclado.nextInt();
                 teclado.nextLine();
-
-                System.out.println("Introdueix poblacio");
-                poblacio = teclado.nextLine();
 
                 modificarAlumnes(id, nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
 
@@ -142,7 +136,15 @@ public class Exercici1 {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
 
             stmt = connection.createStatement();
-            stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ")");
+            ResultSet rs = stmt.executeQuery("SELECT codi_postal FROM `poblacions` WHERE codi_postal = " + codiPostal);
+            
+            if (rs.next()) {
+                stmt = connection.createStatement();
+                stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ")");
+            }else{
+                System.out.println("Codi postal no valid");
+            }
+            
 
         } catch (Exception e) {
             e.printStackTrace();
