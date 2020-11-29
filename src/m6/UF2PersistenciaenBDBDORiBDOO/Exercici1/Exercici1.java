@@ -50,6 +50,7 @@ public class Exercici1 {
                     + "1. Crear un alumne \n"
                     + "2. Modificar alumne \n"
                     + "3. Eliminar alumne \n"
+                    + "4. Crear Poblacio \n"
                     + "0. sortir \n");
 
             opcio = teclado.nextInt();
@@ -79,7 +80,7 @@ public class Exercici1 {
                 System.out.println("Introdueix poblacio");
                 poblacio = teclado.nextLine();
 
-                inseriAlumnes(nom, dni, dataNaixement, adresaPostal, sexe, codiPostal, poblacio);
+                inseriAlumnes(nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
 
             } else if (opcio == 2) {
                 // Modificar alumne
@@ -109,7 +110,7 @@ public class Exercici1 {
                 System.out.println("Introdueix poblacio");
                 poblacio = teclado.nextLine();
 
-                modificarAlumnes(id, nom, dni, dataNaixement, adresaPostal, sexe, codiPostal, poblacio);
+                modificarAlumnes(id, nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
 
             } else if (opcio == 3) {
                 // Modificar alumne
@@ -118,12 +119,21 @@ public class Exercici1 {
                 teclado.nextLine();
                 eliminarAlumnes(id);
 
+            } else if (opcio == 4) {
+                System.out.println("Introdueix un nom de poblacio");
+                poblacio = teclado.nextLine();
+
+                System.out.println("Introdueix un codi_postal");
+                codiPostal = teclado.nextInt();
+                teclado.nextLine();
+
+                inseriPoblacio(poblacio, codiPostal);
             }
         }
 
     }
 
-    private static void inseriAlumnes(String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal, String poblacio) {
+    private static void inseriAlumnes(String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal) {
 
         Statement stmt = null;
         Connection connection = null;
@@ -132,7 +142,7 @@ public class Exercici1 {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
 
             stmt = connection.createStatement();
-            stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ",'" + poblacio + "')");
+            stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ")");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -146,7 +156,7 @@ public class Exercici1 {
         }
     }
 
-    private static void modificarAlumnes(int id, String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal, String poblacio) {
+    private static void modificarAlumnes(int id, String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal) {
 
         Statement stmt = null;
         Connection connection = null;
@@ -160,8 +170,7 @@ public class Exercici1 {
                     + dataNaixement + "', adreça_postal = '" 
                     + adresaPostal + "', sexe = '" 
                     + sexe + "', codi_postal = " 
-                    + codiPostal + ", poblacio = '" 
-                    + poblacio + "' WHERE id = " 
+                    + codiPostal + "' WHERE id = " 
                     + id);
             
         } catch (Exception e) {
@@ -187,6 +196,28 @@ public class Exercici1 {
             stmt = connection.createStatement();
             stmt.execute("DELETE FROM `alumnes` WHERE id = " + id +"");
             
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void inseriPoblacio(String poblacio, int codiPostal) {
+                Statement stmt = null;
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
+
+            stmt = connection.createStatement();
+            stmt.execute("INSERT INTO poblacions (poblacio, codi_postal ) VALUES ('" + poblacio + "'," + codiPostal + ")");
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
