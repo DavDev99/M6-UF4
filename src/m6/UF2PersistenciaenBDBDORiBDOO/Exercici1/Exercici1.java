@@ -7,6 +7,7 @@ package m6.UF2PersistenciaenBDBDORiBDOO.Exercici1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +25,7 @@ public class Exercici1 {
         int opcio = -1;
         String nom;
         String dni;
-        String dniIdentidicador;
+        int id;
         String dataNaixement;
         String adresaPostal;
         String sexe;
@@ -82,8 +83,8 @@ public class Exercici1 {
 
             } else if (opcio == 2) {
                 // Modificar alumne
-                System.out.println("Introdueix el dni del alumne a modificar");
-                dniIdentidicador = teclado.nextLine();
+                System.out.println("Introdueix la id del alumne");
+                id = teclado.nextInt();
                 
                 System.out.println("Introdueix un nom");
                 nom = teclado.nextLine();
@@ -107,7 +108,7 @@ public class Exercici1 {
                 System.out.println("Introdueix poblacio");
                 poblacio = teclado.nextLine();
 
-                modificarAlumnes(nom, dni, dataNaixement, adresaPostal, sexe, codiPostal, poblacio);
+                modificarAlumnes(id, nom, dni, dataNaixement, adresaPostal, sexe, codiPostal, poblacio);
 
             }
         }
@@ -146,8 +147,15 @@ public class Exercici1 {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
 
             stmt = connection.createStatement();
-            stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ",'" + poblacio + "')");
-
+            stmt.execute("UPDATE alumnes SET nom= '" + nom + "',DNI = '" 
+                    + dni + "',data_naixement = '" 
+                    + dataNaixement + "', adreça_postal = '" 
+                    + adresaPostal + "', sexe = '" 
+                    + sexe + "', codi_postal = " 
+                    + codiPostal + ", poblacio = '" 
+                    + poblacio + "' WHERE id = " 
+                    + id);
+            
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -159,4 +167,6 @@ public class Exercici1 {
             }
         }
     }
+    
+    
 }
