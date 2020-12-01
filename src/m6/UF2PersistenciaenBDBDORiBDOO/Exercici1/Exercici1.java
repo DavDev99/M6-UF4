@@ -51,6 +51,9 @@ public class Exercici1 {
                     + "2. Modificar alumne \n"
                     + "3. Eliminar alumne \n"
                     + "4. Crear Poblacio \n"
+                    + "5. Eliminar Poblacio\n"
+                    + "6. Consultar Poblacio\n"
+                    + "7. Consultar Poblacio\n"
                     + "0. sortir \n");
 
             opcio = teclado.nextInt();
@@ -122,6 +125,15 @@ public class Exercici1 {
                 teclado.nextLine();
 
                 inseriPoblacio(poblacio, codiPostal);
+            }else if (opcio == 5) {
+                System.out.println("Introdueix un nom de poblacio");
+                poblacio = teclado.nextLine();
+
+                System.out.println("Introdueix un codi_postal");
+                codiPostal = teclado.nextInt();
+                teclado.nextLine();
+
+                inseriPoblacio(poblacio, codiPostal);
             }
         }
 
@@ -140,7 +152,7 @@ public class Exercici1 {
             
             if (rs.next()) {
                 stmt = connection.createStatement();
-                stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal, poblacio) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ")");
+                stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ")");
             }else{
                 System.out.println("Codi postal no valid");
             }
@@ -167,13 +179,13 @@ public class Exercici1 {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
 
             stmt = connection.createStatement();
-            stmt.execute("UPDATE alumnes SET nom= '" + nom + "',DNI = '" 
-                    + dni + "',data_naixement = '" 
-                    + dataNaixement + "', adreça_postal = '" 
-                    + adresaPostal + "', sexe = '" 
-                    + sexe + "', codi_postal = " 
-                    + codiPostal + "' WHERE id = " 
-                    + id);
+            stmt.execute("UPDATE alumnes SET nom= '" + nom 
+                    + "',DNI = '" + dni 
+                    + "',data_naixement = '" + dataNaixement 
+                    + "', adreça_postal = '" + adresaPostal 
+                    + "', sexe = '" + sexe 
+                    + "', codi_postal = " + codiPostal 
+                    + "' WHERE id = " + id);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -220,6 +232,29 @@ public class Exercici1 {
             stmt = connection.createStatement();
             stmt.execute("INSERT INTO poblacions (poblacio, codi_postal ) VALUES ('" + poblacio + "'," + codiPostal + ")");
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    private static void eliminarPoblacio(int codi_postal) {
+
+        Statement stmt = null;
+        Connection connection = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
+
+            stmt = connection.createStatement();
+            stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal +"");
+            
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
