@@ -51,7 +51,7 @@ public class Exercici1 {
                     + "4. Crear Poblacio \n"
                     + "5. Modificar Poblacio \n"
                     + "6. Eliminar Poblacio \n"
-                    + "7. Consultar alumne per id \n"
+                    + "7. Consultar alumne per DNI \n"
                     + "8. Consultar alumnes \n"
                     + "9. Consultar poblacio per codi posal \n"
                     + "10. Consultar poblacions \n"
@@ -85,16 +85,14 @@ public class Exercici1 {
 
             } else if (opcio == 2) {
                 // Modificar alumne
-                System.out.println("Introdueix la id del alumne");
-                id = teclado.nextInt();
-                teclado.nextLine();
+                System.out.println("Introdueix el DNI del alumne");
+                dni = teclado.nextLine();
 
                 Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `alumnes` WHERE id = " + id);
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `alumnes` WHERE DNI = '" + dni + "'");
 
                 if (rs.next()) {
                     nom = rs.getString("nom");
-                    dni = rs.getString("DNI");
                     dataNaixement = rs.getString("data_naixement");
                     adresaPostal = rs.getString("adreça_postal");
                     sexe = rs.getString("sexe");
@@ -107,12 +105,6 @@ public class Exercici1 {
                 aux = teclado.nextLine();
                 if (aux.length() == 0) {
                     nom = aux;
-                }
-
-                System.out.println("Introdueix un DNI:[" + dni + "]");
-                aux = teclado.nextLine();
-                if (aux.length() == 0) {
-                    dni = aux;
                 }
 
                 System.out.println("Introdueix data de naixement (exemple: 1999-03-22):[" + dataNaixement + "]");
@@ -427,7 +419,7 @@ public class Exercici1 {
 
             stmt = connection.createStatement();
             stmt.execute("UPDATE alumnes SET poblacio = " + poblacio
-                    + "' WHERE id = " + codiPostal);
+                    + "' WHERE codi_postal = " + codiPostal);
 
         } catch (Exception e) {
             e.printStackTrace();
