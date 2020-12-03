@@ -38,13 +38,10 @@ public class Exercici1 {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
-        } finally {
-            try {
-                connection.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        
         // Bucle principal del menu
         while (opcio != 0) {
             System.out.println("Que vols fer? \n"
@@ -144,14 +141,14 @@ public class Exercici1 {
                     codiPostal = aux2;
                 }
 
-                modificarAlumnes(id, nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
+                modificarAlumnes(nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
 
             } else if (opcio == 3) {
                 // Eliminar alumne
-                System.out.println("Introdueix el id del alumne a eliminar");
-                id = teclado.nextInt();
-                teclado.nextLine();
-                eliminarAlumnes(id);
+                System.out.println("Introdueix el DNI del alumne");
+                dni = teclado.nextLine();
+
+                eliminarAlumnes(dni);
 
             } else if (opcio == 4) {
                 System.out.println("Introdueix un nom de poblacio");
@@ -162,6 +159,8 @@ public class Exercici1 {
                 teclado.nextLine();
 
                 inseriPoblacio(poblacio, codiPostal);
+                
+
             } else if (opcio == 5) {
 
                 System.out.println("Introdueix un codi_postal");
@@ -181,12 +180,11 @@ public class Exercici1 {
                 eliminarPoblacio(codiPostal);
             } else if (opcio == 7) {
 
-                System.out.println("Introdueix la id del alumne");
-                id = teclado.nextInt();
-                teclado.nextLine();
+                System.out.println("Introdueix el DNI del alumne");
+                dni = teclado.nextLine();
 
                 Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `alumnes` WHERE id = " + id);
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `alumnes` WHERE DNI = '" + dni+ "'");
 
                 if (rs.next()) {
                     nom = rs.getString("nom");
@@ -207,6 +205,7 @@ public class Exercici1 {
                     codiPostal = rs.getInt("codi_postal");
                     System.out.println("Codi Posatal: " + codiPostal);
 
+                    System.out.println("");
                 } else {
                     System.out.println("Id incorrecta");
                     System.out.println("");
@@ -220,23 +219,23 @@ public class Exercici1 {
 
                 while (rs.next()) {
                     nom = rs.getString("nom");
-                    System.out.println("Nom: " + nom);
+                    System.out.print("Nom: " + nom);
                     
                     dni = rs.getString("DNI");
-                    System.out.println("Nom: " + dni);
+                    System.out.print("\t DNI: " + dni);
 
                     dataNaixement = rs.getString("data_naixement");
-                    System.out.println("Data naixement: " + dataNaixement);
+                    System.out.print("\t Data naixement: " + dataNaixement);
 
                     adresaPostal = rs.getString("adreça_postal");
-                    System.out.println("Adreça posatal: " + adresaPostal);
+                    System.out.print("\t Adreça posatal: " + adresaPostal);
 
                     sexe = rs.getString("sexe");
-                    System.out.println("Sexe: " + sexe);
+                    System.out.print("\t Sexe: " + sexe);
 
                     codiPostal = rs.getInt("codi_postal");
-                    System.out.println("Codi Posatal: " + codiPostal);
-
+                    System.out.println("\t Codi Posatal: " + codiPostal);
+                    System.out.println("");
                 } 
             } else if (opcio == 9) {
 
@@ -245,11 +244,11 @@ public class Exercici1 {
                 teclado.nextLine();
 
                 Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `poblacio` WHERE codi_postal = " + codiPostal);
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `poblacions` WHERE codi_postal = " + codiPostal);
 
                 if (rs.next()) {
-                    nom = rs.getString("nom");
-                    System.out.println("Nom: " + nom);
+                    poblacio = rs.getString("poblacio");
+                    System.out.println("Poblacio: " + poblacio);
                     
                     codiPostal = rs.getInt("codi_postal");
                     System.out.println("Codi Posal: " + codiPostal);
@@ -263,16 +262,18 @@ public class Exercici1 {
             }else if (opcio == 10) {
 
                 Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM `poblacio`");
+                ResultSet rs = stmt.executeQuery("SELECT * FROM `poblacions`");
 
                 while (rs.next()) {
-                    nom = rs.getString("nom");
-                    System.out.println("Nom: " + nom);
+                    poblacio = rs.getString("poblacio");
+                    System.out.print("Poblacio: " + poblacio);
                     
                     codiPostal = rs.getInt("codi_postal");
-                    System.out.println("Codi Posal: " + codiPostal);
+                    System.out.println("\t Codi Posal: " + codiPostal);
 
                 } 
+            }else{
+                connection.close();
             }
         }
 
@@ -305,52 +306,51 @@ public class Exercici1 {
         } finally {
             try {
                 stmt.close();
-                connection.close();
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private static void modificarAlumnes(int id, String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal) {
+    private static void modificarAlumnes(String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal) {
 
         Statement stmt = null;
         try {
 
             stmt = connection.createStatement();
             stmt.execute("UPDATE alumnes SET nom= '" + nom
-                    + "',DNI = '" + dni
                     + "',data_naixement = '" + dataNaixement
                     + "', adreça_postal = '" + adresaPostal
                     + "', sexe = '" + sexe
                     + "', codi_postal = " + codiPostal
-                    + "' WHERE id = " + id);
+                    + "' WHERE DNI = '" + dni + "'");
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
                 stmt.close();
-                connection.close();
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private static void eliminarAlumnes(int id) {
+    private static void eliminarAlumnes(String dni) {
 
         Statement stmt = null;
         try {
             stmt = connection.createStatement();
-            stmt.execute("DELETE FROM `alumnes` WHERE id = " + id + "");
+            stmt.execute("DELETE FROM `alumnes` WHERE DNI = '" + dni + "'");
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
                 stmt.close();
-                connection.close();
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -363,17 +363,21 @@ public class Exercici1 {
 
             stmt = connection.createStatement();
             stmt.execute("INSERT INTO poblacions (poblacio, codi_postal ) VALUES ('" + poblacio + "'," + codiPostal + ")");
-
+           
+            System.out.println("Poblacio inserida correctament");
+            System.out.println("");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
                 stmt.close();
-                connection.close();
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        
+
     }
 
     private static void eliminarPoblacio(int codi_postal) {
@@ -392,11 +396,16 @@ public class Exercici1 {
                 if (!resposta.equalsIgnoreCase("no")) {
                     stmt = connection.createStatement();
                     stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal + "");
+                    System.out.println("Poblacio eliminada correctament");
+                    System.out.println("");
                 }
 
             } else {
                 stmt = connection.createStatement();
                 stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal + "");
+                            
+                System.out.println("Poblacio eliminada correctament");
+                System.out.println("");
             }
 
         } catch (Exception e) {
@@ -404,7 +413,7 @@ public class Exercici1 {
         } finally {
             try {
                 stmt.close();
-                connection.close();
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -424,7 +433,7 @@ public class Exercici1 {
         } finally {
             try {
                 stmt.close();
-                connection.close();
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
