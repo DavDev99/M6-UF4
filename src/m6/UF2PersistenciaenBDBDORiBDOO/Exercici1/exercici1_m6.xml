@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.0.2
+- https://www.phpmyadmin.net
+-
+- Servidor: 127.0.0.1
+- Tiempo de generación: 01-12-2020 a las 20:11:30
+- Versión del servidor: 10.4.11-MariaDB
+- Versión de PHP: 7.4.6
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="exercici1_m62" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="alumnes">
+                CREATE TABLE `alumnes` (
+                  `nom` varchar(30) NOT NULL,
+                  `DNI` varchar(10) NOT NULL,
+                  `data_naixement` date NOT NULL,
+                  `adreça_postal` varchar(30) NOT NULL,
+                  `sexe` varchar(20) NOT NULL,
+                  `codi_postal` int(6) NOT NULL,
+                  PRIMARY KEY (`DNI`),
+                  KEY `codi_postal` (`codi_postal`),
+                  CONSTRAINT `alumnes_ibfk_1` FOREIGN KEY (`codi_postal`) REFERENCES `poblacions` (`codi_postal`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="poblacions">
+                CREATE TABLE `poblacions` (
+                  `poblacio` varchar(30) NOT NULL,
+                  `codi_postal` int(6) NOT NULL,
+                  PRIMARY KEY (`codi_postal`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de datos: 'exercici1_m62'
+    -->
+    <database name="exercici1_m62">
+        <!-- Tabla alumnes -->
+        <!-- Tabla poblacions -->
+    </database>
+</pma_xml_export>
