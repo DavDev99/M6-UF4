@@ -103,32 +103,35 @@ public class Exercici1 {
 
                 System.out.println("Introdueix un nom:[" + nom + "]");
                 aux = teclado.nextLine();
-                if (aux.length() == 0) {
+                if (aux.length() != 0) {
                     nom = aux;
                 }
 
                 System.out.println("Introdueix data de naixement (exemple: 1999-03-22):[" + dataNaixement + "]");
                 aux = teclado.nextLine();
-                if (aux.length() == 0) {
+                if (aux.length() != 0) {
                     dataNaixement = aux;
                 }
 
                 System.out.println("Introdueix adreça postal:[" + adresaPostal + "]");
                 aux = teclado.nextLine();
-                if (aux.length() == 0) {
+                if (aux.length() != 0) {
                     adresaPostal = aux;
                 }
 
                 System.out.println("Introdueix sexe:[" + sexe + "]");
                 aux = teclado.nextLine();
-                if (aux.length() == 0) {
+                if (aux.length() != 0) {
                     sexe = aux;
                 }
 
                 System.out.println("Introdueix codi postal:[" + codiPostal + "]");
-                aux2 = teclado.nextInt();
-                teclado.nextLine();
-
+                aux = teclado.nextLine();
+                
+                if (aux.length() != 0) {
+                    aux2 = Integer.parseInt(aux);
+                }
+                
                 if (aux2 != codiPostal) {
                     codiPostal = aux2;
                 }
@@ -317,7 +320,7 @@ public class Exercici1 {
                     + "', adreça_postal = '" + adresaPostal
                     + "', sexe = '" + sexe
                     + "', codi_postal = " + codiPostal
-                    + "' WHERE DNI = '" + dni + "'");
+                    + " WHERE DNI = '" + dni + "'");
 
         } catch (Exception e) {
             e.printStackTrace();
