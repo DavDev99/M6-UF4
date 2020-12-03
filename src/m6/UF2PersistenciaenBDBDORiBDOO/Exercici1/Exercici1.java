@@ -235,8 +235,9 @@ public class Exercici1 {
 
                     codiPostal = rs.getInt("codi_postal");
                     System.out.println("\t Codi Posatal: " + codiPostal);
-                    System.out.println("");
+
                 } 
+                System.out.println("");
             } else if (opcio == 9) {
 
                 System.out.println("Introdueix el codi posal de la poblacio:");
