@@ -248,11 +248,11 @@ public class Exercici1 {
 
                 if (rs.next()) {
                     poblacio = rs.getString("poblacio");
-                    System.out.println("Poblacio: " + poblacio);
+                    System.out.print("Poblacio: " + poblacio);
                     
                     codiPostal = rs.getInt("codi_postal");
-                    System.out.println("Codi Posal: " + codiPostal);
-
+                    System.out.println("\t Codi Posal: " + codiPostal);
+                    System.out.println("");
                 } else {
                     System.out.println("Codi posal incorrecte");
                     System.out.println("");
@@ -270,8 +270,8 @@ public class Exercici1 {
                     
                     codiPostal = rs.getInt("codi_postal");
                     System.out.println("\t Codi Posal: " + codiPostal);
-
                 } 
+                System.out.println("");
             }else{
                 connection.close();
             }
