@@ -18,10 +18,12 @@ import java.util.Scanner;
  * @author david
  */
 public class Exercici1 {
-
+    
+    static Connection connection = null;
+    static Scanner teclado;
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-        Scanner teclado = new Scanner(System.in);
+        teclado = new Scanner(System.in);
         int opcio = -1;
         String nom;
         String dni;
@@ -32,11 +34,10 @@ public class Exercici1 {
         int codiPostal;
         String poblacio;
 
-        Connection connection = null;
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
         } finally {
             try {
                 connection.close();
@@ -88,6 +89,9 @@ public class Exercici1 {
                 id = teclado.nextInt();
                 teclado.nextLine();
                 
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT count(codi_postal) FROM `alumnes` WHERE codi_postal = " + codi_postal);
+                
                 System.out.println("Introdueix un nom");
                 nom = teclado.nextLine();
 
@@ -110,7 +114,7 @@ public class Exercici1 {
                 modificarAlumnes(id, nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
 
             } else if (opcio == 3) {
-                // Modificar alumne
+                // Eliminar alumne
                 System.out.println("Introdueix el id del alumne a eliminar");
                 id = teclado.nextInt();
                 teclado.nextLine();
@@ -142,10 +146,8 @@ public class Exercici1 {
     private static void inseriAlumnes(String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal) {
 
         Statement stmt = null;
-        Connection connection = null;
+        
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
 
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT codi_postal FROM `poblacions` WHERE codi_postal = " + codiPostal);
@@ -153,8 +155,14 @@ public class Exercici1 {
             if (rs.next()) {
                 stmt = connection.createStatement();
                 stmt.execute("INSERT INTO alumnes (nom, DNI, data_naixement, adreça_postal, sexe, codi_postal) VALUES ('" + nom + "','" + dni + "','" + dataNaixement + "','" + adresaPostal + "','" + sexe + "'," + codiPostal + ")");
+            
+                System.out.println("Alumne inserit correctament");
+                System.out.println("");
+
             }else{
                 System.out.println("Codi postal no valid");
+                System.out.println("");
+
             }
             
 
@@ -173,11 +181,8 @@ public class Exercici1 {
     private static void modificarAlumnes(int id, String nom, String dni, String dataNaixement, String adresaPostal, String sexe, int codiPostal) {
 
         Statement stmt = null;
-        Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
-
+            
             stmt = connection.createStatement();
             stmt.execute("UPDATE alumnes SET nom= '" + nom 
                     + "',DNI = '" + dni 
@@ -202,11 +207,7 @@ public class Exercici1 {
     private static void eliminarAlumnes(int id) {
 
         Statement stmt = null;
-        Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
-
             stmt = connection.createStatement();
             stmt.execute("DELETE FROM `alumnes` WHERE id = " + id +"");
             
@@ -224,10 +225,7 @@ public class Exercici1 {
 
     private static void inseriPoblacio(String poblacio, int codiPostal) {
                 Statement stmt = null;
-        Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
 
             stmt = connection.createStatement();
             stmt.execute("INSERT INTO poblacions (poblacio, codi_postal ) VALUES ('" + poblacio + "'," + codiPostal + ")");
@@ -247,13 +245,25 @@ public class Exercici1 {
     private static void eliminarPoblacio(int codi_postal) {
 
         Statement stmt = null;
-        Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercici1_m6", "root", "");
-
             stmt = connection.createStatement();
-            stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal +"");
+            ResultSet rs = stmt.executeQuery("SELECT count(codi_postal) FROM `alumnes` WHERE codi_postal = " + codi_postal);
+            
+            if (rs.next()) {
+                String count = rs.getString(1);
+                
+                System.out.println("Si borres aquesta poblacio tambe borraras " + count + " alumnes, estas segur?[Si]");
+                String resposta = teclado.nextLine();
+                
+                if (!resposta.equalsIgnoreCase("no")) {
+                    stmt = connection.createStatement();
+                    stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal +"");
+                }
+                
+            }else{
+                stmt = connection.createStatement();
+                stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal +"");
+            }
             
         } catch (Exception e) {
             e.printStackTrace();
