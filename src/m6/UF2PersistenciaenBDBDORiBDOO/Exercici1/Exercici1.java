@@ -28,7 +28,6 @@ public class Exercici1 {
         int opcio = -1;
         String nom = "";
         String dni = "";
-        int id;
         String dataNaixement = "";
         String adresaPostal = "";
         String sexe = "";
@@ -124,18 +123,17 @@ public class Exercici1 {
                 if (aux.length() != 0) {
                     sexe = aux;
                 }
-
+                System.out.println(nom + "\n" + dni+ "\n" + dataNaixement + "\n" + adresaPostal + "\n" + sexe+ "\n" + codiPostal);
                 System.out.println("Introdueix codi postal:[" + codiPostal + "]");
                 aux = teclado.nextLine();
                 
                 if (aux.length() != 0) {
                     aux2 = Integer.parseInt(aux);
+                    if (aux2 != codiPostal) {
+                        codiPostal = aux2;
+                    }
                 }
                 
-                if (aux2 != codiPostal) {
-                    codiPostal = aux2;
-                }
-
                 modificarAlumnes(nom, dni, dataNaixement, adresaPostal, sexe, codiPostal);
 
             } else if (opcio == 3) {
@@ -392,18 +390,24 @@ public class Exercici1 {
                 if (!resposta.equalsIgnoreCase("no")) {
                     stmt = connection.createStatement();
                     stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal + "");
-                    System.out.println("Poblacio eliminada correctament");
-                    System.out.println("");
+
                 }
 
             } else {
-                stmt = connection.createStatement();
-                stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal + "");
-                            
-                System.out.println("Poblacio eliminada correctament");
-                System.out.println("");
+                
+                System.out.println("Si borres aquesta poblacio tambe borraras 0 alumnes, estas segur?[Si]");
+                String resposta = teclado.nextLine();
+                
+                if (!resposta.equalsIgnoreCase("no")) {
+                    stmt = connection.createStatement();
+                    stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal + "");
+
+                }
+
             }
 
+            System.out.println("Poblacio eliminada correctament");
+            System.out.println("");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -421,7 +425,7 @@ public class Exercici1 {
         try {
 
             stmt = connection.createStatement();
-            stmt.execute("UPDATE alumnes SET poblacio = " + poblacio
+            stmt.execute("UPDATE poblacions SET poblacio = '" + poblacio
                     + "' WHERE codi_postal = " + codiPostal);
 
         } catch (Exception e) {
