@@ -438,12 +438,14 @@ public class Exercici1 {
                 if (!resposta.equalsIgnoreCase("no")) {
                     stmt = connection.createStatement();
                     stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal + "");
-
+                    System.out.println("Poblacio eliminada correctament");
+                }else{
+                    System.out.println("Poblacio no sera eliminada");
                 }
 
             }
 
-            System.out.println("Poblacio eliminada correctament");
+
             System.out.println("");
         } catch (Exception e) {
             e.printStackTrace();
