@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2020 a las 20:11:24
+-- Tiempo de generación: 03-12-2020 a las 19:32:30
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.6
 
@@ -36,6 +36,14 @@ CREATE TABLE `alumnes` (
   `codi_postal` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `alumnes`
+--
+
+INSERT INTO `alumnes` (`nom`, `DNI`, `data_naixement`, `adreça_postal`, `sexe`, `codi_postal`) VALUES
+('adria', '39933578-T', '1999-03-22', 'asdasdsad', 'home', 44002),
+('david', '39933589-T', '1999-03-22', 'asdasd', 'home', 43740);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +54,14 @@ CREATE TABLE `poblacions` (
   `poblacio` varchar(30) NOT NULL,
   `codi_postal` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `poblacions`
+--
+
+INSERT INTO `poblacions` (`poblacio`, `codi_postal`) VALUES
+('mora', 43740),
+('tarragona', 44002);
 
 --
 -- Índices para tablas volcadas
