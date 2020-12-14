@@ -428,6 +428,9 @@ public class Exercici1 {
                     stmt = connection.createStatement();
                     stmt.execute("DELETE FROM `poblacions` WHERE codi_postal = " + codi_postal + "");
 
+                    System.out.println("Poblacio eliminada correctament");
+                }else{
+                    System.out.println("Poblacio no sera eliminada");
                 }
 
             } else {
