@@ -29,11 +29,11 @@ public class Activitat2 {
         // Li diem el numero de fils que executarem
         final ScheduledExecutorService schExService = Executors.newScheduledThreadPool(4);
         final Runnable ob = new Activitat2().new ExecutaFil();
-        
         // Li diem que se exucutara en 5 segons i fara la repeticio cada 6 segons
         schExService.scheduleWithFixedDelay(ob, 5, 6, TimeUnit.SECONDS);
         // Li diem quan tardara en acabar
         schExService.awaitTermination(30, TimeUnit.SECONDS);
+        
         // Quan acaba se tanca
         schExService.shutdownNow();
         System.out.println("Completat");
