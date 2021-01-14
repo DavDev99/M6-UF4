@@ -14,10 +14,11 @@ import java.util.concurrent.RecursiveTask;
  */
 public class MaximTask extends RecursiveTask<Short> {
 
-    //private static final int LLINDAR=10000000;
     private static final int LLINDAR = 10000000;
     private short[] arr;
     private int inici, fi;
+    
+    // Posem el comptador
     private static int comptador;
 
     public MaximTask(short[] arr, int inici, int fi) {
@@ -33,6 +34,8 @@ public class MaximTask extends RecursiveTask<Short> {
                 max = arr[i];
             }
         }
+        
+// Sumem el comptador i mostrem els resultats
         comptador++;
         System.out.println("Comptador " + comptador + " Inici " + inici + " Fi " + fi);
         
@@ -51,6 +54,7 @@ public class MaximTask extends RecursiveTask<Short> {
 
         task2.fork();
         
+        // Sumem el comptador i mostrem els resultats
         comptador++;
         System.out.println("Comptador " + comptador + " Inici " + inici + " Fi " + fi);
         return (short) Math.max(task1.join(), task2.join());
