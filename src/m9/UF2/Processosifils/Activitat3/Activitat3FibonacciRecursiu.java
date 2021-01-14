@@ -15,12 +15,12 @@ import java.util.concurrent.ForkJoinPool;
 public class Activitat3FibonacciRecursiu {
 
     public static void main(String[] args) {
-        calculaFibonacci(35);
+        calculaFibonacci(50);
     }
 
     public static long calculaFibonacci(long numero) {
         // Calcul dificil
-        double calcul = java.lang.Math.cos(54879854);
+        //double calcul = java.lang.Math.cos(54879854);
         
         if (numero == 0) {
             return 0;

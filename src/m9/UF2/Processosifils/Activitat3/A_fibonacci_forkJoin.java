@@ -23,6 +23,7 @@ public class A_fibonacci_forkJoin extends RecursiveTask<Long> {
     @Override
     protected Long compute() {
         // ATENCIO **1** double calcul = java.lang.Math.cos(54879854);
+        
         if (numero <= 1) {
             return numero;
         }
@@ -35,6 +36,6 @@ public class A_fibonacci_forkJoin extends RecursiveTask<Long> {
 
     public static void main(String[] args) {
         ForkJoinPool pool = new ForkJoinPool();
-        System.out.println("Calculat:  " + pool.invoke(new A_fibonacci_forkJoin(35)));
+        System.out.println("Calculat:  " + pool.invoke(new A_fibonacci_forkJoin(50)));
     }
 }
