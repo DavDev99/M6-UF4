@@ -18,6 +18,7 @@ public class MaximTask extends RecursiveTask<Short> {
     private static final int LLINDAR = 10000000;
     private short[] arr;
     private int inici, fi;
+    private static int comptador;
 
     public MaximTask(short[] arr, int inici, int fi) {
         this.arr = arr;
@@ -32,6 +33,9 @@ public class MaximTask extends RecursiveTask<Short> {
                 max = arr[i];
             }
         }
+        comptador++;
+        System.out.println("Comptador " + comptador + " Inici " + inici + " Fi " + fi);
+        
         return max;
     }
 
@@ -46,6 +50,9 @@ public class MaximTask extends RecursiveTask<Short> {
         task2 = new MaximTask(arr, mig, fi);
 
         task2.fork();
+        
+        comptador++;
+        System.out.println("Comptador " + comptador + " Inici " + inici + " Fi " + fi);
         return (short) Math.max(task1.join(), task2.join());
     }
 
@@ -74,7 +81,7 @@ public class MaximTask extends RecursiveTask<Short> {
         // màxim
         int result = tasca.join();
         System.out.println("Temps utilitzat:" + (System.currentTimeMillis() - time));
-        System.out.println("Màxim es " + result);
+        System.out.println("Màxim es " + result);// + " Comptador=" + comptador);
     }
 
     private static short[] createArray(int size) {
