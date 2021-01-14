@@ -98,5 +98,4 @@ public class MaximTask extends RecursiveTask<Short> {
         }
         return ret;
     }
-
 }
