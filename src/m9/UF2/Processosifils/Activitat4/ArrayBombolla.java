@@ -5,35 +5,40 @@
  */
 package m9.UF2.Processosifils.Activitat4;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Alumne
  */
-public class ArrayBombolla {
+public class ArrayBombolla implements Runnable{
 
     int[] arrayBombolla;
+    int part;
 
-    public ArrayBombolla(int[] arrayBombolla) {
+    public ArrayBombolla(int[] arrayBombolla, int part) {
         this.arrayBombolla = arrayBombolla;
+        this.part = part;
     }
 
-    public static int[] metodeBombolla(int[] array) {
+    @Override
+    public void run() {
         int auxiliar;
 
-        for (int i = 1; i < array.length; i++) {
+        for (int i = 1; i < arrayBombolla.length; i++) {
 
-            for (int j = 0; j < array.length - i; j++) {
+            for (int j = 0; j < arrayBombolla.length - i; j++) {
 
-                if (array[j] > array[j + 1]) {
-                    auxiliar = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = auxiliar;
+                if (arrayBombolla[j] > arrayBombolla[j + 1]) {
+                    auxiliar = arrayBombolla[j];
+                    arrayBombolla[j] = arrayBombolla[j + 1];
+                    arrayBombolla[j + 1] = auxiliar;
                 }
 
             }
 
         }
-
-        return array;
+        
+        System.out.println(Arrays.toString(arrayBombolla));
     }
 }
