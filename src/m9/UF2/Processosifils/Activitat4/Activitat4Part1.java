@@ -34,7 +34,7 @@ public class Activitat4Part1{
             System.out.print("Client " + (client.numClient + 1) + " passa per caixa...");
         }
         
-
+        executor.shutdown();
         
         
     }
