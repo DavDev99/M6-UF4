@@ -97,7 +97,7 @@ public class DamasPartida extends javax.swing.JFrame {
 
         int fila = obtenirFilaClicada();
         int columna = obtenirColumnaClicada();
-
+     
         if (noHiHaOrigen()) {
             if (jugaX && EsX(fila, columna)) {
                 actualitzaNouOrigen(fila, columna);
