@@ -6,16 +6,19 @@
 package dames;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 
 /**
  *
  * @author david
  */
 public class DamasPartida extends javax.swing.JFrame {
-        boolean jugaX = true;
-        boolean jugaO = false;
-        int filaOrigen = -1;
-        int columnaOrigen = -1;
+
+    boolean jugaX = true;
+    boolean jugaO = false;
+    int filaOrigen = -1;
+    int columnaOrigen = -1;
+
     /**
      * Creates new form DamasMenu
      */
@@ -39,6 +42,11 @@ public class DamasPartida extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton3.setText("Sortir");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -98,7 +106,7 @@ public class DamasPartida extends javax.swing.JFrame {
 
         int fila = obtenirFilaClicada();
         int columna = obtenirColumnaClicada();
-     
+
         if (noHiHaOrigen()) {
             if (jugaX && EsX(fila, columna)) {
                 actualitzaNouOrigen(fila, columna);
@@ -111,29 +119,48 @@ public class DamasPartida extends javax.swing.JFrame {
             if (movimentVàlid(fila, columna)) {
                 if (esBuit(fila, columna) || ocupatContrari(fila, columna)) {
                     mou(fila, columna);
+
                     if (jugaX) {
                         jugaX = false;
-                        jugaO = true;
-                    }else{
+                    } else {
                         jugaX = true;
-                        jugaO = false;
                     }
+                    jugaO = !jugaX;
 
                     filaOrigen = -1;
                     columnaOrigen = -1;
                 }
-            //si diagonal cap avall per X o cap a dalt per O
-            }else if(ocupatPropi(fila,columna)){
-                actualitzaNouOrigen(fila,columna);
-            }else{
+                //si diagonal cap avall per X o cap a dalt per O
+            } else if (ocupatPropi(fila, columna)) {
+                actualitzaNouOrigen(fila, columna);
+            } else {
                 mostraErrorMoviment();
             }
+        }
+
+        if (comprobarGuanyador()) {
+            if (jugaX) {
+                JOptionPane.showMessageDialog(this,
+                        "El jugador O ha guanyat!",
+                        "Felicitats",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "El jugador X ha guanyat!",
+                        "Felicitats",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        System.exit(WIDTH);
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -194,12 +221,12 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private boolean noHiHaOrigen() {
-        
+
         return filaOrigen == -1 && columnaOrigen == -1;
     }
 
     private boolean EsX(int fila, int columna) {
-        
+
         String value = (String) jTable1.getValueAt(fila, columna);
 
         return value.equals("X");
@@ -211,26 +238,26 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private boolean EsO(int fila, int columna) {
-        
+
         String value = (String) jTable1.getValueAt(fila, columna);
-        
+
         return value.equals("O");
     }
 
     private void mostraError() {
         JOptionPane.showMessageDialog(this,
-        "Has de seleccionar una fila diferent o valida.",
-        "Error",
-        JOptionPane.WARNING_MESSAGE);
+                "Has de seleccionar una fila diferent o valida.",
+                "Error",
+                JOptionPane.WARNING_MESSAGE);
     }
 
     private boolean movimentVàlid(int fila, int columna) {
         if (jugaX && filaOrigen + 1 == fila && (columnaOrigen + 1 == columna || columnaOrigen - 1 == columna)) {
             return true;
-        }else if (jugaO && filaOrigen - 1 == fila && (columnaOrigen + 1 == columna || columnaOrigen - 1 == columna)) {
+        } else if (jugaO && filaOrigen - 1 == fila && (columnaOrigen + 1 == columna || columnaOrigen - 1 == columna)) {
             return true;
         }
-        
+
         return false;
     }
 
@@ -241,12 +268,12 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private void mou(int fila, int columna) {
-        jTable1.setValueAt(null, filaOrigen, columnaOrigen);
-        
+        jTable1.setValueAt("", filaOrigen, columnaOrigen);
+
         if (jugaO) {
-            jTable1.setValueAt("O", fila, columna); 
-        }else{
-            jTable1.setValueAt("X", fila, columna); 
+            jTable1.setValueAt("O", fila, columna);
+        } else {
+            jTable1.setValueAt("X", fila, columna);
 
         }
     }
@@ -256,7 +283,7 @@ public class DamasPartida extends javax.swing.JFrame {
 
         if (jugaO && value.equals("X")) {
             return true;
-        }else if (jugaX && value.equals("O")) {
+        } else if (jugaX && value.equals("O")) {
             return true;
         }
         return false;
@@ -264,21 +291,52 @@ public class DamasPartida extends javax.swing.JFrame {
 
     private void mostraErrorMoviment() {
         JOptionPane.showMessageDialog(this,
-        "Has de seleccionar una cela valida per a fer el moviment.",
-        "Error",
-        JOptionPane.WARNING_MESSAGE);
+                "Has de seleccionar una cela valida per a fer el moviment.",
+                "Error",
+                JOptionPane.WARNING_MESSAGE);
     }
 
     private boolean ocupatPropi(int fila, int columna) {
         String value = (String) jTable1.getValueAt(fila, columna);
-        
+
         if (jugaO && value.equals("O")) {
-            return false;
-        }else if (jugaX && value.equals("X")) {
-            return false;
+            return true;
+        } else if (jugaX && value.equals("X")) {
+            return true;
         }
-        
-        return true;
+
+        return false;
+    }
+
+    private boolean comprobarGuanyador() {
+        TableModel tablero = jTable1.getModel();
+
+        int countX = 0;
+        int countO = 0;
+
+        for (int i = 0; i < tablero.getRowCount(); i++) {
+            for (int j = 0; j < tablero.getColumnCount(); j++) {
+
+                if (EsO(i, j)) {
+                    countO++;
+                } else if (EsX(i, j)) {
+                    countX++;
+                }
+
+                if (jugaO && i == tablero.getRowCount() - 1 && EsX(i, j)) {
+                    return true;
+                } else if (jugaX && i == 0 && EsO(i, j)) {
+                    return true;
+                }
+            }
+        }
+
+        if (countO == 0) {
+            return true;
+        } else if (countX == 0) {
+            return true;
+        }
+        return false;
     }
 
 }

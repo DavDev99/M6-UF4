@@ -53,6 +53,7 @@
         <Property name="text" type="java.lang.String" value="Sortir"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
       </Events>
     </Component>
@@ -69,81 +70,81 @@
               <Table columnCount="8" rowCount="8">
                 <Column editable="true" title="1" type="java.lang.Object">
                   <Data value="X"/>
-                  <Data value="null"/>
                   <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                   <Data value=""/>
                 </Column>
                 <Column editable="true" title="2" type="java.lang.Object">
-                  <Data value="null"/>
+                  <Data value=""/>
                   <Data value="X"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                 </Column>
                 <Column editable="true" title="3" type="java.lang.Object">
                   <Data value="X"/>
-                  <Data value="null"/>
                   <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                   <Data value=""/>
                 </Column>
                 <Column editable="true" title="4" type="java.lang.Object">
-                  <Data value="null"/>
+                  <Data value=""/>
                   <Data value="X"/>
                   <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                 </Column>
                 <Column editable="true" title="5" type="java.lang.Object">
                   <Data value="X"/>
-                  <Data value="null"/>
                   <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                   <Data value=""/>
                 </Column>
                 <Column editable="true" title="6" type="java.lang.Object">
-                  <Data value="null"/>
+                  <Data value=""/>
                   <Data value="X"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                 </Column>
                 <Column editable="true" title="7" type="java.lang.Object">
                   <Data value="X"/>
-                  <Data value="null"/>
                   <Data value=""/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                   <Data value=""/>
                 </Column>
                 <Column editable="true" title="8" type="java.lang.Object">
-                  <Data value="null"/>
+                  <Data value=""/>
                   <Data value="X"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
+                  <Data value=""/>
                   <Data value=""/>
                   <Data value="O"/>
                 </Column>
