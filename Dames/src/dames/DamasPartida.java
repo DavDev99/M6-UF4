@@ -5,6 +5,8 @@
  */
 package dames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author david
@@ -45,14 +47,14 @@ public class DamasPartida extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"X", null, "X", null, "X", null, "X", null},
-                {null, "X", null, "X", null, "X", null, "X"},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {"O", null, "O", null, "O", null, "O", null},
-                {null, "O", null, "O", null, "O", null, "O"}
+                {"X", "", "X", "", "X", "", "X", ""},
+                {"", "X", "", "X", "", "X", "", "X"},
+                {"", "", "", "", "", "", "", ""},
+                {"", "", "", "", "", "", "", ""},
+                {"", "", "", "", "", "", "", ""},
+                {"", "", "", "", "", "", "", ""},
+                {"O", "", "O", "", "O", "", "O", ""},
+                {"", "O", "", "O", "", "O", "", "O"}
             },
             new String [] {
                 "1", "2", "3", "4", "5", "6", "7", "8"
@@ -109,6 +111,16 @@ public class DamasPartida extends javax.swing.JFrame {
             if (movimentVàlid(fila, columna)) {
                 if (esBuit(fila, columna) || ocupatContrari(fila, columna)) {
                     mou(fila, columna);
+                    if (jugaX) {
+                        jugaX = false;
+                        jugaO = true;
+                    }else{
+                        jugaX = true;
+                        jugaO = false;
+                    }
+
+                    filaOrigen = -1;
+                    columnaOrigen = -1;
                 }
             //si diagonal cap avall per X o cap a dalt per O
             }else if(ocupatPropi(fila,columna)){
@@ -183,13 +195,13 @@ public class DamasPartida extends javax.swing.JFrame {
 
     private boolean noHiHaOrigen() {
         
-        return !(filaOrigen == -1 && columnaOrigen == -1);
+        return filaOrigen == -1 && columnaOrigen == -1;
     }
 
     private boolean EsX(int fila, int columna) {
         
         String value = (String) jTable1.getValueAt(fila, columna);
-        
+
         return value.equals("X");
     }
 
@@ -206,7 +218,10 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private void mostraError() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JOptionPane.showMessageDialog(this,
+        "Has de seleccionar una fila diferent o valida.",
+        "Error",
+        JOptionPane.WARNING_MESSAGE);
     }
 
     private boolean movimentVàlid(int fila, int columna) {
@@ -222,16 +237,16 @@ public class DamasPartida extends javax.swing.JFrame {
     private boolean esBuit(int fila, int columna) {
         String value = (String) jTable1.getValueAt(fila, columna);
 
-        return value == null;
+        return value.equals("");
     }
 
     private void mou(int fila, int columna) {
         jTable1.setValueAt(null, filaOrigen, columnaOrigen);
         
         if (jugaO) {
-            jTable1.setValueAt("O", fila, fila); 
+            jTable1.setValueAt("O", fila, columna); 
         }else{
-            jTable1.setValueAt("X", fila, fila); 
+            jTable1.setValueAt("X", fila, columna); 
 
         }
     }
@@ -248,7 +263,10 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private void mostraErrorMoviment() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JOptionPane.showMessageDialog(this,
+        "Has de seleccionar una cela valida per a fer el moviment.",
+        "Error",
+        JOptionPane.WARNING_MESSAGE);
     }
 
     private boolean ocupatPropi(int fila, int columna) {
