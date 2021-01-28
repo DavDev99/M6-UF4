@@ -10,7 +10,10 @@ package dames;
  * @author david
  */
 public class DamasPartida extends javax.swing.JFrame {
-
+        boolean jugaX = true;
+        boolean jugaO = false;
+        int filaOrigen = -1;
+        int columnaOrigen = -1;
     /**
      * Creates new form DamasMenu
      */
@@ -44,12 +47,12 @@ public class DamasPartida extends javax.swing.JFrame {
             new Object [][] {
                 {"X", null, "X", null, "X", null, "X", null},
                 {null, "X", null, "X", null, "X", null, "X"},
-                {"", null, "", "", "", null, "", null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
-                {"", null, "", null, "", "", "", null},
-                {"O", "", "O", "", "O", "", "O", ""},
-                {"", "O", "", "O", "", "O", "", "O"}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {"O", null, "O", null, "O", null, "O", null},
+                {null, "O", null, "O", null, "O", null, "O"}
             },
             new String [] {
                 "1", "2", "3", "4", "5", "6", "7", "8"
@@ -90,10 +93,6 @@ public class DamasPartida extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        boolean jugaX = true;
-        boolean jugaO = false;
-        int filaOrigen = -1;
-        int columnaOrigen = -1;
 
         int fila = obtenirFilaClicada();
         int columna = obtenirColumnaClicada();
@@ -183,19 +182,27 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private boolean noHiHaOrigen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return !(filaOrigen == -1 && columnaOrigen == -1);
     }
 
     private boolean EsX(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        String value = (String) jTable1.getValueAt(fila, columna);
+        
+        return value.equals("X");
     }
 
     private void actualitzaNouOrigen(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        filaOrigen = fila;
+        columnaOrigen = columna;
     }
 
     private boolean EsO(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        String value = (String) jTable1.getValueAt(fila, columna);
+        
+        return value.equals("O");
     }
 
     private void mostraError() {
@@ -203,19 +210,41 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private boolean movimentVàlid(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (jugaX && filaOrigen + 1 == fila && (columnaOrigen + 1 == columna || columnaOrigen - 1 == columna)) {
+            return true;
+        }else if (jugaO && filaOrigen - 1 == fila && (columnaOrigen + 1 == columna || columnaOrigen - 1 == columna)) {
+            return true;
+        }
+        
+        return false;
     }
 
     private boolean esBuit(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String value = (String) jTable1.getValueAt(fila, columna);
+
+        return value == null;
     }
 
     private void mou(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jTable1.setValueAt(null, filaOrigen, columnaOrigen);
+        
+        if (jugaO) {
+            jTable1.setValueAt("O", fila, fila); 
+        }else{
+            jTable1.setValueAt("X", fila, fila); 
+
+        }
     }
 
     private boolean ocupatContrari(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String value = (String) jTable1.getValueAt(fila, columna);
+
+        if (jugaO && value.equals("X")) {
+            return true;
+        }else if (jugaX && value.equals("O")) {
+            return true;
+        }
+        return false;
     }
 
     private void mostraErrorMoviment() {
@@ -223,7 +252,15 @@ public class DamasPartida extends javax.swing.JFrame {
     }
 
     private boolean ocupatPropi(int fila, int columna) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String value = (String) jTable1.getValueAt(fila, columna);
+        
+        if (jugaO && value.equals("O")) {
+            return false;
+        }else if (jugaX && value.equals("X")) {
+            return false;
+        }
+        
+        return true;
     }
 
 }
