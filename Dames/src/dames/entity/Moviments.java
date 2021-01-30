@@ -1,5 +1,5 @@
 package dames.entity;
-// Generated 30-ene-2021 17:26:44 by Hibernate Tools 4.3.1
+// Generated 30-ene-2021 18:44:32 by Hibernate Tools 4.3.1
 
 
 
@@ -13,14 +13,18 @@ public class Moviments  implements java.io.Serializable {
      private Partides partides;
      private int desde;
      private int capA;
+     private int desdeOrigen;
+     private int capAOrigen;
 
     public Moviments() {
     }
 
-    public Moviments(Partides partides, int desde, int capA) {
+    public Moviments(Partides partides, int desde, int capA, int desdeOrigen, int capAOrigen) {
        this.partides = partides;
        this.desde = desde;
        this.capA = capA;
+       this.desdeOrigen = desdeOrigen;
+       this.capAOrigen = capAOrigen;
     }
    
     public Integer getId() {
@@ -50,6 +54,20 @@ public class Moviments  implements java.io.Serializable {
     
     public void setCapA(int capA) {
         this.capA = capA;
+    }
+    public int getDesdeOrigen() {
+        return this.desdeOrigen;
+    }
+    
+    public void setDesdeOrigen(int desdeOrigen) {
+        this.desdeOrigen = desdeOrigen;
+    }
+    public int getCapAOrigen() {
+        return this.capAOrigen;
+    }
+    
+    public void setCapAOrigen(int capAOrigen) {
+        this.capAOrigen = capAOrigen;
     }
 
 

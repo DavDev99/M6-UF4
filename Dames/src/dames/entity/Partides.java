@@ -1,5 +1,5 @@
 package dames.entity;
-// Generated 30-ene-2021 17:26:44 by Hibernate Tools 4.3.1
+// Generated 30-ene-2021 18:44:32 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

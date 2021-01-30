@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 30-ene-2021 17:26:45 by Hibernate Tools 4.3.1 -->
+<!-- Generated 30-ene-2021 18:44:33 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dames.entity.Moviments" table="moviments" catalog="dames" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -16,6 +16,12 @@
         </property>
         <property name="capA" type="int">
             <column name="cap_a" not-null="true" />
+        </property>
+        <property name="desdeOrigen" type="int">
+            <column name="desde_origen" not-null="true" />
+        </property>
+        <property name="capAOrigen" type="int">
+            <column name="cap_a_origen" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

@@ -5,8 +5,14 @@
  */
 package dames;
 
+import dames.entity.Partides;
+import dames.entity.Moviments;
+import damas.util.HibernateUtil;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
+import org.hibernate.Session;
 
 /**
  *
@@ -18,13 +24,15 @@ public class DamasPartida extends javax.swing.JFrame {
     boolean jugaO = false;
     int filaOrigen = -1;
     int columnaOrigen = -1;
+    Partides partida;
 
 
     /**
      * Creates new form DamasMenu
      */
-    public DamasPartida() {
+    public DamasPartida(Partides partida) {
         initComponents();
+        this.partida = partida;
     }
 
 
@@ -202,11 +210,7 @@ public class DamasPartida extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DamasPartida().setVisible(true);
-            }
-        });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -279,8 +283,26 @@ public class DamasPartida extends javax.swing.JFrame {
             jTable1.setValueAt("X", fila, columna);
 
         }
+        runQueryBasedOnCreateMoviment();
     }
+    private void runQueryBasedOnCreateMoviment() {
 
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        //Add new Employee object
+        Moviments mov = new Moviments();
+        mov.setCapA(WIDTH);
+        mov.setDesde(WIDTH);
+        mov.setPartides(partida);
+
+        //Save the employee in database
+        session.save(mov);
+
+        //Commit the transaction
+        session.getTransaction().commit();
+
+    }
     private boolean ocupatContrari(int fila, int columna) {
         String value = (String) jTable1.getValueAt(fila, columna);
 
