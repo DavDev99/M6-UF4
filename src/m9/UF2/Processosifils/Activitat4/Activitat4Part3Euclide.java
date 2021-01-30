@@ -16,12 +16,12 @@ import static m9.UF2.Processosifils.Activitat4.Euclid.gcd;
  */
 public class Activitat4Part3Euclide extends RecursiveTask<Long> {
 
-    long q;
     long p;
+    long q;
 
-    public Activitat4Part3Euclide(long q, long p) {
-        this.q = q;
+    public Activitat4Part3Euclide(long p, long q) {
         this.p = p;
+        this.q = q;
     }
 
     @Override
@@ -30,17 +30,16 @@ public class Activitat4Part3Euclide extends RecursiveTask<Long> {
             return p;
         } else {
             // q, p % q
-            Activitat4Part3Euclide aux = new Activitat4Part3Euclide(q, p % q);
-
+            Activitat4Part3Euclide aux = new Activitat4Part3Euclide(q, p%q);
             aux.fork();
-            return aux.compute() % aux.join();
+            return aux.join();
         }
     }
 
     public static void main(String[] args) {
 
         ForkJoinPool pool = new ForkJoinPool();
-        System.out.println("Calculat:  " + pool.invoke(new Activitat4Part3Euclide(50, 100)));
+        System.out.println("Calculat:  " + pool.invoke(new Activitat4Part3Euclide(3, 5)));
 
     }
 }
