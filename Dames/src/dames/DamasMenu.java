@@ -5,17 +5,52 @@
  */
 package dames;
 
+import damas.util.HibernateUtil;
+import java.awt.List;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
 /**
  *
  * @author david
  */
 public class DamasMenu extends javax.swing.JFrame {
 
+    private static String QUERY_CREATE_GAME = "INSERT INTO `partides`(`data`, `guanyador`) VALUES";
+
     /**
      * Creates new form DamasMenu
      */
     public DamasMenu() {
         initComponents();
+    }
+
+    private void runQueryBasedOnCreateGame() {
+
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+     LocalDateTime now = LocalDateTime.now();  
+     
+     String formattedDate = dtf.format(now);
+
+        executeHQLQuery(QUERY_CREATE_GAME + formattedDate + ", null");
+    }
+
+    private void executeHQLQuery(String hql) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Query q = session.createQuery(hql);
+
+            session.getTransaction().commit();
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
     }
 
     /**
@@ -69,7 +104,7 @@ public class DamasMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
+        runQueryBasedOnCreateGame();
         DamasPartida menuAlumne = new DamasPartida();
         menuAlumne.setVisible(true);
         dispose();
@@ -114,4 +149,5 @@ public class DamasMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
+
 }

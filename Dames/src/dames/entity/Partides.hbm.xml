@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28/01/2021 18:11:51 by Hibernate Tools 4.3.1 -->
+<!-- Generated 30-ene-2021 17:26:45 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dames.entity.Partides" table="partides" catalog="dames" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="data" type="date">
-            <column name="data" length="10" not-null="true" />
+        <property name="data" type="string">
+            <column name="data" length="50" not-null="true" />
         </property>
         <property name="guanyador" type="string">
             <column name="guanyador" length="2" />

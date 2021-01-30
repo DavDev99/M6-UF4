@@ -19,6 +19,7 @@ public class DamasPartida extends javax.swing.JFrame {
     int filaOrigen = -1;
     int columnaOrigen = -1;
 
+
     /**
      * Creates new form DamasMenu
      */
@@ -26,6 +27,8 @@ public class DamasPartida extends javax.swing.JFrame {
         initComponents();
     }
 
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

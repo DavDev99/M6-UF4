@@ -1,8 +1,7 @@
 package dames.entity;
-// Generated 28/01/2021 18:11:50 by Hibernate Tools 4.3.1
+// Generated 30-ene-2021 17:26:44 by Hibernate Tools 4.3.1
 
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +12,7 @@ public class Partides  implements java.io.Serializable {
 
 
      private Integer id;
-     private Date data;
+     private String data;
      private String guanyador;
      private Set movimentses = new HashSet(0);
 
@@ -21,10 +20,10 @@ public class Partides  implements java.io.Serializable {
     }
 
 	
-    public Partides(Date data) {
+    public Partides(String data) {
         this.data = data;
     }
-    public Partides(Date data, String guanyador, Set movimentses) {
+    public Partides(String data, String guanyador, Set movimentses) {
        this.data = data;
        this.guanyador = guanyador;
        this.movimentses = movimentses;
@@ -37,11 +36,11 @@ public class Partides  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-    public Date getData() {
+    public String getData() {
         return this.data;
     }
     
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
     public String getGuanyador() {
