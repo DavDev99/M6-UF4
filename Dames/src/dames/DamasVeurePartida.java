@@ -42,8 +42,8 @@ public class DamasVeurePartida extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new DamasVeurePartida().setVisible(true);
-                            carregarPartida();
+                    carregarPartida();
+
                 } catch (InterruptedException ex) {
                     Logger.getLogger(DamasVeurePartida.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -208,7 +208,6 @@ public class DamasVeurePartida extends javax.swing.JFrame {
             //query.setMaxResults(1);
             idPartida = (int) query.list().get(0);
 
-            
             session.getTransaction().commit();
             session.close();
         } catch (HibernateException he) {
@@ -216,8 +215,8 @@ public class DamasVeurePartida extends javax.swing.JFrame {
         }
 
     }
-    
-        private void runQueryBasedOnGetMoviments() {
+
+    private void runQueryBasedOnGetMoviments() {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -236,26 +235,28 @@ public class DamasVeurePartida extends javax.swing.JFrame {
     }
 
     private void carregarPartida() throws InterruptedException {
-        runQueryBasedOnLastGame();
-        runQueryBasedOnGetMoviments();
-        
-        for (int i = 0; i < moviments.size(); i++) {
-            
-            Moviments moviment = (Moviments) moviments.get(i);
-            
-            actualitzaNouOrigen(moviment.getFilaOrigen(), moviment.getColumnaOrigen());
-            
-            mou(moviment.getFila(), moviment.getColumna());
-            
-            if (jugaX) {
-                jugaX = false;
-            } else {
-                jugaX = true;
+
+            runQueryBasedOnLastGame();
+            runQueryBasedOnGetMoviments();
+
+            for (int i = 0; i < moviments.size(); i++) {
+
+                Moviments moviment = (Moviments) moviments.get(i);
+
+                actualitzaNouOrigen(moviment.getFilaOrigen(), moviment.getColumnaOrigen());
+
+                mou(moviment.getFila(), moviment.getColumna());
+
+                if (jugaX) {
+                    jugaX = false;
+                } else {
+                    jugaX = true;
+                }
+                jugaO = !jugaX;
+
+                Thread.sleep(200);
             }
-            jugaO = !jugaX;
-            
-            sleep(200);
-        }
+
 
     }
 
@@ -263,7 +264,7 @@ public class DamasVeurePartida extends javax.swing.JFrame {
         filaOrigen = fila;
         columnaOrigen = columna;
     }
-    
+
     private void mou(int fila, int columna) {
         jTable1.setValueAt("", filaOrigen, columnaOrigen);
 
