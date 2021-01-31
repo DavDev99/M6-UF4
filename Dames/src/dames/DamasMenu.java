@@ -16,7 +16,7 @@ import org.hibernate.Session;
  * @author david
  */
 public class DamasMenu extends javax.swing.JFrame {
-    public Partides partida;
+    public static Partides partida;
     /**
      * Creates new form DamasMenu
      */
@@ -85,7 +85,7 @@ public class DamasMenu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1MouseClicked
-private void runQueryBasedOnCreateGame() {
+    private void runQueryBasedOnCreateGame() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
 
@@ -104,6 +104,8 @@ private void runQueryBasedOnCreateGame() {
 
         //Commit the transaction
         session.getTransaction().commit();
+        
+        session.close();
 
     }
     /**

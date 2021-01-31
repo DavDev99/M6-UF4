@@ -5,8 +5,15 @@
  */
 package dames;
 
+import damas.util.HibernateUtil;
+import static dames.DamasMenu.partida;
+import dames.entity.Moviments;
+import dames.entity.Partides;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
+import org.hibernate.Session;
 
 /**
  *
@@ -274,8 +281,9 @@ public class DamasPartida extends javax.swing.JFrame {
             jTable1.setValueAt("O", fila, columna);
         } else {
             jTable1.setValueAt("X", fila, columna);
-
         }
+        
+        runQueryBasedOnCreateMoviment(fila, columna);
     }
 
     private boolean ocupatContrari(int fila, int columna) {
@@ -324,19 +332,65 @@ public class DamasPartida extends javax.swing.JFrame {
                 }
 
                 if (jugaO && i == tablero.getRowCount() - 1 && EsX(i, j)) {
+                    runQueryBasedOnUpdatePartidaSetWinner("X");
                     return true;
                 } else if (jugaX && i == 0 && EsO(i, j)) {
+                    runQueryBasedOnUpdatePartidaSetWinner("O");
                     return true;
                 }
             }
         }
 
         if (countO == 0) {
+            runQueryBasedOnUpdatePartidaSetWinner("X");
             return true;
         } else if (countX == 0) {
+            runQueryBasedOnUpdatePartidaSetWinner("O");
             return true;
         }
         return false;
     }
 
+    private void runQueryBasedOnCreateMoviment(int fila, int columna) {
+
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        //Add new Employee object
+        Moviments moviment = new Moviments();
+        moviment.setPartides(DamasMenu.partida);
+        moviment.setFila(fila);
+        moviment.setColumna(columna);
+        moviment.setFilaOrigen(filaOrigen);
+        moviment.setColumnaOrigen(columnaOrigen);
+
+
+        //Save the employee in database
+        session.save(moviment);
+
+        //Commit the transaction
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+        private void runQueryBasedOnUpdatePartidaSetWinner(String guanyador) {
+
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        //Add new Employee object
+
+        DamasMenu.partida.setGuanyador(guanyador);
+
+
+
+        //Save the employee in database
+        session.save(DamasMenu.partida);
+
+        //Commit the transaction
+        session.getTransaction().commit();
+        session.close();
+    }
 }

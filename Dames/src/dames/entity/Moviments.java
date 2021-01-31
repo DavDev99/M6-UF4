@@ -1,5 +1,5 @@
 package dames.entity;
-// Generated 31-ene-2021 19:41:13 by Hibernate Tools 4.3.1
+// Generated 31-ene-2021 19:52:25 by Hibernate Tools 4.3.1
 
 
 
@@ -11,16 +11,20 @@ public class Moviments  implements java.io.Serializable {
 
      private Integer id;
      private Partides partides;
-     private int desde;
-     private int capA;
+     private int fila;
+     private int columna;
+     private int filaOrigen;
+     private int columnaOrigen;
 
     public Moviments() {
     }
 
-    public Moviments(Partides partides, int desde, int capA) {
+    public Moviments(Partides partides, int fila, int columna, int filaOrigen, int columnaOrigen) {
        this.partides = partides;
-       this.desde = desde;
-       this.capA = capA;
+       this.fila = fila;
+       this.columna = columna;
+       this.filaOrigen = filaOrigen;
+       this.columnaOrigen = columnaOrigen;
     }
    
     public Integer getId() {
@@ -37,19 +41,33 @@ public class Moviments  implements java.io.Serializable {
     public void setPartides(Partides partides) {
         this.partides = partides;
     }
-    public int getDesde() {
-        return this.desde;
+    public int getFila() {
+        return this.fila;
     }
     
-    public void setDesde(int desde) {
-        this.desde = desde;
+    public void setFila(int fila) {
+        this.fila = fila;
     }
-    public int getCapA() {
-        return this.capA;
+    public int getColumna() {
+        return this.columna;
     }
     
-    public void setCapA(int capA) {
-        this.capA = capA;
+    public void setColumna(int columna) {
+        this.columna = columna;
+    }
+    public int getFilaOrigen() {
+        return this.filaOrigen;
+    }
+    
+    public void setFilaOrigen(int filaOrigen) {
+        this.filaOrigen = filaOrigen;
+    }
+    public int getColumnaOrigen() {
+        return this.columnaOrigen;
+    }
+    
+    public void setColumnaOrigen(int columnaOrigen) {
+        this.columnaOrigen = columnaOrigen;
     }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 31-ene-2021 19:41:13 by Hibernate Tools 4.3.1 -->
+<!-- Generated 31-ene-2021 19:52:25 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dames.entity.Moviments" table="moviments" catalog="dames" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -11,11 +11,17 @@
         <many-to-one name="partides" class="dames.entity.Partides" fetch="select">
             <column name="id_partida" not-null="true" />
         </many-to-one>
-        <property name="desde" type="int">
-            <column name="desde" not-null="true" />
+        <property name="fila" type="int">
+            <column name="fila" not-null="true" />
         </property>
-        <property name="capA" type="int">
-            <column name="cap_a" not-null="true" />
+        <property name="columna" type="int">
+            <column name="columna" not-null="true" />
+        </property>
+        <property name="filaOrigen" type="int">
+            <column name="fila_origen" not-null="true" />
+        </property>
+        <property name="columnaOrigen" type="int">
+            <column name="columna_origen" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

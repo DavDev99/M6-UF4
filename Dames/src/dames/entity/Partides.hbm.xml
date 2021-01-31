@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 31-ene-2021 19:41:13 by Hibernate Tools 4.3.1 -->
+<!-- Generated 31-ene-2021 19:52:25 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="dames.entity.Partides" table="partides" catalog="dames" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
