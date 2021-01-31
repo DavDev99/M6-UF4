@@ -236,28 +236,28 @@ public class DamasVeurePartida extends javax.swing.JFrame {
 
     private void carregarPartida() throws InterruptedException {
 
-            runQueryBasedOnLastGame();
-            runQueryBasedOnGetMoviments();
+        runQueryBasedOnLastGame();
+        runQueryBasedOnGetMoviments();
 
-            for (int i = 0; i < moviments.size(); i++) {
+        for (int i = 0; i < moviments.size(); i++) {
 
-                Moviments moviment = (Moviments) moviments.get(i);
+            Moviments moviment = (Moviments) moviments.get(i);
 
-                actualitzaNouOrigen(moviment.getFilaOrigen(), moviment.getColumnaOrigen());
+            actualitzaNouOrigen(moviment.getFilaOrigen(), moviment.getColumnaOrigen());
 
-                mou(moviment.getFila(), moviment.getColumna());
+            mou(moviment.getFila(), moviment.getColumna());
 
-                if (jugaX) {
-                    jugaX = false;
-                } else {
-                    jugaX = true;
-                }
-                jugaO = !jugaX;
-
-                Thread.sleep(200);
+            if (jugaX) {
+                jugaX = false;
+            } else {
+                jugaX = true;
             }
+            jugaO = !jugaX;
 
-
+            Thread.sleep(200);
+        }
+        Moviments moviment = (Moviments) moviments.get(0);
+        mostrarGuanyador(moviment.getPartides());
     }
 
     private void actualitzaNouOrigen(int fila, int columna) {
@@ -275,10 +275,10 @@ public class DamasVeurePartida extends javax.swing.JFrame {
         }
     }
 
-    private void mostrarGuanyador() {
+    private void mostrarGuanyador(Partides partida) {
 
         JOptionPane.showMessageDialog(this,
-                "El jugador O ha guanyat!",
+                "El jugador " + partida.getGuanyador() + " ha guanyat!",
                 "Felicitats",
                 JOptionPane.INFORMATION_MESSAGE);
 
