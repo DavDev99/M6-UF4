@@ -46,6 +46,11 @@ public class DamasMenu extends javax.swing.JFrame {
         });
 
         jButton2.setText("Carregar última partida");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,6 +90,13 @@ public class DamasMenu extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+
+        DamasVeurePartida damasVeurePartida = new DamasVeurePartida();
+        damasVeurePartida.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
     private void runQueryBasedOnCreateGame() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
