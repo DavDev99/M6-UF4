@@ -1,5 +1,5 @@
 package dames.entity;
-// Generated 28/01/2021 18:11:50 by Hibernate Tools 4.3.1
+// Generated 31-ene-2021 19:41:13 by Hibernate Tools 4.3.1
 
 
 

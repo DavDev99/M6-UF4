@@ -5,12 +5,18 @@
  */
 package dames;
 
+import damas.util.HibernateUtil;
+import dames.entity.Partides;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import org.hibernate.Session;
+
 /**
  *
  * @author david
  */
 public class DamasMenu extends javax.swing.JFrame {
-
+    public Partides partida;
     /**
      * Creates new form DamasMenu
      */
@@ -70,11 +76,36 @@ public class DamasMenu extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
+        
+        runQueryBasedOnCreateGame();
+        
         DamasPartida menuAlumne = new DamasPartida();
         menuAlumne.setVisible(true);
         dispose();
+        
+        
     }//GEN-LAST:event_jButton1MouseClicked
+private void runQueryBasedOnCreateGame() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
 
+        String formattedDate = dtf.format(now);
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        //Add new Employee object
+        partida = new Partides();
+        partida.setData(formattedDate);
+        partida.setGuanyador(null);
+
+        //Save the employee in database
+        session.save(partida);
+
+        //Commit the transaction
+        session.getTransaction().commit();
+
+    }
     /**
      * @param args the command line arguments
      */
