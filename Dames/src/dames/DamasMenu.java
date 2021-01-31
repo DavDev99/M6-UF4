@@ -9,6 +9,8 @@ import damas.util.HibernateUtil;
 import dames.entity.Partides;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Session;
 
 /**
@@ -93,8 +95,14 @@ public class DamasMenu extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
 
-        DamasVeurePartida damasVeurePartida = new DamasVeurePartida();
-        damasVeurePartida.setVisible(true);
+        DamasVeurePartida damasVeurePartida;
+        try {
+            damasVeurePartida = new DamasVeurePartida();
+            damasVeurePartida.setVisible(true);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DamasMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked
     private void runQueryBasedOnCreateGame() {

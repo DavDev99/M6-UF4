@@ -387,7 +387,7 @@ public class DamasPartida extends javax.swing.JFrame {
 
 
         //Save the employee in database
-        session.save(DamasMenu.partida);
+        session.saveOrUpdate(DamasMenu.partida);
 
         //Commit the transaction
         session.getTransaction().commit();

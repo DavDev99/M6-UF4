@@ -9,9 +9,14 @@ import damas.util.HibernateUtil;
 import static dames.DamasMenu.partida;
 import dames.entity.Moviments;
 import dames.entity.Partides;
-import java.awt.List;
+import static java.lang.Thread.sleep;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import org.hibernate.HibernateException;
@@ -28,12 +33,24 @@ public class DamasVeurePartida extends javax.swing.JFrame {
     boolean jugaO = false;
     int filaOrigen = -1;
     int columnaOrigen = -1;
+    int idPartida;
 
     /**
      * Creates new form DamasMenu
      */
-    public DamasVeurePartida() {
+    public DamasVeurePartida() throws InterruptedException {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    new DamasVeurePartida().setVisible(true);
+                            carregarPartida();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(DamasVeurePartida.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
         initComponents();
+
     }
 
     /**
@@ -165,7 +182,11 @@ public class DamasVeurePartida extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DamasVeurePartida().setVisible(true);
+                try {
+                    new DamasVeurePartida().setVisible(true);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(DamasVeurePartida.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -175,34 +196,74 @@ public class DamasVeurePartida extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-    
-    private static String QUERY_BASED_ON_LAST_GAME="from Actor a where a.firstName like '";
-    private static String QUERY_BASED_ON_ALL_MOVES="from Actor a where a.lastName like '";
-    
+
+    public static List<?> moviments;
+
     private void runQueryBasedOnLastGame() {
-    executeHQLQuery(QUERY_BASED_ON_LAST_GAME);
-}
-    
-    private void runQueryBasedOnAllMoves() {
-        executeHQLQuery(QUERY_BASED_ON_ALL_MOVES);
-    }
-    
-    private void executeHQLQuery(String hql) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List resultList = (List) q.list();
+
+            Query query = session.createQuery("select max(par.id) from Partides par");
+            //query.setMaxResults(1);
+            idPartida = (int) query.list().get(0);
+
+            
             session.getTransaction().commit();
             session.close();
         } catch (HibernateException he) {
             he.printStackTrace();
-        } 
+        }
+
     }
-    private void carregarPartida() {
+    
+        private void runQueryBasedOnGetMoviments() {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            Query query = query = session.createQuery("from Moviments where id_partida = :id");
+            query.setParameter("id", idPartida);
+
+            moviments = (ArrayList<?>) query.list();
+
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException he) {
+            he.printStackTrace();
+        }
 
     }
 
+    private void carregarPartida() throws InterruptedException {
+        runQueryBasedOnLastGame();
+        runQueryBasedOnGetMoviments();
+        
+        for (int i = 0; i < moviments.size(); i++) {
+            
+            Moviments moviment = (Moviments) moviments.get(i);
+            
+            actualitzaNouOrigen(moviment.getFilaOrigen(), moviment.getColumnaOrigen());
+            
+            mou(moviment.getFila(), moviment.getColumna());
+            
+            if (jugaX) {
+                jugaX = false;
+            } else {
+                jugaX = true;
+            }
+            jugaO = !jugaX;
+            
+            sleep(200);
+        }
+
+    }
+
+    private void actualitzaNouOrigen(int fila, int columna) {
+        filaOrigen = fila;
+        columnaOrigen = columna;
+    }
+    
     private void mou(int fila, int columna) {
         jTable1.setValueAt("", filaOrigen, columnaOrigen);
 
