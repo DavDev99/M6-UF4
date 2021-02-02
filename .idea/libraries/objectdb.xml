@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="objectdb">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/m6/UF2PersistenciaenBDBDORiBDOO/Exercici7/Exercici7Part2/build/web/WEB-INF/lib/objectdb.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

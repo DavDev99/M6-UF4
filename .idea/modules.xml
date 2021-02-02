@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dames/Dames.iml" filepath="$PROJECT_DIR$/Dames/Dames.iml" />
+      <module fileurl="file://$PROJECT_DIR$/M6.iml" filepath="$PROJECT_DIR$/M6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/m6/UF2PersistenciaenBDBDORiBDOO/Exercici8/Taller/src/Taller.iml" filepath="$PROJECT_DIR$/src/m6/UF2PersistenciaenBDBDORiBDOO/Exercici8/Taller/src/Taller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/m6/UF2PersistenciaenBDBDORiBDOO/Exercici8/Taller/build/build.iml" filepath="$PROJECT_DIR$/src/m6/UF2PersistenciaenBDBDORiBDOO/Exercici8/Taller/build/build.iml" />
+    </modules>
+  </component>
+</project>

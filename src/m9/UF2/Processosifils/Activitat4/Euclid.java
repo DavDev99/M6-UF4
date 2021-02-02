@@ -20,8 +20,8 @@ public class Euclid {
     }
 
     public static void main(String[] args) {
-        int p = Integer.parseInt(args[0]);
-        int q = Integer.parseInt(args[1]);
+        int p = 2;
+        int q = 10;
         int d  = gcd(p, q);
         System.out.println("gcd(" + p + ", " + q + ") = " + d);
 
