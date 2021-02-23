@@ -57,7 +57,7 @@ public class NauEspaial extends javax.swing.JFrame {
 
 class PanelNau extends JPanel implements Runnable, KeyListener {
 
-    private int numNaus = 10;
+    static int numNaus = 10;
     Nau[] nauEnemy;
     Nau main;
     ArrayList<Laser> shoots = new ArrayList();
@@ -75,7 +75,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
             nauEnemy[i] = new Nau(i, posX, posY, dX, dY, velocitat);
         }
         
-        main = new Nau(numNaus, 400, 400, 10, 0, 100);
+        main = new Nau(numNaus, 200, 400, 10, 0, 100);
         
         Thread n = new Thread(this);
         n.start();
@@ -102,6 +102,11 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
             nauEnemy[i].pinta(g);
         }
         main.pinta(g);
+        
+        for (int i = 0; i < shoots.size(); i++) {
+            Laser laser = shoots.get(i);
+            laser.pinta(g);
+        }
     }
 
     @Override
@@ -119,8 +124,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
         } else if (ke.getKeyCode() == 39) {
             main.setX(main.getX() + 10);
         }else if (ke.getKeyCode() == 32) {
-            shoots.add(new Laser());
-                    main = new Nau(3, 400, 400, 10, 0, 100);
+            shoots.add(new Laser(main.getX(), main.getY(), 0, 100));
         }
     }
 
@@ -142,7 +146,9 @@ class Nau extends Thread {
     public int getX() {
         return x;
     }
-
+    public int getY() {
+        return y;
+    }
     public void setX(int x) {
         this.x = x;
     }
@@ -188,7 +194,7 @@ class Nau extends Thread {
                 Thread.sleep(this.v);
             } catch (Exception e) {
             }
-            if (numero != 3) {
+            if (numero != PanelNau.numNaus) {
                 moure();
             }
         }
@@ -198,7 +204,7 @@ class Nau extends Thread {
 class Laser extends Thread {
 
     private int x, y;
-    private int dsx, dsy, v;
+    private int dsy, v;
     private int tx = 10;
     private int ty = 10;
     private Image image;
@@ -211,10 +217,9 @@ class Laser extends Thread {
         this.y = y;
     }
 
-    public Laser( int x, int y, int dsx, int dsy, int v) {
+    public Laser( int x, int y, int dsy, int v) {
         this.x = x;
         this.y = y;
-        this.dsx = dsx;
         this.dsy = dsy;
         this.v = v;
         image = new ImageIcon(Nau.class.getResource("laser.png")).getImage();
@@ -228,12 +233,8 @@ class Laser extends Thread {
 
     public void moure() {
 
-        x = x + dsx;
         y = y + dsy;
         // si arriva als marges ...
-        if (x >= 450 - tx || x <= tx) {
-            dsx = -dsx;
-        }
         if (y >= 500 - ty || y <= ty) {
             dsy = -dsy;
         }
@@ -251,9 +252,8 @@ class Laser extends Thread {
                 Thread.sleep(this.v);
             } catch (Exception e) {
             }
-            if (numero != numNaus) {
-                moure();
-            }
+            moure();
+
         }
     }
 }
