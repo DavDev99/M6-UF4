@@ -60,7 +60,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
     static int numNaus = 10;
     Nau[] nauEnemy;
     Nau main;
-    ArrayList<Laser> shoots = new ArrayList();
+    public static ArrayList<Laser> shoots = new ArrayList();
 
     public PanelNau() {
         nauEnemy = new Nau[numNaus];
@@ -124,7 +124,10 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
         } else if (ke.getKeyCode() == 39) {
             main.setX(main.getX() + 10);
         }else if (ke.getKeyCode() == 32) {
-            shoots.add(new Laser(main.getX(), main.getY(), 0, 100));
+            
+            if(shoots.size() < 10){
+               shoots.add(new Laser(main.getX(), main.getY(), -10, 100)); 
+            }
         }
     }
 
@@ -218,7 +221,7 @@ class Laser extends Thread {
     }
 
     public Laser( int x, int y, int dsy, int v) {
-        this.x = x;
+        this.x = x + 50;
         this.y = y;
         this.dsy = dsy;
         this.v = v;
@@ -236,7 +239,12 @@ class Laser extends Thread {
         y = y + dsy;
         // si arriva als marges ...
         if (y >= 500 - ty || y <= ty) {
-            dsy = -dsy;
+            for (int i = 0; i < PanelNau.shoots.size(); i++) {
+                Laser laser = PanelNau.shoots.get(i);
+                if (laser == this) {
+                    PanelNau.shoots.remove(i);
+                }
+            }
         }
     }
 
