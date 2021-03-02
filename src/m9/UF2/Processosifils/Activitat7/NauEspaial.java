@@ -214,6 +214,8 @@ class Laser extends Thread {
     private int tx = 10;
     private int ty = 10;
     private Image image;
+    
+    private boolean finalitza = false;
 
     public int getY() {
         return x;
@@ -247,20 +249,31 @@ class Laser extends Thread {
         }
     }
 
-    public void moure() {
+    public synchronized void moure() {
 
         y = y + dsy;
         // si arriva als marges ...
         if (y >= 500 - ty || y <= ty) {
             this.removeLaser();
         } else {
-            for (int i = 0; i < PanelNau.nausEnemy.size(); i++) {
+            int i = 0;
+            while(!finalitza && i < PanelNau.nausEnemy.size()) {
+                
                 Nau nau = PanelNau.nausEnemy.get(i);
+                
                 if ((this.x >= nau.getX() && this.x <= nau.getX() + 100)
                         && (this.y >= nau.getY() && this.y <= nau.getY() + 100)) {
                     this.removeLaser();
+                    this.finalitza=true;
+                   // this.interrupt();
+                   //try {this.finalize();}catch(Throwable t) {}
+                   //this.
                     PanelNau.nausEnemy.remove(i);
+                    //i=PanelNau.nausEnemy.size();
+                }else{
+                    i++;
                 }
+                
             }
         }
     }
@@ -271,7 +284,7 @@ class Laser extends Thread {
     }
 
     public void run() {
-        while (true) {
+        while (!finalitza ) {
             // System.out.println("Movent nau numero " + this.numero);
             try {
                 Thread.sleep(this.v);
