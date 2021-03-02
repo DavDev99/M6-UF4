@@ -58,25 +58,25 @@ public class NauEspaial extends javax.swing.JFrame {
 class PanelNau extends JPanel implements Runnable, KeyListener {
 
     static int numNaus = 10;
-    Nau[] nauEnemy;
+    public static ArrayList<Nau> nausEnemy;
     Nau main;
     public static ArrayList<Laser> shoots = new ArrayList();
 
     public PanelNau() {
-        nauEnemy = new Nau[numNaus];
-        
-        for (int i = 0; i < nauEnemy.length; i++) {
+        nausEnemy = new ArrayList();
+
+        for (int i = 0; i < numNaus; i++) {
             Random rand = new Random();
             int velocitat = (rand.nextInt(3) + 5) * 10;
             int posX = rand.nextInt(100) + 30;
             int posY = rand.nextInt(100) + 30;
             int dX = rand.nextInt(3) + 1;
             int dY = rand.nextInt(3) + 1;
-            nauEnemy[i] = new Nau(i, posX, posY, dX, dY, velocitat);
+            nausEnemy.add(new Nau(i, posX, posY, dX, dY, velocitat));
         }
-        
+
         main = new Nau(numNaus, 200, 400, 10, 0, 100);
-        
+
         Thread n = new Thread(this);
         n.start();
 
@@ -98,11 +98,12 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (int i = 0; i < nauEnemy.length; ++i) {
-            nauEnemy[i].pinta(g);
+        for (int i = 0; i < nausEnemy.size(); ++i) {
+            Nau nau = nausEnemy.get(i);
+            nau.pinta(g);
         }
         main.pinta(g);
-        
+
         for (int i = 0; i < shoots.size(); i++) {
             Laser laser = shoots.get(i);
             laser.pinta(g);
@@ -112,21 +113,19 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
     @Override
     public void keyTyped(KeyEvent ke) {
 
-
     }
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        System.out.println(ke.getKeyCode());
-        
+
         if (ke.getKeyCode() == 37) {
             main.setX(main.getX() - 10);
         } else if (ke.getKeyCode() == 39) {
             main.setX(main.getX() + 10);
-        }else if (ke.getKeyCode() == 32) {
-            
-            if(shoots.size() < 10){
-               shoots.add(new Laser(main.getX(), main.getY(), -10, 100)); 
+        } else if (ke.getKeyCode() == 32) {
+
+            if (shoots.size() < 10) {
+                shoots.add(new Laser(main.getX(), main.getY(), -10, 100));
             }
         }
     }
@@ -149,9 +148,11 @@ class Nau extends Thread {
     public int getX() {
         return x;
     }
+
     public int getY() {
         return y;
     }
+
     public void setX(int x) {
         this.x = x;
     }
@@ -198,7 +199,9 @@ class Nau extends Thread {
             } catch (Exception e) {
             }
             if (numero != PanelNau.numNaus) {
-                moure();
+
+                    moure();
+                
             }
         }
     }
@@ -220,7 +223,7 @@ class Laser extends Thread {
         this.y = y;
     }
 
-    public Laser( int x, int y, int dsy, int v) {
+    public Laser(int x, int y, int dsy, int v) {
         this.x = x + 50;
         this.y = y;
         this.dsy = dsy;
@@ -234,15 +237,29 @@ class Laser extends Thread {
         return v;
     }
 
+    public void removeLaser() {
+        for (int i = 0; i < PanelNau.shoots.size(); i++) {
+            Laser laser = PanelNau.shoots.get(i);
+
+            if (laser == this) {
+                PanelNau.shoots.remove(i);
+            }
+        }
+    }
+
     public void moure() {
 
         y = y + dsy;
         // si arriva als marges ...
         if (y >= 500 - ty || y <= ty) {
-            for (int i = 0; i < PanelNau.shoots.size(); i++) {
-                Laser laser = PanelNau.shoots.get(i);
-                if (laser == this) {
-                    PanelNau.shoots.remove(i);
+            this.removeLaser();
+        } else {
+            for (int i = 0; i < PanelNau.nausEnemy.size(); i++) {
+                Nau nau = PanelNau.nausEnemy.get(i);
+                if ((this.x >= nau.getX() && this.x <= nau.getX() + 100)
+                        && (this.y >= nau.getY() && this.y <= nau.getY() + 100)) {
+                    this.removeLaser();
+                    PanelNau.nausEnemy.remove(i);
                 }
             }
         }
