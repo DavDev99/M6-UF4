@@ -87,6 +87,24 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
 
     public void run() {
         System.out.println("Inici fil repintar");
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                while (!finish) {
+                    try {
+                        Thread.sleep(1000);
+                        Random rand = new Random();
+                        Nau nau = nausEnemy.get(rand.nextInt(nausEnemy.size()));
+                        shoots.add(new Laser(nau.getX(), nau.getY(), 10, 100));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        // Creamos un hilo y le pasamos el runnable
+        Thread hilo = new Thread(runnable);
+        hilo.start();
         while (!finish) {
             try {
                 Thread.sleep(100);
@@ -94,16 +112,16 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
             } // espero 0,1 segons
             //System.out.println("Repintant");
             repaint();
-            
+
             if (nausEnemy.size() <= 0) {
                 finish = true;
                 JOptionPane.showMessageDialog(null, "You win the Game!", "InfoBox: You WIN!", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
             }
-            
+
             for (int i = 0; i < nausEnemy.size(); i++) {
                 Nau nau = nausEnemy.get(i);
-                
+
                 if ((main.getX() >= nau.getX() - 50 && main.getX() <= nau.getX() + 50) && (main.getY() >= nau.getY() && main.getY() <= nau.getY() + 80)) {
                     finish = true;
                     JOptionPane.showMessageDialog(null, "You lose the Game!", "InfoBox: You LOSE!", JOptionPane.INFORMATION_MESSAGE);
@@ -112,6 +130,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
                 }
 
             }
+
         }
     }
 
@@ -219,8 +238,8 @@ class Nau extends Thread {
             }
             if (numero != PanelNau.numNaus) {
 
-                    moure();
-                
+                moure();
+
             }
         }
     }
@@ -233,7 +252,7 @@ class Laser extends Thread {
     private int tx = 10;
     private int ty = 10;
     private Image image;
-    
+
     private boolean finalitza = false;
 
     public int getY() {
@@ -276,23 +295,21 @@ class Laser extends Thread {
             this.removeLaser();
         } else {
             int i = 0;
-            while(!finalitza && i < PanelNau.nausEnemy.size()) {
-                
+            while (!finalitza && i < PanelNau.nausEnemy.size()) {
+
                 Nau nau = PanelNau.nausEnemy.get(i);
-                
+
                 if ((this.x >= nau.getX() && this.x <= nau.getX() + 100)
                         && (this.y >= nau.getY() && this.y <= nau.getY() + 100)) {
                     this.removeLaser();
-                    this.finalitza=true;
-                   // this.interrupt();
-                   //try {this.finalize();}catch(Throwable t) {}
-                   //this.
+                    this.finalitza = true;
+
                     PanelNau.nausEnemy.remove(i);
-                    //i=PanelNau.nausEnemy.size();
-                }else{
+
+                } else {
                     i++;
                 }
-                
+
             }
         }
     }
@@ -303,7 +320,7 @@ class Laser extends Thread {
     }
 
     public void run() {
-        while (!finalitza ) {
+        while (!finalitza) {
             // System.out.println("Movent nau numero " + this.numero);
             try {
                 Thread.sleep(this.v);
