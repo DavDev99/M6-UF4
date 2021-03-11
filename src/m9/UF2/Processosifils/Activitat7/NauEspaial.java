@@ -94,10 +94,23 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
             } // espero 0,1 segons
             //System.out.println("Repintant");
             repaint();
+            
             if (nausEnemy.size() <= 0) {
                 finish = true;
                 JOptionPane.showMessageDialog(null, "You win the Game!", "InfoBox: You WIN!", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
+            }
+            
+            for (int i = 0; i < nausEnemy.size(); i++) {
+                Nau nau = nausEnemy.get(i);
+                
+                if ((main.getX() >= nau.getX() - 50 && main.getX() <= nau.getX() + 50) && (main.getY() >= nau.getY() && main.getY() <= nau.getY() + 80)) {
+                    finish = true;
+                    JOptionPane.showMessageDialog(null, "You lose the Game!", "InfoBox: You LOSE!", JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
+
+                }
+
             }
         }
     }
