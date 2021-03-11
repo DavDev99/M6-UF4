@@ -46,12 +46,12 @@ public class NauEspaial extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(NauEspaial.class.getName()).log(
                     java.util.logging.Level.SEVERE, null, ex);
         }
-        NauEspaial f = new NauEspaial();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setTitle("Naus Espaials");
-        f.setContentPane(new PanelNau());
-        f.setSize(480, 560);
-        f.setVisible(true);
+        NauEspaial window = new NauEspaial();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setTitle("Naus Espaials");
+        window.setContentPane(new PanelNau());
+        window.setSize(480, 560);
+        window.setVisible(true);
     }
 }
 
@@ -61,6 +61,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
     public static ArrayList<Nau> nausEnemy;
     Nau main;
     public static ArrayList<Laser> shoots = new ArrayList();
+    boolean finish = false;
 
     public PanelNau() {
         nausEnemy = new ArrayList();
@@ -86,13 +87,18 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
 
     public void run() {
         System.out.println("Inici fil repintar");
-        while (true) {
+        while (!finish) {
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
             } // espero 0,1 segons
             //System.out.println("Repintant");
             repaint();
+            if (nausEnemy.size() <= 0) {
+                finish = true;
+                JOptionPane.showMessageDialog(null, "You win the Game!", "InfoBox: You WIN!", JOptionPane.INFORMATION_MESSAGE);
+                System.exit(0);
+            }
         }
     }
 
