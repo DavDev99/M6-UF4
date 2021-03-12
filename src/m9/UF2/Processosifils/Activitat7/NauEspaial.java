@@ -59,9 +59,9 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
 
     static int numNaus = 10;
     public static ArrayList<Nau> nausEnemy;
-    Nau main;
+    public static Nau nauMain;
     public static ArrayList<Laser> shoots = new ArrayList();
-    boolean finish = false;
+    public static boolean finish = false;
 
     public PanelNau() {
         nausEnemy = new ArrayList();
@@ -76,7 +76,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
             nausEnemy.add(new Nau(i, posX, posY, dX, dY, velocitat));
         }
 
-        main = new Nau(numNaus, 200, 400, 10, 0, 100);
+        nauMain = new Nau(numNaus, 200, 400, 10, 0, 100);
 
         Thread n = new Thread(this);
         n.start();
@@ -95,7 +95,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
                         Thread.sleep(1000);
                         Random rand = new Random();
                         Nau nau = nausEnemy.get(rand.nextInt(nausEnemy.size()));
-                        shoots.add(new Laser(nau.getX(), nau.getY() + 100, 10, 100));
+                        shoots.add(new Laser(nau.getX(), nau.getY() + 100, 10, 100, true));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -114,24 +114,27 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
             repaint();
 
             if (nausEnemy.size() <= 0) {
-                finish = true;
-                JOptionPane.showMessageDialog(null, "You win the Game!", "InfoBox: You WIN!", JOptionPane.INFORMATION_MESSAGE);
-                System.exit(0);
+               
+                endGame("You win the Game!", "InfoBox: You WIN!");
             }
 
             for (int i = 0; i < nausEnemy.size(); i++) {
                 Nau nau = nausEnemy.get(i);
 
-                if ((main.getX() >= nau.getX() - 50 && main.getX() <= nau.getX() + 50) && (main.getY() >= nau.getY() && main.getY() <= nau.getY() + 80)) {
-                    finish = true;
-                    JOptionPane.showMessageDialog(null, "You lose the Game!", "InfoBox: You LOSE!", JOptionPane.INFORMATION_MESSAGE);
-                    System.exit(0);
-
+                if ((nauMain.getX() >= nau.getX() - 50 && nauMain.getX() <= nau.getX() + 50) && (nauMain.getY() >= nau.getY() && nauMain.getY() <= nau.getY() + 80)) {
+                    
+                    endGame("You lose the Game!", "InfoBox: You LOSE!");
                 }
 
             }
 
         }
+    }
+
+    public static void endGame(String message, String title) {
+        PanelNau.finish = true;
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
+        System.exit(0);
     }
 
     public void paintComponent(Graphics g) {
@@ -140,7 +143,8 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
             Nau nau = nausEnemy.get(i);
             nau.pinta(g);
         }
-        main.pinta(g);
+        if (nauMain != null) 
+            nauMain.pinta(g);
 
         for (int i = 0; i < shoots.size(); i++) {
             Laser laser = shoots.get(i);
@@ -157,13 +161,13 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
     public void keyPressed(KeyEvent ke) {
 
         if (ke.getKeyCode() == 37) {
-            main.setX(main.getX() - 10);
+            nauMain.setX(nauMain.getX() - 10);
         } else if (ke.getKeyCode() == 39) {
-            main.setX(main.getX() + 10);
+            nauMain.setX(nauMain.getX() + 10);
         } else if (ke.getKeyCode() == 32) {
 
             if (shoots.size() < 10) {
-                shoots.add(new Laser(main.getX(), main.getY(), -10, 100));
+                shoots.add(new Laser(nauMain.getX(), nauMain.getY(), -10, 100, false));
             }
         }
     }
@@ -181,7 +185,7 @@ class Nau extends Thread {
     private int dsx, dsy, v;
     private int tx = 10;
     private int ty = 10;
-    private int tz = 10;  
+    private int tz = 10;
     private Image image;
     private boolean viva = true;
 
@@ -258,7 +262,7 @@ class Laser extends Thread {
     private int tx = 10;
     private int ty = 10;
     private Image image;
-
+    private boolean enemyShoot;
     private boolean finalitza = false;
 
     public int getY() {
@@ -269,11 +273,12 @@ class Laser extends Thread {
         this.y = y;
     }
 
-    public Laser(int x, int y, int dsy, int v) {
+    public Laser(int x, int y, int dsy, int v, boolean enemyShoot) {
         this.x = x + 50;
         this.y = y;
         this.dsy = dsy;
         this.v = v;
+        this.enemyShoot = enemyShoot;
         image = new ImageIcon(Nau.class.getResource("laser.png")).getImage();
         Thread t = new Thread(this);
         t.start();
@@ -293,6 +298,13 @@ class Laser extends Thread {
         }
     }
 
+    public void removeAllLasers() {
+        for (int i = 0; i < PanelNau.shoots.size(); i++) {
+                PanelNau.shoots.remove(i);
+                PanelNau.shoots.get(i).finalitza = true;
+        }
+    }
+            
     public synchronized void moure() {
 
         y = y + dsy;
@@ -305,8 +317,7 @@ class Laser extends Thread {
 
                 Nau nau = PanelNau.nausEnemy.get(i);
 
-                if ((this.x >= nau.getX() && this.x <= nau.getX() + 100)
-                        && (this.y >= nau.getY() && this.y <= nau.getY() + 100)) {
+                if (!enemyShoot && (this.x >= nau.getX() && this.x <= nau.getX() + 100) && (this.y >= nau.getY() && this.y <= nau.getY() + 100)) {
                     this.removeLaser();
                     this.finalitza = true;
                     nau.destrueix();
@@ -315,6 +326,15 @@ class Laser extends Thread {
                 } else {
                     i++;
                 }
+
+            }
+
+            if (enemyShoot && (this.x >= PanelNau.nauMain.getX() && this.x <= PanelNau.nauMain.getX() + 100) && (this.y >= PanelNau.nauMain.getY() && this.y <= PanelNau.nauMain.getY() + 100)) {
+                this.removeAllLasers();
+                this.finalitza = true;
+                
+                PanelNau.nauMain.destrueix();
+                PanelNau.endGame("You lose the Game!", "InfoBox: You LOSE!");
 
             }
         }
