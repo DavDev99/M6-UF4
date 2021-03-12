@@ -95,7 +95,7 @@ class PanelNau extends JPanel implements Runnable, KeyListener {
                         Thread.sleep(1000);
                         Random rand = new Random();
                         Nau nau = nausEnemy.get(rand.nextInt(nausEnemy.size()));
-                        shoots.add(new Laser(nau.getX(), nau.getY(), 10, 100));
+                        shoots.add(new Laser(nau.getX(), nau.getY() + 100, 10, 100));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -181,7 +181,9 @@ class Nau extends Thread {
     private int dsx, dsy, v;
     private int tx = 10;
     private int ty = 10;
+    private int tz = 10;  
     private Image image;
+    private boolean viva = true;
 
     public int getX() {
         return x;
@@ -230,7 +232,7 @@ class Nau extends Thread {
     }
 
     public void run() {
-        while (true) {
+        while (viva) {
             // System.out.println("Movent nau numero " + this.numero);
             try {
                 Thread.sleep(this.v);
@@ -242,6 +244,10 @@ class Nau extends Thread {
 
             }
         }
+    }
+
+    void destrueix() {
+        this.viva = false;
     }
 }
 
@@ -303,7 +309,7 @@ class Laser extends Thread {
                         && (this.y >= nau.getY() && this.y <= nau.getY() + 100)) {
                     this.removeLaser();
                     this.finalitza = true;
-
+                    nau.destrueix();
                     PanelNau.nausEnemy.remove(i);
 
                 } else {
