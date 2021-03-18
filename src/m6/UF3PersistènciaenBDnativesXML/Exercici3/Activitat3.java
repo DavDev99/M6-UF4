@@ -76,16 +76,15 @@ public class Activitat3 {
         }
         //S'esborra
 
-//        insereixdep();        
+        insereixdep();
         modificardep();
-
+        esborradep();
         col.close();
 
     }
 
     public static void insereixdep() throws XMLDBException {
         int numDep = 0;
-        int numToChange = 0;
         String nameDep = "";
         String localitatDep = "";
 
@@ -96,31 +95,27 @@ public class Activitat3 {
         try {
             System.out.println("Escriu el departament a crear:");
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            numToChange = Integer.parseInt(in.readLine());
+            numDep = Integer.parseInt(in.readLine());
 
         } catch (IOException e) {
             System.out.println("Error en llegir");
             e.printStackTrace();
         }
 
-        ResourceSet result = servei.query("for $em in /departamentos/DEP_ROW[DEPT_NO =" + numToChange + "] return $em");
+        ResourceSet result = servei.query("for $em in /departamentos/DEP_ROW[DEPT_NO =" + numDep + "] return $em");
         //Recórrer les dades del recurs
         ResourceIterator i;
         i = result.getIterator();
 
-        if (!i.hasMoreResources()) {
+        if (i.hasMoreResources()) {
 
             System.out.println("El departament ja existeix");
 
         } else {
             try {
-                System.out.println("Escriu un codi departament:");
-                BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-                numDep = Integer.parseInt(in.readLine());
-
                 System.out.println("Escriu un nom de departament:");
 
-                in = new BufferedReader(new InputStreamReader(System.in));
+                BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
                 nameDep = in.readLine();
 
                 System.out.println("Escriu una localitat per al departament:");
@@ -201,4 +196,34 @@ public class Activitat3 {
 
     }
 
+    public static void esborradep() throws XMLDBException {
+        int numDep = 0;
+        col = DatabaseManager.getCollection(URI, usu, usuPass);
+        XPathQueryService servei = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+
+        try {
+            System.out.println("Escriu el departament a eliminar:");
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            numDep = Integer.parseInt(in.readLine());
+
+        } catch (IOException e) {
+            System.out.println("Error en llegir");
+            e.printStackTrace();
+        }
+
+        ResourceSet result = servei.query("for $em in /departamentos/DEP_ROW[DEPT_NO =" + numDep + "] return $em");
+        //Recórrer les dades del recurs
+        ResourceIterator i;
+        i = result.getIterator();
+
+        if (!i.hasMoreResources()) {
+
+            System.out.println("El departament no existeix");
+
+        } else {
+
+            result = servei.query("update delete /departamentos/DEP_ROW[DEPT_NO = " + numDep + "]");
+        }
+
+    }
 }
