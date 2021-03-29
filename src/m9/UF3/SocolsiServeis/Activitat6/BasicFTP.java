@@ -7,6 +7,7 @@ package m9.UF3.SocolsiServeis.Activitat6;
 
 import java.io.IOException;
 import java.net.SocketException;
+import java.util.Scanner;
 import org.apache.commons.net.ftp.*;
 
 /**
@@ -27,6 +28,9 @@ public class BasicFTP {
         String contrasenya = "guest";
 
         try {
+            //Variables
+            int consulta = -1;
+            Scanner teclado = new Scanner(System.in);
 
             client.connect(ServerFTP);
             boolean login = client.login(usuari, contrasenya);
@@ -41,36 +45,79 @@ public class BasicFTP {
 
             }
 
-            System.out.println("Directori actual: " + client.printWorkingDirectory());
-            FTPFile[] files = client.listFiles();
-            System.out.println("Fitxers al directori actual: " + files.length);
+            while (consulta != 0) {
 
-            //Array par a visualitzar el tipus de fitxer
-            String tipus[] = {"Fitxer", "Directori", "Enllaç simbolic"};
+                System.out.print("1. Directori actual:  \n"
+                        + "2. Numero de fitxers de directori actual: \n"
+                        + "3. Mostrar fitxers: \n"
+                        + "0. Logout: \n"
+                );
 
-            for (int i = 0; i < files.length; i++) {
+                consulta = teclado.nextInt();
+                teclado.nextLine();
 
-                System.out.println("\t" + files[i].getName() + "=>" + tipus[files[i].getType()]);
+                if (consulta == 1) {
+
+                    directoriActual(client);
+                    System.out.println("");
+
+                } else if (consulta == 2) {
+
+                    numFitxerActual(client);
+                    System.out.println("");
+
+                } else if (consulta == 3) {
+
+                    mostrarFitxers(client);
+                    System.out.println("");
+
+                } else if (consulta == 0) {
+
+                    logutFtp(client);
+                    System.out.println("");
+
+                }
 
             }
-
-            boolean logout = client.logout();
-
-            if (logout) {
-                System.out.println("Logout del servidor FTP... ");
-            } else {
-                System.out.println("Error en fer un logout... ");
-            }
-
-            client.disconnect();
-            System.out.println("Desconnectat... ");
 
         } catch (IOException ioe) {
-
             ioe.printStackTrace();
+        }
+
+    }
+
+    private static void directoriActual(FTPClient client) throws IOException {
+        System.out.println("Directori actual: " + client.printWorkingDirectory());
+    }
+
+    private static void numFitxerActual(FTPClient client) throws IOException {
+        FTPFile[] files = client.listFiles();
+        System.out.println("Fitxers al directori actual: " + files.length);
+    }
+
+    private static void mostrarFitxers(FTPClient client) throws IOException {
+        FTPFile[] files = client.listFiles();
+        String tipus[] = {"Fitxer", "Directori", "Enllaç simbolic"};
+
+        for (int i = 0; i < files.length; i++) {
+
+            System.out.println("\t" + files[i].getName() + "=>" + tipus[files[i].getType()]);
 
         }
 
+    }
+
+    private static void logutFtp(FTPClient client) throws IOException {
+        boolean logout = client.logout();
+
+        if (logout) {
+            System.out.println("Logout del servidor FTP... ");
+        } else {
+            System.out.println("Error en fer un logout... ");
+        }
+
+        client.disconnect();
+        System.out.println("Desconnectat... ");
     }
 
 }
