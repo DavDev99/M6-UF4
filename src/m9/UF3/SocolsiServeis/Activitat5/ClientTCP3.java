@@ -1,3 +1,4 @@
+package m9.UF3.SocolsiServeis.Activitat5;
 
 import java.net.*;
 import java.io.*;
@@ -15,7 +16,9 @@ public class ClientTCP3 {
 
         //FLUX D'ENTRADA AL SERVIDOR
         BufferedReader fentrada = new BufferedReader(new InputStreamReader(client.getInputStream()));
-
+        
+        System.out.println(fentrada.readLine());
+        
         //FLUX PER A ENTRADA ESTÀNDARD
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
