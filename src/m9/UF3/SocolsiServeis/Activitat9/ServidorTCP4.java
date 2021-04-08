@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class ServidorTCP4 implements Runnable {
     String cadena = "";
-    int numClient = 1;
+    static int numClient = 0;
     Socket client;
     
     public void run() {
@@ -63,10 +63,10 @@ public class ServidorTCP4 implements Runnable {
             System.out.println("Esperant connexió... ");
             Socket clientConnectat = servidor.accept();
             server.client = clientConnectat;
-            
+            numClient++;
             Thread fil = new Thread(server);
             fil.start();
-            numClients++;
+
         }
         servidor.close();
 
