@@ -15,21 +15,35 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
+import javax.mail.Header;
 import javax.net.ssl.HttpsURLConnection;
 
 public class Activitat8 {
 
     private final String USER_AGENT = "Mozilla/5.0";
     String url = "http://www.insbaixcamp.org/";
-        
+    static String[] headers = new String[4];
+    static String[] headersValues = new String[4];
+
     public static void main(String[] args) throws Exception {
 
         Activitat8 http = new Activitat8();
         Scanner teclado = new Scanner(System.in);
+
         String type = "";
 
         System.out.println("Quin tipus de peticio vols fer?");
         type = teclado.nextLine();
+
+        System.out.println("Especifica 4 headers:");
+
+        for (int i = 0; i < 4; i++) {
+            System.out.println("Header num " + (i + 1) + ":");
+            headers[i] = teclado.nextLine();
+
+            System.out.println("Header value: ");
+            headers[i] = teclado.nextLine();
+        }
 
         if (type.equalsIgnoreCase("GET")) {
             System.out.println("Testing 1 - Send Http GET request");
@@ -44,8 +58,6 @@ public class Activitat8 {
     // HTTP GET request
     private void sendGet() throws Exception {
 
-
-
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -53,7 +65,10 @@ public class Activitat8 {
         con.setRequestMethod("GET");
 
         //add request header
-        con.setRequestProperty("User-Agent", USER_AGENT);
+        for (int i = 0; i < headers.length; i++) {
+            con.setRequestProperty(headers[i], headersValues[i]);
+        }
+//        con.setRequestProperty("User-Agent", USER_AGENT);
 
         int responseCode = con.getResponseCode();
         System.out.println("\nSending 'GET' request to URL : " + url);
