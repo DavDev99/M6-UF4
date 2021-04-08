@@ -14,97 +14,105 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Scanner;
 import javax.net.ssl.HttpsURLConnection;
 
 public class Activitat8 {
 
-	private final String USER_AGENT = "Mozilla/5.0";
+    private final String USER_AGENT = "Mozilla/5.0";
+    String url = "http://www.insbaixcamp.org/";
+        
+    public static void main(String[] args) throws Exception {
 
-	public static void main(String[] args) throws Exception {
+        Activitat8 http = new Activitat8();
+        Scanner teclado = new Scanner(System.in);
+        String type = "";
 
-		Activitat8 http = new Activitat8();
+        System.out.println("Quin tipus de peticio vols fer?");
+        type = teclado.nextLine();
 
-		System.out.println("Testing 1 - Send Http GET request");
-		http.sendGet();
-		
-		System.out.println("\nTesting 2 - Send Http POST request");
-		http.sendPost();
+        if (type.equalsIgnoreCase("GET")) {
+            System.out.println("Testing 1 - Send Http GET request");
+            http.sendGet();
+        } else {
+            System.out.println("\nTesting 2 - Send Http POST request");
+            http.sendPost();
+        }
 
-	}
+    }
 
-	// HTTP GET request
-	private void sendGet() throws Exception {
+    // HTTP GET request
+    private void sendGet() throws Exception {
 
-		String url = "http://www.insbaixcamp.org/";
-		
-		URL obj = new URL(url);
-		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-		// optional default is GET
-		con.setRequestMethod("GET");
 
-		//add request header
-		con.setRequestProperty("User-Agent", USER_AGENT);
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-		int responseCode = con.getResponseCode();
-		System.out.println("\nSending 'GET' request to URL : " + url);
-		System.out.println("Response Code : " + responseCode);
+        // optional default is GET
+        con.setRequestMethod("GET");
 
-		BufferedReader in = new BufferedReader(
-		        new InputStreamReader(con.getInputStream()));
-		String inputLine;
-		StringBuffer response = new StringBuffer();
+        //add request header
+        con.setRequestProperty("User-Agent", USER_AGENT);
 
-		while ((inputLine = in.readLine()) != null) {
-			response.append(inputLine);
-		}
-		in.close();
+        int responseCode = con.getResponseCode();
+        System.out.println("\nSending 'GET' request to URL : " + url);
+        System.out.println("Response Code : " + responseCode);
 
-		//print result
-		System.out.println(response.toString());
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
 
-	}
-	
-	// HTTP POST request
-	private void sendPost() throws Exception {
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
 
-		String url = "http://www.insbaixcamp.cat/moodle/";
-		URL obj = new URL(url);
-		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        //print result
+        System.out.println(response.toString());
 
-		//add reuqest header
-		con.setRequestMethod("POST");
-		con.setRequestProperty("User-Agent", USER_AGENT);
-		con.setRequestProperty("Accept-Language", "ca-es");
-		
-		//Query string
-		String urlParameters = "categoryid=7";
-		
-		// Send post request
-		con.setDoOutput(true);
-		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-		wr.writeBytes(urlParameters);
-		wr.flush();
-		wr.close();
+    }
 
-		int responseCode = con.getResponseCode();
-		System.out.println("\nSending 'POST' request to URL : " + url);
-		System.out.println("Post parameters : " + urlParameters);
-		System.out.println("Response Code : " + responseCode);
+    // HTTP POST request
+    private void sendPost() throws Exception {
 
-		BufferedReader in = new BufferedReader(
-		        new InputStreamReader(con.getInputStream()));
-		String inputLine;
-		StringBuffer response = new StringBuffer();
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-		while ((inputLine = in.readLine()) != null) {
-			response.append(inputLine);
-		}
-		in.close();
-		
-		//print result
-		System.out.println(response.toString());
+        //add reuqest header
+        con.setRequestMethod("POST");
+        con.setRequestProperty("User-Agent", USER_AGENT);
+        con.setRequestProperty("Accept-Language", "ca-es");
 
-	}
+        //Query string
+        String urlParameters = "categoryid=7";
+
+        // Send post request
+        con.setDoOutput(true);
+        DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+        wr.writeBytes(urlParameters);
+        wr.flush();
+        wr.close();
+
+        int responseCode = con.getResponseCode();
+        System.out.println("\nSending 'POST' request to URL : " + url);
+        System.out.println("Post parameters : " + urlParameters);
+        System.out.println("Response Code : " + responseCode);
+
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+
+        while ((inputLine = in.readLine()) != null) {
+            response.append(inputLine);
+        }
+        in.close();
+
+        //print result
+        System.out.println(response.toString());
+
+    }
 
 }
