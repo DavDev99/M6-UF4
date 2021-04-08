@@ -66,6 +66,7 @@ public class ServidorTCP4 implements Runnable {
             
             Thread fil = new Thread(server);
             fil.start();
+            numClients++;
         }
         servidor.close();
 
