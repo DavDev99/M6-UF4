@@ -104,7 +104,7 @@ public class Activitat8 {
 //        con.setRequestProperty("Accept-Language", "ca-es");
 
         //Query string
-        String urlParameters = "categoryid=7";
+        String urlParameters = "user_id=207";
 
         // Send post request
         con.setDoOutput(true);
