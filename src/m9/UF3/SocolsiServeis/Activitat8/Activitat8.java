@@ -22,8 +22,8 @@ public class Activitat8 {
 
     private final String USER_AGENT = "Mozilla/5.0";
     String url = "http://www.insbaixcamp.org/";
-    static String[] headers = new String[4];
-    static String[] headersValues = new String[4];
+    static String[] headers = new String[2];
+    static String[] headersValues = new String[2];
 
     public static void main(String[] args) throws Exception {
 
@@ -35,9 +35,9 @@ public class Activitat8 {
         System.out.println("Quin tipus de peticio vols fer?");
         type = teclado.nextLine();
 
-        System.out.println("Especifica 4 headers:");
+        System.out.println("Especifica " + headers.length + " headers:");
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < headers.length; i++) {
             System.out.println("Header num " + (i + 1) + ":");
             headers[i] = teclado.nextLine();
 
@@ -97,8 +97,11 @@ public class Activitat8 {
 
         //add reuqest header
         con.setRequestMethod("POST");
-        con.setRequestProperty("User-Agent", USER_AGENT);
-        con.setRequestProperty("Accept-Language", "ca-es");
+              for (int i = 0; i < headers.length; i++) {
+            con.setRequestProperty(headers[i], headersValues[i]);
+        }
+//        con.setRequestProperty("User-Agent", USER_AGENT);
+//        con.setRequestProperty("Accept-Language", "ca-es");
 
         //Query string
         String urlParameters = "categoryid=7";
