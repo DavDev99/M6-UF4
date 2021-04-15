@@ -1,12 +1,9 @@
 package m9.UF3.SocolsiServeis.Activitat10;
 
-import m9.UF3.SocolsiServeis.Activitat9.*;
-import m9.UF3.SocolsiServeis.Activitat5.*;
 import java.net.*;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static m9.UF3.SocolsiServeis.Activitat10.Activitat10Server.clients;
 
 public class ClientActivitat10 implements Runnable {
 
@@ -16,13 +13,31 @@ public class ClientActivitat10 implements Runnable {
     Socket socket;
     PrintWriter fsortida;
     BufferedReader fentrada;
+    BufferedReader in;
+    boolean goodName = false;
 
     @Override
     public void run() {
         try {
             String cadena = "";
             while ((cadena = fentrada.readLine()) != null) {
-                System.out.println(cadena);
+
+                if (cadena.equals(Protocols.BAD_NAME)) {
+
+                    System.out.println("Aquest nom ja esta agafat, introdueix un altre:");
+                    cadena = in.readLine();
+
+                    if (!cadena.equals(name)) {
+                        goodName = true;
+                        cadena = name;
+                    }
+
+                    fsortida.println(Protocols.NAME + cadena);
+
+                } else {
+                    System.out.println(cadena);
+                }
+
             }
         } catch (IOException ex) {
             Logger.getLogger(ClientActivitat10.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,6 +58,7 @@ public class ClientActivitat10 implements Runnable {
 
         //FLUX PER A ENTRADA ESTÀNDARD
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        client.in = in;
 
         System.out.println("Introdueix un nom d'usuari: ");
         client.name = in.readLine();
@@ -52,14 +68,36 @@ public class ClientActivitat10 implements Runnable {
         Thread fil = new Thread(client);
         fil.start();
 
-        System.out.println("Benvingut " + client.name + ", ja pots començar a chatejar!");
+        System.out.println("Escriu '!help' per a mostrar totes les comandes del servidor");
+
         String cadena = in.readLine();
 
-        while (cadena != null && !cadena.equals("*")) {
+        while (cadena != null && !cadena.equals("!logout")) {
+            if (client.goodName) {
 
-            //Enviament cadena al servidor
-            client.fsortida.println(Protocols.MESSAGE + cadena);
+                if (cadena.equals("!help")) {
 
+                    System.out.println("Aquestes son les comandes: \n"
+                            + "1. !msg [nom]: Envia un missatge privat a l'usuari indicat \n"
+                            + "2. !user-list: Llista tots els usaris del grup \n"
+                            + "3. !logout: Te desconectes del grup \n");
+
+                } else if (cadena.equals("!logout")) {
+
+                    client.fsortida.println(Protocols.LOG_OUT);
+
+                } else if (cadena.equals("!user-list")) {
+
+                    client.fsortida.println(Protocols.USER_LIST);
+
+                } else if (cadena.contains("!msg")) {
+
+                    client.fsortida.println(Protocols.PRIVATE_MESSAGE);
+
+                } else {
+                    client.fsortida.println(Protocols.MESSAGE + cadena);
+                }
+            }
             //Lectura del teclat
             cadena = in.readLine();
         }
