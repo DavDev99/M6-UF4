@@ -21,7 +21,10 @@ public class ClientActivitat10 implements Runnable {
         try {
             String cadena = "";
             while ((cadena = fentrada.readLine()) != null) {
-                System.out.println(cadena);
+
+                if (!cadena.equals("") && !cadena.contains(Protocols.PROTOCOL)) {
+                    System.out.println(cadena);
+                }
 
             }
         } catch (IOException ex) {
