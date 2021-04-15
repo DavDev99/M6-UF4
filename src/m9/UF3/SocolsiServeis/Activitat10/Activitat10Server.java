@@ -33,61 +33,63 @@ public class Activitat10Server implements Runnable {
             while ((cadena = fentrada.readLine()) != null && !logout) {
 
                 if (cadena.equals(Protocols.LOG_OUT)) {
-                    
+
                     logout = true;
-                    
+
                 } else if (cadena.contains(Protocols.NAME)) {
-                    
+
                     String auxName = cadena.replace(Protocols.NAME, "");
-                    
+
                     for (int i = 0; i < clients.size(); i++) {
                         if (idClient != i) {
-                            
+
                             Activitat10Server activitat10Server = (Activitat10Server) clients.get(i);
-                            
+
                             if (!activitat10Server.name.equals(auxName)) {
                                 name = auxName;
                             }
                         }
                     }
-                    
-                    if (clients.size() > 1) {
+
+                    if (clients.size() <= 1) {
                         name = auxName;
                     }
-                    
+
                     if (name == null) {
                         fsortida.println(Protocols.BAD_NAME);
+                    }else{
+                        fsortida.println(Protocols.NAME);
                     }
-                    
-                }else if (cadena.equals(Protocols.USER_LIST)) {
-                    
+
+                } else if (cadena.equals(Protocols.USER_LIST)) {
+
                     PrintWriter sender = new PrintWriter(client.getOutputStream(), true);
                     String userList = "";
                     int count = 0;
-                    
+
                     for (int i = 0; i < clients.size(); i++) {
                         if (idClient != i) {
-                            
+
                             count++;
                             Activitat10Server activitat10Server = (Activitat10Server) clients.get(i);
-                            
+
                             userList += count + ". " + activitat10Server.name + "\n";
                         }
                     }
-                    
+
                     sender.println("User list: \n" + userList);
-                    
+
                 } else if (cadena.contains(Protocols.MESSAGE)) {
-                    
+
                     for (int i = 0; i < clients.size(); i++) {
                         if (idClient != i) {
-                            
+
                             Activitat10Server activitat10Server = (Activitat10Server) clients.get(i);
-                            
+
                             PrintWriter sender = new PrintWriter(activitat10Server.client.getOutputStream(), true);
                             sender.println(name + ": " + cadena.replace(Protocols.MESSAGE, ""));
                         }
-                    }   
+                    }
                 }
             }
 
