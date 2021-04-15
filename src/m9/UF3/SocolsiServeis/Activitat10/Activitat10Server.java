@@ -57,7 +57,7 @@ public class Activitat10Server implements Runnable {
 
                     if (name == null) {
                         fsortida.println(Protocols.BAD_NAME);
-                    }else{
+                    } else {
                         fsortida.println(Protocols.NAME);
                     }
 
