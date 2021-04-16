@@ -17,6 +17,6 @@ public class Protocols {
     final static String USER_LIST = "list" + PROTOCOL;    
     final static String LOG_OUT = "logout" + PROTOCOL;
     final static String PRIVATE_MESSAGE = "private_message" + PROTOCOL;
-
+    final static String ERROR = "error" + PROTOCOL;
 
 }

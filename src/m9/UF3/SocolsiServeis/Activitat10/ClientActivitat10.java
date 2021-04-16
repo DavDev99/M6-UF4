@@ -24,6 +24,8 @@ public class ClientActivitat10 implements Runnable {
 
                 if (!cadena.equals("") && !cadena.contains(Protocols.PROTOCOL)) {
                     System.out.println(cadena);
+                } else if(cadena.contains(Protocols.ERROR)){
+                    System.out.println(cadena.replace(Protocols.ERROR, ""));
                 }
 
             }
@@ -91,7 +93,7 @@ public class ClientActivitat10 implements Runnable {
             if (cadena.equals("!help")) {
 
                 System.out.println("Aquestes son les comandes: \n"
-                        + "1. !msg [nom]: Envia un missatge privat a l'usuari indicat \n"
+                        + "1. !msg [nom] [message]: Envia un missatge privat a l'usuari indicat \n"
                         + "2. !user-list: Llista tots els usaris del grup \n"
                         + "3. !logout: Te desconectes del grup \n");
 
@@ -104,10 +106,12 @@ public class ClientActivitat10 implements Runnable {
                 client.fsortida.println(Protocols.USER_LIST);
 
             } else if (cadena.contains("!msg")) {
-
-                client.fsortida.println(Protocols.PRIVATE_MESSAGE);
+                
+                String userMessage[] = cadena.replace("!msg ", "").split(" ");
+                client.fsortida.println(Protocols.PRIVATE_MESSAGE + userMessage[0] + Protocols.PROTOCOL + userMessage[1]);
 
             } else {
+                
                 client.fsortida.println(Protocols.MESSAGE + cadena);
             }
             //Lectura del teclat

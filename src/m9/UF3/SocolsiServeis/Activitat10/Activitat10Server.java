@@ -41,11 +41,11 @@ public class Activitat10Server implements Runnable {
                     String auxName = cadena.replace(Protocols.NAME, "");
 
                     for (int i = 0; i < clients.size(); i++) {
+
                         if (idClient != i) {
-
                             Activitat10Server activitat10Server = (Activitat10Server) clients.get(i);
-
-                            if (!activitat10Server.name.equals(auxName)) {
+                            
+                            if (activitat10Server.name == null || !activitat10Server.name.equals(auxName)) {
                                 name = auxName;
                             }
                         }
@@ -78,6 +78,29 @@ public class Activitat10Server implements Runnable {
                     }
 
                     sender.println("User list: \n" + userList);
+
+                } else if (cadena.contains(Protocols.PRIVATE_MESSAGE)) {
+
+                    PrintWriter sender = new PrintWriter(client.getOutputStream(), true);
+                    String[] userMessage = cadena.split(Protocols.PROTOCOL);
+                    boolean comprove = false;
+
+                    for (int i = 0; i < clients.size(); i++) {
+
+                        if (clients.get(i).name.equals(userMessage[1])) {
+                            comprove = true;
+
+                            Activitat10Server userToSend = (Activitat10Server) clients.get(i);
+
+                            PrintWriter sender2 = new PrintWriter(userToSend.client.getOutputStream(), true);
+
+                            sender2.println("Missatge privar de " + name + ": " + userMessage[2] + "\n");
+                        }
+                    }
+
+                    if (!comprove) {
+                        sender.println(Protocols.ERROR + "No s'ha trobar ningun usuari amb el nom indicat \n");
+                    }
 
                 } else if (cadena.contains(Protocols.MESSAGE)) {
 
