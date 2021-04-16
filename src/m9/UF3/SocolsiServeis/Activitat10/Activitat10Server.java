@@ -44,7 +44,7 @@ public class Activitat10Server implements Runnable {
 
                         if (idClient != i) {
                             Activitat10Server activitat10Server = (Activitat10Server) clients.get(i);
-                            
+
                             if (activitat10Server.name == null || !activitat10Server.name.equals(auxName)) {
                                 name = auxName;
                             }
@@ -122,8 +122,8 @@ public class Activitat10Server implements Runnable {
             fsortida.close();
             client.close();
 
-        } catch (IOException ex) {
-            Logger.getLogger(ServidorTCP4.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println("Client " + name + " desconenctat");
         } finally {
 
             try {

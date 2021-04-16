@@ -29,12 +29,12 @@ public class ClientActivitat10 implements Runnable {
                 }
 
             }
-        } catch (IOException ex) {
-            Logger.getLogger(ClientActivitat10.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println("Sessio tancada");
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException{
 
         ClientActivitat10 client = new ClientActivitat10();
         String cadena;
