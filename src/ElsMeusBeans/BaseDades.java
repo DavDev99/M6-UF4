@@ -244,10 +244,10 @@ public class BaseDades {
     }//Fi consultarUnProducte
 
     //-------------------------------------------------------------------------
-    //Inserir una venda
+    //Inserir un producte
     public int inserirProducte(Producte pro) {
         int files = 0;
-        String sql = "INSERT INTO PRODUCTES VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO producte VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement sentencia = getConnexio().prepareStatement(sql);
             sentencia.setInt(1, pro.getIdproducte());// ID
@@ -264,7 +264,7 @@ public class BaseDades {
             e.printStackTrace();
         }
         return files;
-    }//Fi inserirVenda
+    }//Fi inserirProducte
 
 }//Fi classe BaseDades
 
