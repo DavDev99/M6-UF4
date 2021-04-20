@@ -107,8 +107,12 @@ public class ClientActivitat10 implements Runnable {
 
             } else if (cadena.contains("!msg")) {
 
-                String userMessage[] = cadena.replace("!msg ", "").split(" ");
-                client.fsortida.println(Protocols.PRIVATE_MESSAGE + userMessage[0] + Protocols.PROTOCOL + userMessage[1]);
+                cadena = cadena.replace("!msg ", "");
+                
+                String sender = cadena.substring(0, cadena.indexOf(" "));
+                String message = cadena.replace(sender + " ", "");
+                
+                client.fsortida.println(Protocols.PRIVATE_MESSAGE + sender + Protocols.PROTOCOL + message);
 
             } else {
 
