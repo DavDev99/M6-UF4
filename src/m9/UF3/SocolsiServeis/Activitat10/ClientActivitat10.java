@@ -24,7 +24,7 @@ public class ClientActivitat10 implements Runnable {
 
                 if (!cadena.equals("") && !cadena.contains(Protocols.PROTOCOL)) {
                     System.out.println(cadena);
-                } else if(cadena.contains(Protocols.ERROR)){
+                } else if (cadena.contains(Protocols.ERROR)) {
                     System.out.println(cadena.replace(Protocols.ERROR, ""));
                 }
 
@@ -34,7 +34,7 @@ public class ClientActivitat10 implements Runnable {
         }
     }
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
         ClientActivitat10 client = new ClientActivitat10();
         String cadena;
@@ -67,14 +67,14 @@ public class ClientActivitat10 implements Runnable {
 
                     if (!cadena.equals(client.name)) {
                         client.goodName = true;
-                        cadena = client.name;
+                        client.name = cadena;
                     }
 
                     client.fsortida.println(Protocols.NAME + cadena);
 
                 } else {
                     client.goodName = true;
-                    cadena = client.name;
+                    client.name = cadena;
                 }
             }
         }
@@ -106,12 +106,12 @@ public class ClientActivitat10 implements Runnable {
                 client.fsortida.println(Protocols.USER_LIST);
 
             } else if (cadena.contains("!msg")) {
-                
+
                 String userMessage[] = cadena.replace("!msg ", "").split(" ");
                 client.fsortida.println(Protocols.PRIVATE_MESSAGE + userMessage[0] + Protocols.PROTOCOL + userMessage[1]);
 
             } else {
-                
+
                 client.fsortida.println(Protocols.MESSAGE + cadena);
             }
             //Lectura del teclat
