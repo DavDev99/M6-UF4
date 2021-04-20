@@ -35,7 +35,7 @@ public class OmplirVenda {
         
         if (args.length > 0) {
             idproducte = Integer.parseInt(args[0]);//idproducte
-            quantitat = Integer.parseInt(args[0]);//quantitat
+            quantitat = Integer.parseInt(args[1]);//quantitat
         } else {
             System.out.println("Introdueix la id del producte: ");
 
